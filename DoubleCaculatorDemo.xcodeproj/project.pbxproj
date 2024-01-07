@@ -16,6 +16,9 @@
 		66C72DC32B4AD4330025DE10 /* DoubleCaculatorDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DC22B4AD4330025DE10 /* DoubleCaculatorDemoTests.swift */; };
 		66C72DCD2B4AD4330025DE10 /* DoubleCaculatorDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DCC2B4AD4330025DE10 /* DoubleCaculatorDemoUITests.swift */; };
 		66C72DCF2B4AD4330025DE10 /* DoubleCaculatorDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DCE2B4AD4330025DE10 /* DoubleCaculatorDemoUITestsLaunchTests.swift */; };
+		66C72DE02B4AD51B0025DE10 /* CaculatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DDF2B4AD51B0025DE10 /* CaculatorType.swift */; };
+		66C72DE32B4ADDFB0025DE10 /* DemoCaculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DE22B4ADDFB0025DE10 /* DemoCaculator.swift */; };
+		66C72DE52B4ADE0C0025DE10 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DE42B4ADE0C0025DE10 /* Command.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		66C72DC82B4AD4330025DE10 /* DoubleCaculatorDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleCaculatorDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		66C72DCC2B4AD4330025DE10 /* DoubleCaculatorDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCaculatorDemoUITests.swift; sourceTree = "<group>"; };
 		66C72DCE2B4AD4330025DE10 /* DoubleCaculatorDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCaculatorDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		66C72DDF2B4AD51B0025DE10 /* CaculatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaculatorType.swift; sourceTree = "<group>"; };
+		66C72DE22B4ADDFB0025DE10 /* DemoCaculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCaculator.swift; sourceTree = "<group>"; };
+		66C72DE42B4ADE0C0025DE10 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		66C72DAA2B4AD4310025DE10 /* DoubleCaculatorDemo */ = {
 			isa = PBXGroup;
 			children = (
+				66C72DDB2B4AD4D90025DE10 /* Classes */,
 				66C72DAB2B4AD4310025DE10 /* AppDelegate.swift */,
 				66C72DAD2B4AD4310025DE10 /* SceneDelegate.swift */,
 				66C72DAF2B4AD4310025DE10 /* ViewController.swift */,
@@ -125,6 +132,48 @@
 				66C72DCE2B4AD4330025DE10 /* DoubleCaculatorDemoUITestsLaunchTests.swift */,
 			);
 			path = DoubleCaculatorDemoUITests;
+			sourceTree = "<group>";
+		};
+		66C72DDB2B4AD4D90025DE10 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				66C72DE12B4ADDC50025DE10 /* Caculator */,
+				66C72DDE2B4AD4F70025DE10 /* Controller */,
+				66C72DDD2B4AD4F00025DE10 /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		66C72DDC2B4AD4E70025DE10 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				66C72DDF2B4AD51B0025DE10 /* CaculatorType.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		66C72DDD2B4AD4F00025DE10 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		66C72DDE2B4AD4F70025DE10 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		66C72DE12B4ADDC50025DE10 /* Caculator */ = {
+			isa = PBXGroup;
+			children = (
+				66C72DDC2B4AD4E70025DE10 /* Protocol */,
+				66C72DE22B4ADDFB0025DE10 /* DemoCaculator.swift */,
+				66C72DE42B4ADE0C0025DE10 /* Command.swift */,
+			);
+			path = Caculator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +309,10 @@
 			files = (
 				66C72DB02B4AD4310025DE10 /* ViewController.swift in Sources */,
 				66C72DAC2B4AD4310025DE10 /* AppDelegate.swift in Sources */,
+				66C72DE02B4AD51B0025DE10 /* CaculatorType.swift in Sources */,
+				66C72DE32B4ADDFB0025DE10 /* DemoCaculator.swift in Sources */,
 				66C72DAE2B4AD4310025DE10 /* SceneDelegate.swift in Sources */,
+				66C72DE52B4ADE0C0025DE10 /* Command.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
