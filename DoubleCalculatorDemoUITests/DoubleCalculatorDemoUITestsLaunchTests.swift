@@ -1,13 +1,13 @@
 //
-//  DoubleCaculatorDemoUITestsLaunchTests.swift
-//  DoubleCaculatorDemoUITests
+//  DoubleCalculatorDemoUITestsLaunchTests.swift
+//  DoubleCalculatorDemoUITests
 //
 //  Created by 马月瑶 on 2024/1/7.
 //
 
 import XCTest
 
-final class DoubleCaculatorDemoUITestsLaunchTests: XCTestCase {
+final class DoubleCalculatorDemoUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

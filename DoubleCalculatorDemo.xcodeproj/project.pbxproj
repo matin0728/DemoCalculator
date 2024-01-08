@@ -13,11 +13,11 @@
 		66C72DB32B4AD4310025DE10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66C72DB12B4AD4310025DE10 /* Main.storyboard */; };
 		66C72DB52B4AD4330025DE10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66C72DB42B4AD4330025DE10 /* Assets.xcassets */; };
 		66C72DB82B4AD4330025DE10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66C72DB62B4AD4330025DE10 /* LaunchScreen.storyboard */; };
-		66C72DC32B4AD4330025DE10 /* DoubleCaculatorDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DC22B4AD4330025DE10 /* DoubleCaculatorDemoTests.swift */; };
-		66C72DCD2B4AD4330025DE10 /* DoubleCaculatorDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DCC2B4AD4330025DE10 /* DoubleCaculatorDemoUITests.swift */; };
-		66C72DCF2B4AD4330025DE10 /* DoubleCaculatorDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DCE2B4AD4330025DE10 /* DoubleCaculatorDemoUITestsLaunchTests.swift */; };
+		66C72DC32B4AD4330025DE10 /* DoubleCalculatorDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DC22B4AD4330025DE10 /* DoubleCalculatorDemoTests.swift */; };
+		66C72DCD2B4AD4330025DE10 /* DoubleCalculatorDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DCC2B4AD4330025DE10 /* DoubleCalculatorDemoUITests.swift */; };
+		66C72DCF2B4AD4330025DE10 /* DoubleCalculatorDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DCE2B4AD4330025DE10 /* DoubleCalculatorDemoUITestsLaunchTests.swift */; };
 		66C72DE02B4AD51B0025DE10 /* CaculatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DDF2B4AD51B0025DE10 /* CaculatorType.swift */; };
-		66C72DE32B4ADDFB0025DE10 /* DemoCaculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DE22B4ADDFB0025DE10 /* DemoCaculator.swift */; };
+		66C72DE32B4ADDFB0025DE10 /* DemoCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DE22B4ADDFB0025DE10 /* DemoCalculator.swift */; };
 		66C72DE52B4ADE0C0025DE10 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DE42B4ADE0C0025DE10 /* Command.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		66C72DA82B4AD4310025DE10 /* DoubleCaculatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleCaculatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66C72DA82B4AD4310025DE10 /* DoubleCalculatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubleCalculatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66C72DAB2B4AD4310025DE10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66C72DAD2B4AD4310025DE10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		66C72DAF2B4AD4310025DE10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,13 +47,13 @@
 		66C72DB42B4AD4330025DE10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66C72DB72B4AD4330025DE10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66C72DB92B4AD4330025DE10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		66C72DBE2B4AD4330025DE10 /* DoubleCaculatorDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleCaculatorDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		66C72DC22B4AD4330025DE10 /* DoubleCaculatorDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCaculatorDemoTests.swift; sourceTree = "<group>"; };
-		66C72DC82B4AD4330025DE10 /* DoubleCaculatorDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleCaculatorDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		66C72DCC2B4AD4330025DE10 /* DoubleCaculatorDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCaculatorDemoUITests.swift; sourceTree = "<group>"; };
-		66C72DCE2B4AD4330025DE10 /* DoubleCaculatorDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCaculatorDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		66C72DBE2B4AD4330025DE10 /* DoubleCalculatorDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleCalculatorDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66C72DC22B4AD4330025DE10 /* DoubleCalculatorDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCalculatorDemoTests.swift; sourceTree = "<group>"; };
+		66C72DC82B4AD4330025DE10 /* DoubleCalculatorDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoubleCalculatorDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66C72DCC2B4AD4330025DE10 /* DoubleCalculatorDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCalculatorDemoUITests.swift; sourceTree = "<group>"; };
+		66C72DCE2B4AD4330025DE10 /* DoubleCalculatorDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCalculatorDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		66C72DDF2B4AD51B0025DE10 /* CaculatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaculatorType.swift; sourceTree = "<group>"; };
-		66C72DE22B4ADDFB0025DE10 /* DemoCaculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCaculator.swift; sourceTree = "<group>"; };
+		66C72DE22B4ADDFB0025DE10 /* DemoCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCalculator.swift; sourceTree = "<group>"; };
 		66C72DE42B4ADE0C0025DE10 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,8 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				66C72DAA2B4AD4310025DE10 /* DoubleCaculatorDemo */,
-				66C72DC12B4AD4330025DE10 /* DoubleCaculatorDemoTests */,
-				66C72DCB2B4AD4330025DE10 /* DoubleCaculatorDemoUITests */,
+				66C72DC12B4AD4330025DE10 /* DoubleCalculatorDemoTests */,
+				66C72DCB2B4AD4330025DE10 /* DoubleCalculatorDemoUITests */,
 				66C72DA92B4AD4310025DE10 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 		66C72DA92B4AD4310025DE10 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				66C72DA82B4AD4310025DE10 /* DoubleCaculatorDemo.app */,
-				66C72DBE2B4AD4330025DE10 /* DoubleCaculatorDemoTests.xctest */,
-				66C72DC82B4AD4330025DE10 /* DoubleCaculatorDemoUITests.xctest */,
+				66C72DA82B4AD4310025DE10 /* DoubleCalculatorDemo.app */,
+				66C72DBE2B4AD4330025DE10 /* DoubleCalculatorDemoTests.xctest */,
+				66C72DC82B4AD4330025DE10 /* DoubleCalculatorDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,21 +117,21 @@
 			path = DoubleCaculatorDemo;
 			sourceTree = "<group>";
 		};
-		66C72DC12B4AD4330025DE10 /* DoubleCaculatorDemoTests */ = {
+		66C72DC12B4AD4330025DE10 /* DoubleCalculatorDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				66C72DC22B4AD4330025DE10 /* DoubleCaculatorDemoTests.swift */,
+				66C72DC22B4AD4330025DE10 /* DoubleCalculatorDemoTests.swift */,
 			);
-			path = DoubleCaculatorDemoTests;
+			path = DoubleCalculatorDemoTests;
 			sourceTree = "<group>";
 		};
-		66C72DCB2B4AD4330025DE10 /* DoubleCaculatorDemoUITests */ = {
+		66C72DCB2B4AD4330025DE10 /* DoubleCalculatorDemoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				66C72DCC2B4AD4330025DE10 /* DoubleCaculatorDemoUITests.swift */,
-				66C72DCE2B4AD4330025DE10 /* DoubleCaculatorDemoUITestsLaunchTests.swift */,
+				66C72DCC2B4AD4330025DE10 /* DoubleCalculatorDemoUITests.swift */,
+				66C72DCE2B4AD4330025DE10 /* DoubleCalculatorDemoUITestsLaunchTests.swift */,
 			);
-			path = DoubleCaculatorDemoUITests;
+			path = DoubleCalculatorDemoUITests;
 			sourceTree = "<group>";
 		};
 		66C72DDB2B4AD4D90025DE10 /* Classes */ = {
@@ -170,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				66C72DDC2B4AD4E70025DE10 /* Protocol */,
-				66C72DE22B4ADDFB0025DE10 /* DemoCaculator.swift */,
+				66C72DE22B4ADDFB0025DE10 /* DemoCalculator.swift */,
 				66C72DE42B4ADE0C0025DE10 /* Command.swift */,
 			);
 			path = Caculator;
@@ -179,9 +179,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		66C72DA72B4AD4310025DE10 /* DoubleCaculatorDemo */ = {
+		66C72DA72B4AD4310025DE10 /* DoubleCalculatorDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66C72DD22B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCaculatorDemo" */;
+			buildConfigurationList = 66C72DD22B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCalculatorDemo" */;
 			buildPhases = (
 				66C72DA42B4AD4310025DE10 /* Sources */,
 				66C72DA52B4AD4310025DE10 /* Frameworks */,
@@ -191,14 +191,14 @@
 			);
 			dependencies = (
 			);
-			name = DoubleCaculatorDemo;
+			name = DoubleCalculatorDemo;
 			productName = DoubleCaculatorDemo;
-			productReference = 66C72DA82B4AD4310025DE10 /* DoubleCaculatorDemo.app */;
+			productReference = 66C72DA82B4AD4310025DE10 /* DoubleCalculatorDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		66C72DBD2B4AD4330025DE10 /* DoubleCaculatorDemoTests */ = {
+		66C72DBD2B4AD4330025DE10 /* DoubleCalculatorDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66C72DD52B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCaculatorDemoTests" */;
+			buildConfigurationList = 66C72DD52B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCalculatorDemoTests" */;
 			buildPhases = (
 				66C72DBA2B4AD4330025DE10 /* Sources */,
 				66C72DBB2B4AD4330025DE10 /* Frameworks */,
@@ -209,14 +209,14 @@
 			dependencies = (
 				66C72DC02B4AD4330025DE10 /* PBXTargetDependency */,
 			);
-			name = DoubleCaculatorDemoTests;
+			name = DoubleCalculatorDemoTests;
 			productName = DoubleCaculatorDemoTests;
-			productReference = 66C72DBE2B4AD4330025DE10 /* DoubleCaculatorDemoTests.xctest */;
+			productReference = 66C72DBE2B4AD4330025DE10 /* DoubleCalculatorDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		66C72DC72B4AD4330025DE10 /* DoubleCaculatorDemoUITests */ = {
+		66C72DC72B4AD4330025DE10 /* DoubleCalculatorDemoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 66C72DD82B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCaculatorDemoUITests" */;
+			buildConfigurationList = 66C72DD82B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCalculatorDemoUITests" */;
 			buildPhases = (
 				66C72DC42B4AD4330025DE10 /* Sources */,
 				66C72DC52B4AD4330025DE10 /* Frameworks */,
@@ -227,9 +227,9 @@
 			dependencies = (
 				66C72DCA2B4AD4330025DE10 /* PBXTargetDependency */,
 			);
-			name = DoubleCaculatorDemoUITests;
+			name = DoubleCalculatorDemoUITests;
 			productName = DoubleCaculatorDemoUITests;
-			productReference = 66C72DC82B4AD4330025DE10 /* DoubleCaculatorDemoUITests.xctest */;
+			productReference = 66C72DC82B4AD4330025DE10 /* DoubleCalculatorDemoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -255,7 +255,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 66C72DA32B4AD4310025DE10 /* Build configuration list for PBXProject "DoubleCaculatorDemo" */;
+			buildConfigurationList = 66C72DA32B4AD4310025DE10 /* Build configuration list for PBXProject "DoubleCalculatorDemo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -268,9 +268,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				66C72DA72B4AD4310025DE10 /* DoubleCaculatorDemo */,
-				66C72DBD2B4AD4330025DE10 /* DoubleCaculatorDemoTests */,
-				66C72DC72B4AD4330025DE10 /* DoubleCaculatorDemoUITests */,
+				66C72DA72B4AD4310025DE10 /* DoubleCalculatorDemo */,
+				66C72DBD2B4AD4330025DE10 /* DoubleCalculatorDemoTests */,
+				66C72DC72B4AD4330025DE10 /* DoubleCalculatorDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -310,7 +310,7 @@
 				66C72DB02B4AD4310025DE10 /* ViewController.swift in Sources */,
 				66C72DAC2B4AD4310025DE10 /* AppDelegate.swift in Sources */,
 				66C72DE02B4AD51B0025DE10 /* CaculatorType.swift in Sources */,
-				66C72DE32B4ADDFB0025DE10 /* DemoCaculator.swift in Sources */,
+				66C72DE32B4ADDFB0025DE10 /* DemoCalculator.swift in Sources */,
 				66C72DAE2B4AD4310025DE10 /* SceneDelegate.swift in Sources */,
 				66C72DE52B4ADE0C0025DE10 /* Command.swift in Sources */,
 			);
@@ -320,7 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66C72DC32B4AD4330025DE10 /* DoubleCaculatorDemoTests.swift in Sources */,
+				66C72DC32B4AD4330025DE10 /* DoubleCalculatorDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,8 +328,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66C72DCD2B4AD4330025DE10 /* DoubleCaculatorDemoUITests.swift in Sources */,
-				66C72DCF2B4AD4330025DE10 /* DoubleCaculatorDemoUITestsLaunchTests.swift in Sources */,
+				66C72DCD2B4AD4330025DE10 /* DoubleCalculatorDemoUITests.swift in Sources */,
+				66C72DCF2B4AD4330025DE10 /* DoubleCalculatorDemoUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,12 +338,12 @@
 /* Begin PBXTargetDependency section */
 		66C72DC02B4AD4330025DE10 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 66C72DA72B4AD4310025DE10 /* DoubleCaculatorDemo */;
+			target = 66C72DA72B4AD4310025DE10 /* DoubleCalculatorDemo */;
 			targetProxy = 66C72DBF2B4AD4330025DE10 /* PBXContainerItemProxy */;
 		};
 		66C72DCA2B4AD4330025DE10 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 66C72DA72B4AD4310025DE10 /* DoubleCaculatorDemo */;
+			target = 66C72DA72B4AD4310025DE10 /* DoubleCalculatorDemo */;
 			targetProxy = 66C72DC92B4AD4330025DE10 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -507,7 +507,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxiao.ios.DoubleCaculatorDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxiao.ios.DoubleCalculatorDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -535,7 +535,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.maxiao.ios.DoubleCaculatorDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maxiao.ios.DoubleCalculatorDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -559,7 +559,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoubleCaculatorDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DoubleCaculatorDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoubleCalculatorDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DoubleCalculatorDemo";
 			};
 			name = Debug;
 		};
@@ -579,7 +579,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoubleCaculatorDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DoubleCaculatorDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DoubleCalculatorDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DoubleCalculatorDemo";
 			};
 			name = Release;
 		};
@@ -622,7 +622,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		66C72DA32B4AD4310025DE10 /* Build configuration list for PBXProject "DoubleCaculatorDemo" */ = {
+		66C72DA32B4AD4310025DE10 /* Build configuration list for PBXProject "DoubleCalculatorDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66C72DD02B4AD4330025DE10 /* Debug */,
@@ -631,7 +631,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66C72DD22B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCaculatorDemo" */ = {
+		66C72DD22B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCalculatorDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66C72DD32B4AD4330025DE10 /* Debug */,
@@ -640,7 +640,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66C72DD52B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCaculatorDemoTests" */ = {
+		66C72DD52B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCalculatorDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66C72DD62B4AD4330025DE10 /* Debug */,
@@ -649,7 +649,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		66C72DD82B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCaculatorDemoUITests" */ = {
+		66C72DD82B4AD4330025DE10 /* Build configuration list for PBXNativeTarget "DoubleCalculatorDemoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				66C72DD92B4AD4330025DE10 /* Debug */,

@@ -1,14 +1,14 @@
 //
-//  DoubleCaculatorDemoTests.swift
-//  DoubleCaculatorDemoTests
+//  DoubleCalculatorDemoTests.swift
+//  DoubleCalculatorDemoTests
 //
 //  Created by 马月瑶 on 2024/1/7.
 //
 
 import XCTest
-@testable import DoubleCaculatorDemo
+@testable import DoubleCalculatorDemo
 
-final class DoubleCaculatorDemoTests: XCTestCase {
+final class DoubleCalculatorDemoTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
