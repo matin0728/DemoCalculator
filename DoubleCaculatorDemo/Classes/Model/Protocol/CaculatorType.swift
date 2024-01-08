@@ -21,7 +21,7 @@ protocol CaculatorType {
     func reset()
 }
 
-
+/// Transfer result to another calculator
 protocol TransferableCaculatorType: CaculatorType {
     func transferFrom(_ caculator: Self)
 }
