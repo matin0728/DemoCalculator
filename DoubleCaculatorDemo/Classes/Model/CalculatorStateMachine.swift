@@ -31,13 +31,8 @@ class CalculatorStateMachine<OperandDef>
             operators = theOperator
         case .waitingRhsInput:
             // Calculate current result.
-            if let currentOperator = operators {
-                lhs = currentOperator(lhs, rhs)
-                result = lhs
-                rhs.acceptInput(.reset)
-            } else {
-                assert(false, "Internal error.")
-            }
+            calculateResult()
+            status = .waitingRhsInput
         }
     }
     
@@ -51,6 +46,26 @@ class CalculatorStateMachine<OperandDef>
         case .waitingRhsInput:
             rhs.acceptInput(input)
         }
+    }
+    
+    func calculateResult() {
+        switch status {
+        case .waitingLhsInput:
+            // nothing to do
+            break
+        case .operatorSetup:
+            rhs = lhs
+            status = .waitingLhsInput
+        case .waitingRhsInput:
+            break
+        }
+        
+        result = operators?(lhs, rhs)
+        if let theResult = result {
+            lhs = theResult
+        }
+        // always turn to this status.
+        status = .waitingLhsInput
     }
     
     func reset(_ toInitialValue: OperandDef? = nil) {

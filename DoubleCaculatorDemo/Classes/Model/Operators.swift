@@ -9,6 +9,7 @@ import Foundation
 
 typealias DemoOperator = OperatorDef<Operand>
 
+/// Extensible operators, you can regist new operator in the future.
 class Operators {
     private var allOperators: [OperatorName: DemoOperator] = [:]
     

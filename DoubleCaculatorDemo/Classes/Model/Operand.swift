@@ -13,7 +13,7 @@ final class Operand: OperandType {
     
     // MARK: Properties
     
-    // For simplicity, preset value is not editable, case it can be a sciencetific numerber format.
+    // IMPORTANT: For simplicity, preset value is not editable, case it can be a sciencetific numerber format.
     private var presetDecimal: NSDecimalNumber
     private var editable: Bool
     
