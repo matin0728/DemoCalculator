@@ -22,7 +22,7 @@ class CalculatorStateMachine<OperandDef>
         self.operators = operators
     }
     
-    func setOperators(_ theOperator: OperatorDef<OperandDef>) {
+    func setOperators(_ theOperator: @escaping OperatorDef<OperandDef>) {
         switch status {
         case .waitingLhsInput:
             operators = theOperator
@@ -32,7 +32,7 @@ class CalculatorStateMachine<OperandDef>
         case .waitingRhsInput:
             // Calculate current result.
             if let currentOperator = operators {
-                lhs = currentOperator.command(lhs, rhs)
+                lhs = currentOperator(lhs, rhs)
                 result = lhs
                 rhs.reset()
             } else {

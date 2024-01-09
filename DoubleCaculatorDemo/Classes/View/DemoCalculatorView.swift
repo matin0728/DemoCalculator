@@ -34,6 +34,6 @@ class DemoCalculatorView {
     }
 }
 
-fileprivate func mapCommand(_ command: CommandKeyViewModel) -> DemoCalculatorCommandButtonView {
-    return DemoCalculatorCommandButtonView(command: command)
+fileprivate func mapCommand(_ viewModel: CommandKeyViewModel) -> DemoCalculatorCommandButtonView {
+    return DemoCalculatorCommandButtonView(viewModel: viewModel)
 }

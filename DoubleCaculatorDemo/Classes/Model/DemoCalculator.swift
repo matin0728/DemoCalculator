@@ -35,11 +35,7 @@ class DemoCalculator: CaculatorType {
             statusMachine.setOperators(theOperator)
         case .reset:
             statusMachine.reset()
+            operandOutput = ""
         }
-    }
-    
-    func reset() {
-        statusMachine.reset()
-        operandOutput = ""
     }
 }

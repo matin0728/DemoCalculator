@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 class DemoCalculatorCommandButtonView: UIButton {
-    let command: CommandKeyViewModel
+    let viewModel: CommandKeyViewModel
     
-    init(command: CommandKeyViewModel) {
-        self.command = command
+    init(viewModel: CommandKeyViewModel) {
+        self.viewModel = viewModel
         super.init(type: .custom)
         
-        setupFor(command)
+        setupFor(viewModel)
     }
     
     required init?(coder: NSCoder) {
@@ -23,13 +23,13 @@ class DemoCalculatorCommandButtonView: UIButton {
     }
     
     @objc func onTap() {
-        command.excutionCallback?()
+        viewModel.command.excutionCallback?()
     }
     
-    func setupFor(_ command: CommandKeyViewModel) {
+    func setupFor(_ viewModel: CommandKeyViewModel) {
         titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         setTitle("AC", for: .normal)
-        backgroundColor = command.backgroundColor
+        backgroundColor = viewModel.backgroundColor
         layer.cornerRadius = 10
         layer.masksToBounds = true
     }

@@ -28,6 +28,8 @@
 		66E3B9382B4CFE3A0072096D /* OperandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B9372B4CFE3A0072096D /* OperandTests.swift */; };
 		66E3B93A2B4D0A060072096D /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B9392B4D0A060072096D /* Operators.swift */; };
 		66E3B93C2B4D13180072096D /* OperandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B93B2B4D13180072096D /* OperandType.swift */; };
+		66E3B93E2B4D8D600072096D /* OperatorDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B93D2B4D8D600072096D /* OperatorDef.swift */; };
+		66E3B9402B4D8F0F0072096D /* KeyboardCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B93F2B4D8F0F0072096D /* KeyboardCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		66E3B9372B4CFE3A0072096D /* OperandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandTests.swift; sourceTree = "<group>"; };
 		66E3B9392B4D0A060072096D /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		66E3B93B2B4D13180072096D /* OperandType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandType.swift; sourceTree = "<group>"; };
+		66E3B93D2B4D8D600072096D /* OperatorDef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorDef.swift; sourceTree = "<group>"; };
+		66E3B93F2B4D8F0F0072096D /* KeyboardCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 				66E3B9332B4CF40B0072096D /* CalculatorStateMachine.swift */,
 				66E3B9352B4CF4940072096D /* Operand.swift */,
 				66E3B9392B4D0A060072096D /* Operators.swift */,
+				66E3B93D2B4D8D600072096D /* OperatorDef.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				66E3B92F2B4BB8220072096D /* CommandKeyViewModel.swift */,
+				66E3B93F2B4D8F0F0072096D /* KeyboardCommand.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -342,9 +348,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66E3B9402B4D8F0F0072096D /* KeyboardCommand.swift in Sources */,
 				66E3B92B2B4BB4810072096D /* DemoCalculatorApp.swift in Sources */,
 				66C72DB02B4AD4310025DE10 /* ViewController.swift in Sources */,
 				66E3B9302B4BB8220072096D /* CommandKeyViewModel.swift in Sources */,
+				66E3B93E2B4D8D600072096D /* OperatorDef.swift in Sources */,
 				66E3B9342B4CF40B0072096D /* CalculatorStateMachine.swift in Sources */,
 				66E3B9322B4BBE440072096D /* DemoCalculatorCommandButtonView.swift in Sources */,
 				66E3B93C2B4D13180072096D /* OperandType.swift in Sources */,

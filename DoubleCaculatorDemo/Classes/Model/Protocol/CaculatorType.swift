@@ -17,8 +17,6 @@ protocol CaculatorType {
     var operandOutput: String { get }
     /// Any command pressed
     func execCommand(_ command: Command)
-    /// Reset the result and operand
-    func reset()
 }
 
 /// Transfer result to another calculator
