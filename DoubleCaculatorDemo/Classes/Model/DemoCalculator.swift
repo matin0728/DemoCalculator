@@ -9,16 +9,30 @@ import Foundation
 
 
 class DemoCalculator: CaculatorType {
-    var result: NSDecimalNumber = 0.0
-    var resultOutput: String = ""
+    var result: NSDecimalNumber = .zero
+    var resultOutput: String {
+        result.stringValue
+    }
     var operandOutput: String = ""
     
     func execCommand(_ command: KeyboardCommand) {
-        
+        switch command {
+        case .delete:
+            break
+        case .digit(let digit):
+            break
+        case .dot:
+            break
+        case .operators(let theOperator):
+            break
+        case .reset:
+            reset()
+        }
     }
     
     func reset() {
-        
+        result = 0
+        operandOutput = ""
     }
     
     typealias Command = KeyboardCommand

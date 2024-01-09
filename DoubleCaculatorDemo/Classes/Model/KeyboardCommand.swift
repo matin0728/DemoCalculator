@@ -30,9 +30,9 @@ struct Digits {
 }
 
 enum KeyboardCommand {
+    case delete
     case digit(Digits)
     case dot
     case operators(Operators)
-    case delete
     case reset
 }
