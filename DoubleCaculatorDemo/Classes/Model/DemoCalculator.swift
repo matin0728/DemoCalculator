@@ -8,35 +8,38 @@
 import Foundation
 
 
-class DemoCalculator: CaculatorType {
-    var result: NSDecimalNumber = .zero
+class DemoCalculator: CaculatorType {    
+    typealias Result = Operand
+    typealias Command = InputCommand
+    
+    var result: Operand {
+        statusMachine.result ?? Operand(decimalNumber: NSDecimalNumber(floatLiteral: 0))
+    }
+    
     var resultOutput: String {
         result.stringValue
     }
     var operandOutput: String = ""
     
-    func execCommand(_ command: KeyboardCommand) {
+    let statusMachine = CalculatorStateMachine(lhs: Operand(), rhs: Operand())
+    
+    func execCommand(_ command: InputCommand<Operand>) {
         switch command {
         case .delete:
-            break
-        case .digit(let digit):
-            break
+            statusMachine.acceptInput(command)
+        case .digit(_):
+            statusMachine.acceptInput(command)
         case .dot:
-            break
+            statusMachine.acceptInput(command)
         case .operators(let theOperator):
-            break
+            statusMachine.setOperators(theOperator)
         case .reset:
-            reset()
+            statusMachine.reset()
         }
     }
     
     func reset() {
-        result = 0
+        statusMachine.reset()
         operandOutput = ""
     }
-    
-    typealias Command = KeyboardCommand
-    typealias Result = NSDecimalNumber
-    
-    
 }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct CommandKeyViewModel {
-    let command: KeyboardCommand
+    let command: InputCommand<Operand>
     let textColor: UIColor
     let backgroundColor: UIColor
     /// Default is 1, width multiplied by, WidthUnit = AvailableWidth / CommandPerline

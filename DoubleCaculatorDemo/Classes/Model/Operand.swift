@@ -7,7 +7,8 @@
 
 import Foundation
 
-class Operand {
+final class Operand: OperandType {
+    typealias Input = InputCommand
     
     // MARK: Properties
     
@@ -99,5 +100,23 @@ class Operand {
     
     var hasNumber: Bool {
         !lhs.isEmpty || !rhs.isEmpty
+    }
+    
+    // - MARK: OperandType
+    
+    func acceptInput(_ input: InputCommand<Operand>) {
+        switch input {
+        case .dot:
+            appendDot()
+        case .delete:
+            removeLastCharactor()
+        case .digit(let digit):
+            appendCharactor(digit.rawValue)
+        case .reset:
+            reset()
+        case .operators(_):
+            assert(false)
+            break
+        }
     }
 }

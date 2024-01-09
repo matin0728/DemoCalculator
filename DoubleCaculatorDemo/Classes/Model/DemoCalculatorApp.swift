@@ -26,7 +26,7 @@ class DemoCalculatorApp {
         isLeftOneActive = false
     }
     
-    func execCommmand(_ command: KeyboardCommand) {
+    func execCommmand(_ command: InputCommand<Operand>) {
         activeOne.execCommand(command)
     }
     

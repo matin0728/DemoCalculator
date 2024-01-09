@@ -7,11 +7,12 @@
 
 import Foundation
 
-class CalculatorStateMachine<OperandDef, Input> 
-    where OperandDef: OperandType, OperandDef.Input == Input {
-    var lhs: OperandDef
-    var rhs: OperandDef
-    var operators: OperatorDef<OperandDef>?
+class CalculatorStateMachine<OperandDef>
+    where OperandDef: OperandType {
+    private(set) var lhs: OperandDef
+    private(set) var rhs: OperandDef
+    private(set) var operators: OperatorDef<OperandDef>?
+    private(set) var result: OperandDef?
     
     private var status: CalculatorStatus = .waitingLhsInput
     
@@ -32,6 +33,7 @@ class CalculatorStateMachine<OperandDef, Input>
             // Calculate current result.
             if let currentOperator = operators {
                 lhs = currentOperator.command(lhs, rhs)
+                result = lhs
                 rhs.reset()
             } else {
                 assert(false, "Internal error.")
@@ -39,7 +41,7 @@ class CalculatorStateMachine<OperandDef, Input>
         }
     }
     
-    func acceptInput(_ input: Input) {
+    func acceptInput(_ input: InputCommand<OperandDef>) {
         switch status {
         case .waitingLhsInput:
             lhs.acceptInput(input)
@@ -49,6 +51,18 @@ class CalculatorStateMachine<OperandDef, Input>
         case .waitingRhsInput:
             rhs.acceptInput(input)
         }
+    }
+    
+    func reset(_ toInitialValue: OperandDef? = nil) {
+        status = .waitingLhsInput
+        if let toValue = toInitialValue {
+            lhs = toValue
+        } else {
+            lhs.reset()
+        }
+        rhs.reset()
+        operators = nil
+        result = nil
     }
 }
 

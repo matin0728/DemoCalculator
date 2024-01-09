@@ -11,7 +11,7 @@ import Foundation
 protocol CaculatorType {
     associatedtype Command
     associatedtype Result
-    var result: Result { get set }
+    var result: Result { get }
     var resultOutput: String { get }
     /// The operands is computing
     var operandOutput: String { get }
@@ -26,8 +26,8 @@ protocol TransferableCaculatorType: CaculatorType {
     func transferFrom(_ caculator: Self)
 }
 
-extension TransferableCaculatorType {
-    mutating func transferFrom(_ caculator: Self) {
-        self.result = caculator.result
-    }
-}
+//extension TransferableCaculatorType {
+//    mutating func transferFrom(_ caculator: Self) {
+//        self.result = caculator.result
+//    }
+//}

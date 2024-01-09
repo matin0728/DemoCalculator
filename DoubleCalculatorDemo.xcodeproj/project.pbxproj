@@ -18,7 +18,7 @@
 		66C72DCF2B4AD4330025DE10 /* DoubleCalculatorDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DCE2B4AD4330025DE10 /* DoubleCalculatorDemoUITestsLaunchTests.swift */; };
 		66C72DE02B4AD51B0025DE10 /* CaculatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DDF2B4AD51B0025DE10 /* CaculatorType.swift */; };
 		66C72DE32B4ADDFB0025DE10 /* DemoCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DE22B4ADDFB0025DE10 /* DemoCalculator.swift */; };
-		66C72DE52B4ADE0C0025DE10 /* KeyboardCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DE42B4ADE0C0025DE10 /* KeyboardCommand.swift */; };
+		66C72DE52B4ADE0C0025DE10 /* InputCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C72DE42B4ADE0C0025DE10 /* InputCommand.swift */; };
 		66E3B92B2B4BB4810072096D /* DemoCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B92A2B4BB4810072096D /* DemoCalculatorApp.swift */; };
 		66E3B92D2B4BB7910072096D /* DemoCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B92C2B4BB7910072096D /* DemoCalculatorView.swift */; };
 		66E3B9302B4BB8220072096D /* CommandKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B92F2B4BB8220072096D /* CommandKeyViewModel.swift */; };
@@ -63,7 +63,7 @@
 		66C72DCE2B4AD4330025DE10 /* DoubleCalculatorDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleCalculatorDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		66C72DDF2B4AD51B0025DE10 /* CaculatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaculatorType.swift; sourceTree = "<group>"; };
 		66C72DE22B4ADDFB0025DE10 /* DemoCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCalculator.swift; sourceTree = "<group>"; };
-		66C72DE42B4ADE0C0025DE10 /* KeyboardCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCommand.swift; sourceTree = "<group>"; };
+		66C72DE42B4ADE0C0025DE10 /* InputCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCommand.swift; sourceTree = "<group>"; };
 		66E3B92A2B4BB4810072096D /* DemoCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCalculatorApp.swift; sourceTree = "<group>"; };
 		66E3B92C2B4BB7910072096D /* DemoCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCalculatorView.swift; sourceTree = "<group>"; };
 		66E3B92F2B4BB8220072096D /* CommandKeyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandKeyViewModel.swift; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 			children = (
 				66C72DDC2B4AD4E70025DE10 /* Protocol */,
 				66C72DE22B4ADDFB0025DE10 /* DemoCalculator.swift */,
-				66C72DE42B4ADE0C0025DE10 /* KeyboardCommand.swift */,
+				66C72DE42B4ADE0C0025DE10 /* InputCommand.swift */,
 				66E3B92A2B4BB4810072096D /* DemoCalculatorApp.swift */,
 				66E3B9332B4CF40B0072096D /* CalculatorStateMachine.swift */,
 				66E3B9352B4CF4940072096D /* Operand.swift */,
@@ -355,7 +355,7 @@
 				66E3B93A2B4D0A060072096D /* Operators.swift in Sources */,
 				66E3B9362B4CF4940072096D /* Operand.swift in Sources */,
 				66C72DAE2B4AD4310025DE10 /* SceneDelegate.swift in Sources */,
-				66C72DE52B4ADE0C0025DE10 /* KeyboardCommand.swift in Sources */,
+				66C72DE52B4ADE0C0025DE10 /* InputCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
