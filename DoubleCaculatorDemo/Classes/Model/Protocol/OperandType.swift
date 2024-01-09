@@ -8,6 +8,5 @@
 import Foundation
 
 protocol OperandType {
-    func acceptInput(_ input: InputCommand<Self>)
-    func reset()
+    func acceptInput(_ input: InputCommand)
 }

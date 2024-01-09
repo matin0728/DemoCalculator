@@ -9,16 +9,12 @@ import Foundation
 
 typealias OperatorDef<T> = (_ lhs: T, _ rhs: T) -> T
 
-//struct OperatorDef<T> {
-//    let name: String
-//    let command: OperatorFunc<T>
-//}
-
-struct OperatorName {
-    static let reverse = "+/-"
-    static let percent  = "%"
-    static let devide   = "÷"
-    static let multiply = "×"
-    static let plus     = "+"
-    static let minus    = "-"
+enum OperatorName: String {
+    case unknown  = "N/A"
+    case reverse  = "+/-"
+    case percent  = "%"
+    case devide   = "÷"
+    case multiply = "×"
+    case plus     = "+"
+    case minus    = "-"
 }

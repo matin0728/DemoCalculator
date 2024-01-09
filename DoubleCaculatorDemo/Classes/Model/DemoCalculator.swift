@@ -23,7 +23,13 @@ class DemoCalculator: CaculatorType {
     
     let statusMachine = CalculatorStateMachine(lhs: Operand(), rhs: Operand())
     
-    func execCommand(_ command: InputCommand<Operand>) {
+    let supportedOperators: Operators = {
+        let all = Operators()
+        all.loadDefaultOperator()
+        return all
+    }()
+    
+    func execCommand(_ command: InputCommand) {
         switch command {
         case .delete:
             statusMachine.acceptInput(command)
@@ -31,7 +37,11 @@ class DemoCalculator: CaculatorType {
             statusMachine.acceptInput(command)
         case .dot:
             statusMachine.acceptInput(command)
-        case .operators(let theOperator):
+        case .operators(let theOperatorName):
+            guard let theOperator = supportedOperators.operatorNamed(OperatorName(rawValue: theOperatorName) ?? .unknown) else {
+                assert(false)
+                return
+            }
             statusMachine.setOperators(theOperator)
         case .reset:
             statusMachine.reset()

@@ -34,14 +34,14 @@ class CalculatorStateMachine<OperandDef>
             if let currentOperator = operators {
                 lhs = currentOperator(lhs, rhs)
                 result = lhs
-                rhs.reset()
+                rhs.acceptInput(.reset)
             } else {
                 assert(false, "Internal error.")
             }
         }
     }
     
-    func acceptInput(_ input: InputCommand<OperandDef>) {
+    func acceptInput(_ input: InputCommand) {
         switch status {
         case .waitingLhsInput:
             lhs.acceptInput(input)
@@ -58,9 +58,9 @@ class CalculatorStateMachine<OperandDef>
         if let toValue = toInitialValue {
             lhs = toValue
         } else {
-            lhs.reset()
+            lhs.acceptInput(.reset)
         }
-        rhs.reset()
+        rhs.acceptInput(.reset)
         operators = nil
         result = nil
     }

@@ -20,10 +20,12 @@ enum Digits: Character {
     static let nine: Character  = "9" */
 }
 
-enum InputCommand<T> {
+typealias OperatorNamed = String
+
+enum InputCommand {
     case delete
     case digit(Digits)
     case dot
-    case operators(OperatorDef<T>)
+    case operators(String)
     case reset
 }

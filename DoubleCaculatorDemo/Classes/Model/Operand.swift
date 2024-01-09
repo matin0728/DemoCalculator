@@ -89,7 +89,9 @@ final class Operand: OperandType {
          isNagative = !isNagative
     }
     
-    func reset() {
+    // - MARK: Private
+    
+    private func reset() {
         hasDot = false
         isNagative = false
         lhs = []
@@ -97,15 +99,13 @@ final class Operand: OperandType {
         editable = true
     }
     
-    // - MARK: Private
-    
-    var hasNumber: Bool {
+    private var hasNumber: Bool {
         !lhs.isEmpty || !rhs.isEmpty
     }
     
     // - MARK: OperandType
     
-    func acceptInput(_ input: InputCommand<Operand>) {
+    func acceptInput(_ input: InputCommand) {
         switch input {
         case .dot:
             appendDot()
