@@ -13,7 +13,7 @@ class Operand {
     
     // For simplicty, preset value is not editable, case it can be a sciencetific numerber format.
     private var presetDecimal: NSDecimalNumber
-    private let editable: Bool
+    private var editable: Bool
     
     var hasDot = false
     var isNagative: Bool
@@ -85,6 +85,14 @@ class Operand {
     func toggleNagative() {
          guard hasNumber else { return }
          isNagative = !isNagative
+    }
+    
+    func reset() {
+        hasDot = false
+        isNagative = false
+        lhs = []
+        rhs = []
+        editable = true
     }
     
     // - MARK: Private

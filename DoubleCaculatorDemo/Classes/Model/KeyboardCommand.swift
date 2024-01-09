@@ -7,15 +7,6 @@
 
 import Foundation
 
-struct Operators {
-    static let reverse  = "+/-"
-    static let percent  = "%"
-    static let devide   = "÷"
-    static let multiply = "×"
-    static let plus     = "+"
-    static let minus    = "-"
-}
-
 struct Digits {
     static let zero  = "0"
     static let one   = "1"
