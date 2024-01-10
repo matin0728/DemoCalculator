@@ -11,9 +11,9 @@ import UIKit
 class DemoCalculatorCommandButtonView: UIButton {
     let viewModel: CommandKeyViewModel
     
-    init(viewModel: CommandKeyViewModel) {
-        self.viewModel = viewModel
-        super.init(type: .custom)
+    init(viewModel theViewModel: CommandKeyViewModel) {
+        viewModel = theViewModel
+        super.init(frame: .zero)
         
         setupFor(viewModel)
     }
@@ -23,14 +23,15 @@ class DemoCalculatorCommandButtonView: UIButton {
     }
     
     @objc func onTap() {
-        viewModel.command.excutionCallback?()
+        viewModel.command.excutionCallback?(viewModel.command.name)
     }
     
     func setupFor(_ viewModel: CommandKeyViewModel) {
-        titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        setTitle("AC", for: .normal)
+        titleLabel?.font = UIFont.systemFont(ofSize: 32, weight: .medium)
+        setTitle(viewModel.command.buttonText, for: .normal)
+        setTitleColor(viewModel.textColor, for: .normal)
         backgroundColor = viewModel.backgroundColor
-        layer.cornerRadius = 10
+        layer.cornerRadius = 16
         layer.masksToBounds = true
     }
 }

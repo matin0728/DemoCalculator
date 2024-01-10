@@ -12,22 +12,42 @@ enum Digits: Character {
     case one  = "1"
     case two  = "2"
     case three = "3"
-    /*static let four: Character  = "4"
-    static let five: Character  = "5"
-    static let six: Character   = "6"
-    static let seven: Character = "7"
-    static let eight: Character = "8"
-    static let nine: Character  = "9" */
+    case four  = "4"
+    case five = "5"
+    case six = "6"
+    case seven = "7"
+    case eight = "8"
+    case nine = "9"
 }
 
 typealias OperatorNamed = String
 
-enum InputCommand {
+enum InputCommand: CustomStringConvertible {
     case clear
     case delete
     case digit(Digits)
     case dot
     case operators(OperatorName)
-    case reset
+    case reset // AC
     case calculate
+    
+    var description: String {
+        switch self {
+        case .clear:
+            return "clear"
+        case .delete:
+            return "DEL"
+        case .reset:
+            return "AC"
+        case .digit(let dig):
+            return String([dig.rawValue])
+        case .dot:
+            return "."
+        case .operators(let ops):
+            return ops.rawValue
+        case .calculate:
+            return "="
+        }
+        return "TODO"
+    }
 }

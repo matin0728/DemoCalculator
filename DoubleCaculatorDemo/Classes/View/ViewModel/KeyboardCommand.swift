@@ -8,7 +8,7 @@
 import Foundation
 
 struct KeyboardCommand {
-    let name: String
+    let name: InputCommand
     let buttonText: String
-    let excutionCallback: (() -> Void)?
+    let excutionCallback: ((InputCommand) -> Void)?
 }

@@ -43,11 +43,11 @@ class DemoCalculator: CaculatorType {
     
     let statusMachine = CalculatorStateMachine(lhs: Operand(), rhs: Operand())
     
-    let supportedOperators: Operators = {
-        let all = Operators()
-        all.loadDefaultOperator()
-        return all
-    }()
+    let supportedOperators: Operators
+    
+    init(operators: Operators) {
+        supportedOperators = operators
+    }
     
     func execCommand(_ command: InputCommand) {
         switch command {

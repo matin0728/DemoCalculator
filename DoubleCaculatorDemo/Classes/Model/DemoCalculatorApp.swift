@@ -9,8 +9,14 @@ import Foundation
 
 /// Response for organize the two calculator
 class DemoCalculatorApp {
-    lazy var leftOne = DemoCalculator()
-    lazy var rightOne = DemoCalculator()
+    var operators: Operators {
+        let all = Operators()
+        all.loadDefaultOperator()
+        return all
+    }
+    
+    lazy var leftOne = DemoCalculator(operators: operators)
+    lazy var rightOne = DemoCalculator(operators: operators)
     
     var isLeftOneActive = true
     
