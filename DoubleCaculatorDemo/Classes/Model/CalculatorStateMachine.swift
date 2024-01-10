@@ -37,10 +37,9 @@ class CalculatorStateMachine<OperandDef>
         self.rhs = rhs
     }
     
+    
+    // done
     func setOperators(_ theOperator: @escaping OperatorDef<OperandDef>, name: OperatorName) {
-        operatorsName = name
-        operators = theOperator
-        
         switch status {
         case .waitingLhsInput:
             break
@@ -49,9 +48,13 @@ class CalculatorStateMachine<OperandDef>
         case .waitingRhsInput:
             // Calculate current result.
             doCalculation()
+            lhs = result /// 2 + 3 x  =>  6 x
         case .resultCalculated:
-            lhs = historCalculate.result
+            doCalculation()
+            lhs = historCalculate.result // 2 + 2 = x => 4 x
         }
+        operatorsName = name
+        operators = theOperator
         status = .operatorSetup
     }
     
@@ -67,11 +70,13 @@ class CalculatorStateMachine<OperandDef>
             rhs.acceptInput(input)
         case .resultCalculated:
             rhs.acceptInput(.reset)
-            rhs.acceptInput(input)
-            status = .waitingRhsInput
+            lhs.acceptInput(.reset)
+            lhs.acceptInput(input)
+            status = .waitingLhsInput
         }
     }
     
+    // done
     func calculateResult() {
         switch status {
         case .waitingLhsInput:
@@ -86,7 +91,6 @@ class CalculatorStateMachine<OperandDef>
             // reuse the result and repeat calculation.
             lhs = historCalculate.result
         }
-        
         doCalculation()
         status = .resultCalculated
     }
@@ -104,7 +108,10 @@ class CalculatorStateMachine<OperandDef>
     }
     
     private func doCalculation() {
+        // get result
         result = operators(lhs, rhs)
+        // save history
+        historCalculate = Calculation(lhs: lhs, rhs: rhs, result: result, operators: operators)
     }
     
     private var nilOperator: OperatorDef<OperandDef> {
