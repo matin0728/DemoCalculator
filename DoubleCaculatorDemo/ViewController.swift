@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         let demo = DemoCalculator()
         demo.execCommand(.digit(.one))
-        demo.execCommand(.operators(.plus))
+        demo.execCommand(.operators(.addition))
         demo.execCommand(.digit(.one))
         demo.execCommand(.calculate)
         

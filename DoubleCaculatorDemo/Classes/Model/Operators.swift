@@ -18,28 +18,28 @@ class Operators {
     }
     
     func loadDefaultOperator() {
-        regist({ lhs, rhs in
+        regist({ lhs, _ in
             Operand(decimalNumber: lhs.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: -1)))
         }, name: OperatorName.reverse)
         
         regist({ lhs, rhs in
             Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: -1))))
-        }, name: OperatorName.plus)
+        }, name: OperatorName.addition)
         
         regist({ lhs, rhs in
-            Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue))
-        }, name: OperatorName.minus)
+            Operand(decimalNumber: lhs.decimalValue.subtracting(rhs.decimalValue))
+        }, name: OperatorName.substraction)
         
         regist({ lhs, rhs in
             Operand(decimalNumber: lhs.decimalValue.multiplying(by: rhs.decimalValue))
-        }, name: OperatorName.multiply)
+        }, name: OperatorName.multiplication)
         
         regist({ lhs, rhs in
             Operand(decimalNumber: lhs.decimalValue.dividing(by: rhs.decimalValue))
-        }, name: OperatorName.devide)
+        }, name: OperatorName.division)
         
-        regist({ lhs, rhs in
-            Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: 100))))
+        regist({ lhs, _ in
+            Operand(decimalNumber: lhs.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: 100)))
         }, name: OperatorName.percent)
     }
     
