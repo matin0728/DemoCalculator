@@ -89,6 +89,16 @@ final class OperandTests: XCTestCase {
         XCTAssert(decimal2 != NSDecimalNumber(floatLiteral: 10))
     }
     
+    func testItShouldClearInputNumber() throws {
+        operand = Operand()
+        operand.appendCharactor("1")
+        operand.appendCharactor("2")
+        operand.appendCharactor("3")
+        operand.acceptInput(.clear)
+        
+        XCTAssert(operand.stringValue == "0")
+    }
+    
     func testItShouldNotBeEditable() throws {
         operand = Operand(decimalNumber: .maximum)
         operand.appendCharactor("1")

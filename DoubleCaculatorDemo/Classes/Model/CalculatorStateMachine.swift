@@ -105,6 +105,7 @@ class CalculatorStateMachine<OperandDef>
         }
         rhs.acceptInput(.reset)
         operators = nilOperator
+        operatorsName = .unknown
         result = OperandDef.defaultValue
     }
     
