@@ -23,12 +23,24 @@ class Operators {
         }, name: OperatorName.reverse)
         
         regist({ lhs, rhs in
-            Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue))
+            Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: -1))))
         }, name: OperatorName.plus)
+        
+        regist({ lhs, rhs in
+            Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue))
+        }, name: OperatorName.minus)
         
         regist({ lhs, rhs in
             Operand(decimalNumber: lhs.decimalValue.multiplying(by: rhs.decimalValue))
         }, name: OperatorName.multiply)
+        
+        regist({ lhs, rhs in
+            Operand(decimalNumber: lhs.decimalValue.dividing(by: rhs.decimalValue))
+        }, name: OperatorName.devide)
+        
+        regist({ lhs, rhs in
+            Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: 100))))
+        }, name: OperatorName.percent)
     }
     
     func operatorNamed(_ name: OperatorName) -> DemoOperator {
