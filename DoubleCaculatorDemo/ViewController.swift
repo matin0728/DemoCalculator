@@ -18,8 +18,8 @@ class ViewController: UIViewController {
         demo.execCommand(.digit(.one))
         demo.execCommand(.calculate)
         
-        print("result: 1 + 1 = \(demo.resultOutput)")
-        print("resultO: \(demo.operandOutput) = \(demo.resultOutput)")
+        print("result: \(demo.resultOutput)")
+        print("Operand: \(demo.operandOutput)")
     }
 
 

@@ -65,6 +65,7 @@ class CalculatorStateMachine<OperandDef>
         case .waitingLhsInput:
             lhs.acceptInput(input)
         case .operatorSetup:
+            rhs.acceptInput(.reset)
             rhs.acceptInput(input)
             status = .waitingRhsInput
         case .waitingRhsInput:

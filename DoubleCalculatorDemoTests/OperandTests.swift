@@ -30,42 +30,42 @@ final class OperandTests: XCTestCase {
         operand.appendCharactor("1")
         operand.appendCharactor("2")
         operand.appendCharactor("3")
-        XCTAssert(operand.stringValue == "123")
-        XCTAssert(operand.decimalValue != .zero)
+        XCTAssertEqual(operand.stringValue, "123")
+        XCTAssertNotEqual(operand.decimalValue, .zero)
         operand.appendDot()
-        XCTAssert(operand.stringValue == "123")
+        XCTAssertEqual(operand.stringValue, "123")
         operand.appendDot()
-        XCTAssert(operand.stringValue == "123")
+        XCTAssertEqual(operand.stringValue, "123")
         
         operand.appendCharactor("1")
         operand.appendCharactor("2")
-        XCTAssert(operand.stringValue == "123.12")
+        XCTAssertEqual(operand.stringValue, "123.12")
         
         operand.removeLastCharactor()
-        XCTAssert(operand.stringValue == "123.1")
+        XCTAssertEqual(operand.stringValue, "123.1")
         
         operand.removeLastCharactor()
-        XCTAssert(operand.stringValue == "123")
+        XCTAssertEqual(operand.stringValue, "123")
         
         operand.removeLastCharactor()
-        XCTAssert(operand.stringValue == "12")
+        XCTAssertEqual(operand.stringValue, "12")
         
         operand.removeLastCharactor()
         operand.removeLastCharactor()
         operand.removeLastCharactor()
-        XCTAssert(operand.stringValue == "0")
+        XCTAssertEqual(operand.stringValue, "0")
         
         // Toggle nagative should not affect zero value.
         operand.toggleNagative()
-        XCTAssert(operand.stringValue == "-0")
+        XCTAssertEqual(operand.stringValue, "-0")
         
         operand.appendDot()
         operand.appendCharactor("5")
         operand.toggleNagative()
-        XCTAssert(operand.stringValue == "0.5")
+        XCTAssertEqual(operand.stringValue, "0.5")
         
         operand.toggleNagative()
-        XCTAssert(operand.stringValue == "-0.5")
+        XCTAssertEqual(operand.stringValue, "-0.5")
     }
     
     func testItShouldConverToDecimalNumber() throws {
@@ -77,16 +77,15 @@ final class OperandTests: XCTestCase {
         operand.appendCharactor("0")
         
         let decimal = operand.decimalValue
-        XCTAssert(decimal == NSDecimalNumber(floatLiteral: 100))
+        XCTAssertEqual(decimal, NSDecimalNumber(floatLiteral: 100))
         
         operand = Operand()
         operand.appendCharactor("1")
         operand.appendCharactor("0")
         operand.appendDot()
         operand.appendCharactor("1")
-        
         let decimal2 = operand.decimalValue
-        XCTAssert(decimal2 != NSDecimalNumber(floatLiteral: 10))
+        XCTAssertNotEqual(decimal2, NSDecimalNumber(floatLiteral: 10))
     }
     
     func testItShouldClearInputNumber() throws {
@@ -95,16 +94,14 @@ final class OperandTests: XCTestCase {
         operand.appendCharactor("2")
         operand.appendCharactor("3")
         operand.acceptInput(.clear)
-        
-        XCTAssert(operand.stringValue == "0")
+        XCTAssertEqual(operand.stringValue, "0")
     }
     
     func testItShouldNotBeEditable() throws {
         operand = Operand(decimalNumber: .maximum)
         operand.appendCharactor("1")
         operand.appendDot()
-        
-        XCTAssert(operand.decimalValue == .maximum)
+        XCTAssertEqual(operand.decimalValue, .maximum)
     }
 
     func testPerformanceExample() throws {

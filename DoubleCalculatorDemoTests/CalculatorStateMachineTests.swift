@@ -26,12 +26,36 @@ final class CalculatorStateMachineTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
+    /// 1 + 1 =
     func testItShouldCalculateTwoOperand() throws {
         machine.acceptInput(.digit(.one))
         machine.setOperators(operators.operatorNamed(OperatorName.plus), name: OperatorName.plus)
         machine.acceptInput(.digit(.one))
         machine.calculateResult()
         
-        XCTAssert(machine.result.decimalValue == NSDecimalNumber(floatLiteral: 2))
+        XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 2))
+    }
+    
+    /// 1 + 1 + 1 =
+    func testItShouldContinueCalcuateWithLastResult() throws {
+        machine.acceptInput(.digit(.one))
+        machine.setOperators(operators.operatorNamed(OperatorName.plus), name: OperatorName.plus)
+        machine.acceptInput(.digit(.one))
+        machine.setOperators(operators.operatorNamed(OperatorName.plus), name: OperatorName.plus)
+        machine.acceptInput(.digit(.one))
+        machine.calculateResult()
+        
+        XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 3))
+    }
+    
+    /// 1 + 1 + =
+    func testItShouldContinueCalcuateWithSelf() throws {
+        machine.acceptInput(.digit(.one))
+        machine.setOperators(operators.operatorNamed(OperatorName.plus), name: OperatorName.plus)
+        machine.acceptInput(.digit(.one))
+        machine.setOperators(operators.operatorNamed(OperatorName.plus), name: OperatorName.plus)
+        machine.calculateResult()
+        
+        XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 4))
     }
 }
