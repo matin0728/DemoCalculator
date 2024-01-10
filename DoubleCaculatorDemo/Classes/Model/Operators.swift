@@ -27,7 +27,13 @@ class Operators {
         }, name: OperatorName.plus)
     }
     
-    func operatorNamed(_ name: OperatorName) -> DemoOperator? {
-        allOperators[name]
+    func operatorNamed(_ name: OperatorName) -> DemoOperator {
+        allOperators[name] ?? nilOperator
+    }
+    
+    private var nilOperator: DemoOperator {
+        return { lhs, rhs in
+            Operand()
+        }
     }
 }

@@ -30,6 +30,7 @@
 		66E3B93C2B4D13180072096D /* OperandType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B93B2B4D13180072096D /* OperandType.swift */; };
 		66E3B93E2B4D8D600072096D /* OperatorDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B93D2B4D8D600072096D /* OperatorDef.swift */; };
 		66E3B9402B4D8F0F0072096D /* KeyboardCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B93F2B4D8F0F0072096D /* KeyboardCommand.swift */; };
+		66E3B9422B4E706E0072096D /* CalculatorStateMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B9412B4E706E0072096D /* CalculatorStateMachineTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		66E3B93B2B4D13180072096D /* OperandType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandType.swift; sourceTree = "<group>"; };
 		66E3B93D2B4D8D600072096D /* OperatorDef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorDef.swift; sourceTree = "<group>"; };
 		66E3B93F2B4D8F0F0072096D /* KeyboardCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCommand.swift; sourceTree = "<group>"; };
+		66E3B9412B4E706E0072096D /* CalculatorStateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorStateMachineTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			children = (
 				66C72DC22B4AD4330025DE10 /* DoubleCalculatorDemoTests.swift */,
 				66E3B9372B4CFE3A0072096D /* OperandTests.swift */,
+				66E3B9412B4E706E0072096D /* CalculatorStateMachineTests.swift */,
 			);
 			path = DoubleCalculatorDemoTests;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66E3B9422B4E706E0072096D /* CalculatorStateMachineTests.swift in Sources */,
 				66C72DC32B4AD4330025DE10 /* DoubleCalculatorDemoTests.swift in Sources */,
 				66E3B9382B4CFE3A0072096D /* OperandTests.swift in Sources */,
 			);

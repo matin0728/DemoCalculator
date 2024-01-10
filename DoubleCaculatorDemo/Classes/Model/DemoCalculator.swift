@@ -62,10 +62,7 @@ class DemoCalculator: CaculatorType {
         case .dot:
             statusMachine.acceptInput(command)
         case .operators(let theOperatorName):
-            guard let theOperator = supportedOperators.operatorNamed(theOperatorName) else {
-                assert(false)
-                return
-            }
+            let theOperator = supportedOperators.operatorNamed(theOperatorName)
             statusMachine.setOperators(theOperator, name: theOperatorName)
         case .reset:
             statusMachine.reset()
