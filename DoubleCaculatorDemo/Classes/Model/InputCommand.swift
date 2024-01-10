@@ -23,6 +23,7 @@ enum Digits: Character {
 typealias OperatorNamed = String
 
 enum InputCommand {
+    case clear
     case delete
     case digit(Digits)
     case dot

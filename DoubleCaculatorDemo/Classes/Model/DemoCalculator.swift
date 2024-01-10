@@ -20,7 +20,25 @@ class DemoCalculator: CaculatorType {
         result.stringValue
     }
     var operandOutput: String {
-        return "\(statusMachine.lhs.stringValue) \(statusMachine.operatorsName.rawValue ) \(statusMachine.rhs.stringValue)"
+        var output: [String] = []
+        switch statusMachine.status {
+        case .waitingLhsInput:
+            output.append(statusMachine.lhs.stringValue)
+        case .operatorSetup:
+            output.append(statusMachine.lhs.stringValue)
+            output.append(statusMachine.operatorsName.rawValue)
+        case .waitingRhsInput:
+            output.append(statusMachine.lhs.stringValue)
+            output.append(statusMachine.operatorsName.rawValue)
+            output.append(statusMachine.rhs.stringValue)
+        case .resultCalculated:
+            output.append(statusMachine.lhs.stringValue)
+            output.append(statusMachine.operatorsName.rawValue)
+            output.append(statusMachine.rhs.stringValue)
+            output.append("=")
+            output.append(statusMachine.result.stringValue)
+        }
+        return output.joined(separator: " ")
     }
     
     let statusMachine = CalculatorStateMachine(lhs: Operand(), rhs: Operand())
@@ -35,6 +53,8 @@ class DemoCalculator: CaculatorType {
         switch command {
         case .calculate:
             statusMachine.calculateResult()
+        case .clear:
+            statusMachine.clearOperand()
         case .delete:
             statusMachine.acceptInput(command)
         case .digit(_):
@@ -50,7 +70,6 @@ class DemoCalculator: CaculatorType {
         case .reset:
             statusMachine.reset()
         }
-        
         onUpdate()
     }
     

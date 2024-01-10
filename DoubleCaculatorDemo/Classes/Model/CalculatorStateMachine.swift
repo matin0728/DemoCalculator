@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: PUT IN A SEPERATED FILE.
 struct Calculation<OperandDef> {
     let lhs: OperandDef
     let rhs: OperandDef
@@ -105,6 +106,20 @@ class CalculatorStateMachine<OperandDef>
         rhs.acceptInput(.reset)
         operators = nilOperator
         result = OperandDef.defaultValue
+    }
+    
+    func clearOperand() {
+        switch status {
+        case .waitingLhsInput:
+            lhs.acceptInput(.reset)
+        case .operatorSetup:
+            lhs.acceptInput(.reset)
+            status = .waitingLhsInput
+        case .waitingRhsInput:
+            rhs.acceptInput(.reset)
+        case .resultCalculated:
+            reset()
+        }
     }
     
     private func doCalculation() {
