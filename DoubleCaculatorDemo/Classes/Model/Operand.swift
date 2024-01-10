@@ -34,11 +34,8 @@ final class Operand: OperandType {
         if editable == false {
             return "\(presetDecimal.decimalValue)"
         }
-        if false == hasNumber {
-            return "0"
-        }
         let theLhs = lhs.isEmpty ? ["0"] : lhs
-        return ((isNagative && hasNumber) ? "-" : "") + String(theLhs) + ((hasDot && !rhs.isEmpty) ? "." : "") + String(rhs)
+        return (isNagative ? "-" : "") + String(theLhs) + ((hasDot && !rhs.isEmpty) ? "." : "") + String(rhs)
     }
     
     // MARK: Initializers
@@ -92,7 +89,6 @@ final class Operand: OperandType {
     }
     
     func toggleNagative() {
-         guard hasNumber else { return }
          isNagative = !isNagative
     }
     
@@ -117,6 +113,8 @@ final class Operand: OperandType {
         case .calculate:
             assert(false)
             break
+        case .clear:
+            reset()
         case .dot:
             appendDot()
         case .delete:

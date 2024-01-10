@@ -57,15 +57,15 @@ final class OperandTests: XCTestCase {
         
         // Toggle nagative should not affect zero value.
         operand.toggleNagative()
-        XCTAssert(operand.stringValue == "0")
+        XCTAssert(operand.stringValue == "-0")
         
         operand.appendDot()
         operand.appendCharactor("5")
         operand.toggleNagative()
-        XCTAssert(operand.stringValue == "-0.5")
+        XCTAssert(operand.stringValue == "0.5")
         
         operand.toggleNagative()
-        XCTAssert(operand.stringValue == "0.5")
+        XCTAssert(operand.stringValue == "-0.5")
     }
     
     func testItShouldConverToDecimalNumber() throws {
