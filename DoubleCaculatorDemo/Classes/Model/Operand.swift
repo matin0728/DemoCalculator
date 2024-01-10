@@ -9,6 +9,10 @@ import Foundation
 
 /// The entity for interacting with user input.
 final class Operand: OperandType {
+    class var defaultValue: Operand {
+        Operand(decimalNumber: NSDecimalNumber(decimal: 0))
+    }
+    
     typealias Input = InputCommand
     
     // MARK: Properties
@@ -27,6 +31,9 @@ final class Operand: OperandType {
     }
     
     var stringValue: String {
+        if editable == false {
+            return "\(presetDecimal.decimalValue)"
+        }
         if false == hasNumber {
             return "0"
         }
@@ -107,6 +114,9 @@ final class Operand: OperandType {
     
     func acceptInput(_ input: InputCommand) {
         switch input {
+        case .calculate:
+            assert(false)
+            break
         case .dot:
             appendDot()
         case .delete:

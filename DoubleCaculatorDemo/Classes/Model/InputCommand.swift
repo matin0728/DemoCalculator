@@ -26,6 +26,7 @@ enum InputCommand {
     case delete
     case digit(Digits)
     case dot
-    case operators(String)
+    case operators(OperatorName)
     case reset
+    case calculate
 }

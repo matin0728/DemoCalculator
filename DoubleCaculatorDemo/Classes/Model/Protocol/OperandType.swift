@@ -9,4 +9,5 @@ import Foundation
 
 protocol OperandType {
     func acceptInput(_ input: InputCommand)
+    static var defaultValue: Self { get }
 }

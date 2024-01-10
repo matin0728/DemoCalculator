@@ -13,13 +13,15 @@ class DemoCalculator: CaculatorType {
     typealias Command = InputCommand
     
     var result: Operand {
-        statusMachine.result ?? Operand(decimalNumber: NSDecimalNumber(floatLiteral: 0))
+        statusMachine.result
     }
     
     var resultOutput: String {
         result.stringValue
     }
-    var operandOutput: String = ""
+    var operandOutput: String {
+        return "\(statusMachine.lhs.stringValue) \(statusMachine.operatorsName.rawValue ) \(statusMachine.rhs.stringValue)"
+    }
     
     let statusMachine = CalculatorStateMachine(lhs: Operand(), rhs: Operand())
     
@@ -31,6 +33,8 @@ class DemoCalculator: CaculatorType {
     
     func execCommand(_ command: InputCommand) {
         switch command {
+        case .calculate:
+            statusMachine.calculateResult()
         case .delete:
             statusMachine.acceptInput(command)
         case .digit(_):
@@ -38,14 +42,19 @@ class DemoCalculator: CaculatorType {
         case .dot:
             statusMachine.acceptInput(command)
         case .operators(let theOperatorName):
-            guard let theOperator = supportedOperators.operatorNamed(OperatorName(rawValue: theOperatorName) ?? .unknown) else {
+            guard let theOperator = supportedOperators.operatorNamed(theOperatorName) else {
                 assert(false)
                 return
             }
-            statusMachine.setOperators(theOperator)
+            statusMachine.setOperators(theOperator, name: theOperatorName)
         case .reset:
             statusMachine.reset()
-            operandOutput = ""
         }
+        
+        onUpdate()
+    }
+    
+    func onUpdate() {
+        
     }
 }

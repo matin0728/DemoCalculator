@@ -11,29 +11,33 @@ class CalculatorStateMachine<OperandDef>
     where OperandDef: OperandType {
     private(set) var lhs: OperandDef
     private(set) var rhs: OperandDef
-    private(set) var operators: OperatorDef<OperandDef>?
-    private(set) var result: OperandDef?
+    private(set) lazy var operators = nilOperator
+    private(set) var operatorsName: OperatorName = .unknown
+    private(set) var result: OperandDef = OperandDef.defaultValue
     
-    private var status: CalculatorStatus = .waitingLhsInput
+    private(set) var status: CalculatorStatus = .waitingLhsInput
     
-    init(lhs: OperandDef, rhs: OperandDef, operators: OperatorDef<OperandDef>? = nil) {
+    init(lhs: OperandDef, rhs: OperandDef) {
         self.lhs = lhs
         self.rhs = rhs
-        self.operators = operators
     }
     
-    func setOperators(_ theOperator: @escaping OperatorDef<OperandDef>) {
+    func setOperators(_ theOperator: @escaping OperatorDef<OperandDef>, name: OperatorName) {
+        operatorsName = name
+        operators = theOperator
+        
         switch status {
         case .waitingLhsInput:
-            operators = theOperator
-            status = .operatorSetup
+            break
         case .operatorSetup:
-            operators = theOperator
+            break
         case .waitingRhsInput:
             // Calculate current result.
             calculateResult()
-            status = .waitingRhsInput
+        case .resultCalculated:
+            break
         }
+        status = .operatorSetup
     }
     
     func acceptInput(_ input: InputCommand) {
@@ -45,6 +49,9 @@ class CalculatorStateMachine<OperandDef>
             rhs.acceptInput(input)
         case .waitingRhsInput:
             rhs.acceptInput(input)
+        case .resultCalculated:
+            rhs.acceptInput(.reset)
+            rhs.acceptInput(input)
         }
     }
     
@@ -54,18 +61,18 @@ class CalculatorStateMachine<OperandDef>
             // nothing to do
             break
         case .operatorSetup:
+            // use lhs as rhs
             rhs = lhs
-            status = .waitingLhsInput
         case .waitingRhsInput:
             break
+        case .resultCalculated:
+            // reuse the result and repeat calculation.
+            lhs = result
+            return
         }
         
-        result = operators?(lhs, rhs)
-        if let theResult = result {
-            lhs = theResult
-        }
-        // always turn to this status.
-        status = .waitingLhsInput
+        doCalculation()
+        status = .resultCalculated
     }
     
     func reset(_ toInitialValue: OperandDef? = nil) {
@@ -76,16 +83,26 @@ class CalculatorStateMachine<OperandDef>
             lhs.acceptInput(.reset)
         }
         rhs.acceptInput(.reset)
-        operators = nil
-        result = nil
+        operators = nilOperator
+        result = OperandDef.defaultValue
+    }
+    
+    private func doCalculation() {
+        result = operators(lhs, rhs)
+    }
+    
+    private var nilOperator: OperatorDef<OperandDef> {
+        { lhs, rhs in OperandDef.defaultValue }
     }
 }
 
-fileprivate enum CalculatorStatus {
+enum CalculatorStatus {
     /// Inputing the first operand
     case waitingLhsInput
     /// Already has an operator
     case operatorSetup
     /// Inputing the second operand
     case waitingRhsInput
+    /// Has receive the equeal command
+    case resultCalculated
 }
