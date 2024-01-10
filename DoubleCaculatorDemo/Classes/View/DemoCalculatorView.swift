@@ -10,14 +10,28 @@ import UIKit
 
 /// Display a single calculator
 class DemoCalculatorView: UIView {
+    struct Style {
+        static let spacing = 5.0
+    }
+    
     let resultLabel: UILabel = {
         let view = UILabel()
+        view.backgroundColor = .blue
         return view
     }()
     
     let operandLabel: UILabel = {
         let view = UILabel()
+        view.backgroundColor = .green
         return view
+    }()
+    
+    let inputWrapView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 5.0
+        stack.backgroundColor = .gray
+        return stack
     }()
     
     let commands: [[CommandKeyViewModel]]
@@ -36,18 +50,29 @@ class DemoCalculatorView: UIView {
         setupChildViews()
     }
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        let width = self.frame.width
+        let height = self.frame.height
         
+        let buttonSize = buttonSize(self.frame.width, spacing: Style.spacing, columns: commands.first?.count ?? 1)
+        let rows = commands.count
+        let inputAreaHeight = CGFloat(rows) * (buttonSize.height + Style.spacing) - Style.spacing
+        
+        resultLabel.frame = CGRect(x: 0, y: 0, width: width, height: (height - inputAreaHeight) * 0.75)
+        operandLabel.frame = CGRect(x: 0, y: resultLabel.frame.maxY, width: width, height: (height - inputAreaHeight) * 0.25)
+        inputWrapView.frame = CGRect(x: 0, y: operandLabel.frame.maxY, width: width, height: inputAreaHeight)
     }
         
     private func setupChildViews() {
-        
+        commandViews.forEach { view in
+            self.inputWrapView.addArrangedSubview(view)
+        }
     }
     
     private func buttonSize(_ width: CGFloat, spacing: CGFloat, columns: Int) -> CGSize {

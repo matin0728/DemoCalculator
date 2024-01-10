@@ -18,3 +18,8 @@ enum OperatorName: String {
     case addition        = "+"
     case substraction    = "-"
 }
+
+struct OperatorCategory {
+    let name: String
+    let operation: OperatorDef<Operand>
+}
