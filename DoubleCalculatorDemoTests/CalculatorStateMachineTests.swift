@@ -58,4 +58,26 @@ final class CalculatorStateMachineTests: XCTestCase {
         
         XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 4))
     }
+    
+    /// 1 + 2 x 3 =
+    func testItShouldFollowHumanPrinciple() throws {
+        machine.acceptInput(.digit(.one))
+        machine.setOperators(operators.operatorNamed(OperatorName.plus), name: OperatorName.plus)
+        machine.acceptInput(.digit(.two))
+        machine.setOperators(operators.operatorNamed(OperatorName.multiply), name: OperatorName.multiply)
+        machine.acceptInput(.digit(.three))
+        machine.calculateResult()
+        XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 9))
+    }
+    
+    /// 1 + 2 x 3 =
+    func testItShouldNotFollowMathimaticalPrinciple() throws {
+        machine.acceptInput(.digit(.one))
+        machine.setOperators(operators.operatorNamed(OperatorName.plus), name: OperatorName.plus)
+        machine.acceptInput(.digit(.two))
+        machine.setOperators(operators.operatorNamed(OperatorName.multiply), name: OperatorName.multiply)
+        machine.acceptInput(.digit(.three))
+        machine.calculateResult()
+        XCTAssertNotEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 7))
+    }
 }

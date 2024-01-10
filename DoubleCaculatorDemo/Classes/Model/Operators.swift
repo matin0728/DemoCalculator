@@ -25,6 +25,10 @@ class Operators {
         regist({ lhs, rhs in
             Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue))
         }, name: OperatorName.plus)
+        
+        regist({ lhs, rhs in
+            Operand(decimalNumber: lhs.decimalValue.multiplying(by: rhs.decimalValue))
+        }, name: OperatorName.multiply)
     }
     
     func operatorNamed(_ name: OperatorName) -> DemoOperator {

@@ -13,7 +13,7 @@ struct CommandKeyViewModel {
     let textColor: UIColor
     let backgroundColor: UIColor
     /// Default is 1, width multiplied by, WidthUnit = AvailableWidth / CommandPerline
-    let widthRatio: Int
-    /// the height ratio multiplied by width to calculate the height of button.
-    let heightRatio: CGFloat
+    let widthUnitRatio: Int
+    /// the height ratio multiplied by width to calculate the height of button, eg. 0.8 reslut 80% of width.
+    let heightWidthRatio: CGFloat
 }
