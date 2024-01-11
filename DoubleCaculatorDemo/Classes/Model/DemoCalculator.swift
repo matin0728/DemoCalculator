@@ -17,7 +17,16 @@ class DemoCalculator: CaculatorType {
     }
     
     var resultOutput: String {
-        result.stringValue
+        switch statusMachine.status {
+        case .waitingLhsInput:
+            return statusMachine.lhs.stringValue
+        case .operatorSetup:
+            return statusMachine.lhs.stringValue
+        case .waitingRhsInput:
+            return statusMachine.rhs.stringValue
+        case .resultCalculated:
+            return result.stringValue
+        }
     }
     
     var operandOutput: String {

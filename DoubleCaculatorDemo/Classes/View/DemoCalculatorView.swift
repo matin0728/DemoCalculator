@@ -12,7 +12,7 @@ import UIKit
 class DemoCalculatorView: UIView {
     struct Style {
         // Input & Output
-        static let resultLabelFontSize: CGFloat = 80.0
+        static let resultLabelFontSize: CGFloat = 160.0
         static let operandLabelfFontSize: CGFloat = 36.0
         static let sidePadding: CGFloat = 5.0
         // Keyboard
@@ -24,21 +24,26 @@ class DemoCalculatorView: UIView {
     
     private let resultLabel: UILabel = {
         let view = UILabel()
-        view.backgroundColor = .blue
+        view.text = "0"
+        // view.backgroundColor = .blue
         view.textColor = .white
+        view.lineBreakMode = .byTruncatingTail
         view.font = UIFont.systemFont(ofSize: Style.resultLabelFontSize, weight: .medium)
         view.adjustsFontSizeToFitWidth = true
-        view.minimumScaleFactor = 0.6
+        view.minimumScaleFactor = 0.3
         view.textAlignment = .right
         return view
     }()
     
     private let operandLabel: UILabel = {
         let view = UILabel()
-        view.backgroundColor = .green
+        view.text = "0"
+        // view.backgroundColor = .green
+        view.textColor = .white
+        view.lineBreakMode = .byTruncatingTail
         view.font = UIFont.systemFont(ofSize: Style.operandLabelfFontSize, weight: .medium)
         view.adjustsFontSizeToFitWidth = true
-        view.minimumScaleFactor = 0.6
+        view.minimumScaleFactor = 0.3
         return view
     }()
     
@@ -93,8 +98,10 @@ class DemoCalculatorView: UIView {
         let rows = commands.count
         let inputAreaHeight = CGFloat(rows) * (buttonSize.height + Style.spacing) - Style.spacing
         
-        resultLabel.frame = CGRect(x: Style.sidePadding, y: 0, width: width - Style.sidePadding, height: (height - inputAreaHeight) * 0.618)
-        operandLabel.frame = CGRect(x: Style.sidePadding, y: resultLabel.frame.maxY, width: width - Style.sidePadding, height: (height - inputAreaHeight) * 0.382)
+        let resultSpace = (height - inputAreaHeight) * 0.75
+        let resultHeight = Style.resultLabelFontSize * 1.05
+        resultLabel.frame = CGRect(x: Style.sidePadding, y: resultSpace - resultHeight, width: width - Style.sidePadding, height: resultHeight)
+        operandLabel.frame = CGRect(x: Style.sidePadding, y: resultLabel.frame.maxY, width: width - Style.sidePadding, height: (height - inputAreaHeight) * 0.25)
         inputWrapView.frame = CGRect(x: 0, y: operandLabel.frame.maxY, width: width, height: inputAreaHeight)
         if inputWrapView.arrangedSubviews.isEmpty {
             commandViews.forEach { view in

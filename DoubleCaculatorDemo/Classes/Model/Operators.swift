@@ -23,7 +23,7 @@ class Operators {
         }, name: OperatorName.reverse)
         
         regist({ lhs, rhs in
-            Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: -1))))
+            Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue))
         }, name: OperatorName.addition)
         
         regist({ lhs, rhs in
