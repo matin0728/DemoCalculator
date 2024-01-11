@@ -7,14 +7,6 @@
 
 import Foundation
 
-// TODO: PUT IN A SEPERATED FILE.
-struct Calculation<OperandDef> {
-    let lhs: OperandDef
-    let rhs: OperandDef
-    let result: OperandDef
-    let operators: OperatorDef<OperandDef>
-}
-
 class CalculatorStateMachine<OperandDef>
     where OperandDef: OperandType {
     private(set) var lhs: OperandDef
@@ -38,8 +30,6 @@ class CalculatorStateMachine<OperandDef>
         self.rhs = rhs
     }
     
-    
-    // done
     func setOperators(_ theOperator: @escaping OperatorDef<OperandDef>, name: OperatorName) {
         switch status {
         case .waitingLhsInput:
@@ -59,7 +49,6 @@ class CalculatorStateMachine<OperandDef>
         status = .operatorSetup
     }
     
-    // done!
     func acceptInput(_ input: InputCommand) {
         switch status {
         case .waitingLhsInput:
@@ -78,7 +67,6 @@ class CalculatorStateMachine<OperandDef>
         }
     }
     
-    // done
     func calculateResult() {
         switch status {
         case .waitingLhsInput:

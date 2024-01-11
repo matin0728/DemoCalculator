@@ -27,7 +27,7 @@ class DemoCalculatorView: UIView {
         view.text = "0"
         // view.backgroundColor = .blue
         view.textColor = .white
-        view.lineBreakMode = .byTruncatingTail
+        view.lineBreakMode = .byClipping
         view.font = UIFont.systemFont(ofSize: Style.resultLabelFontSize, weight: .medium)
         view.adjustsFontSizeToFitWidth = true
         view.minimumScaleFactor = 0.3
@@ -40,10 +40,10 @@ class DemoCalculatorView: UIView {
         view.text = "0"
         // view.backgroundColor = .green
         view.textColor = .white
-        view.lineBreakMode = .byTruncatingTail
+        view.lineBreakMode = .byClipping
         view.font = UIFont.systemFont(ofSize: Style.operandLabelfFontSize, weight: .medium)
         view.adjustsFontSizeToFitWidth = true
-        view.minimumScaleFactor = 0.3
+        view.minimumScaleFactor = 0.5
         return view
     }()
     

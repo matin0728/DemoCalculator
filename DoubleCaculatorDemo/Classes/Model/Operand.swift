@@ -23,7 +23,10 @@ final class Operand: OperandType {
     
     var hasDot = false
     var isNagative: Bool
+    
+    /// The left part before dot.
     var rhs: [Character] = []
+    /// The right part after dot.
     var lhs: [Character] = []
     
     var decimalValue: NSDecimalNumber {
