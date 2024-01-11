@@ -45,16 +45,21 @@ final class DemoCalculatorContainerView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         calculateLayoutMetric()
     }
     
     private func calculateLayoutMetric() {
         let containerSize = singleContainerSize(columnsInSingleOne: colums, spacing: gridSpacing)
-        
+        var layoutStackWidth = containerSize.width
         if self.frame.size.isPortrait {
-            layoutStack.frame = self.bounds
-            portrateLayout(singleContainerSize: containerSize)
+            if self.bounds.width / max(self.bounds.height, 1) > 0.618 {
+                let totalWidth = self.frame.size.width
+                layoutStackWidth = self.bounds.height * 0.618
+                layoutStack.frame = CGRect(x: (totalWidth - layoutStackWidth) / 2.0, y: 0, width: layoutStackWidth, height: containerSize.height)
+            } else {
+                layoutStack.frame = self.bounds
+            }
+            portrateLayout(singleContainerSize: CGSize(width: layoutStackWidth, height: containerSize.height))
         } else {
             let buttonSize = commandButtonSize(containerWidth: containerSize.width, columns: colums, spacing: gridSpacing)
             let barWidth = buttonSize.width + 2 * gridSpacing
