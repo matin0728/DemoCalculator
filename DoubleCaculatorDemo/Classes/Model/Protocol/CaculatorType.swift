@@ -24,6 +24,7 @@ protocol TransferableCaculatorType: CaculatorType {
     func transferFrom(_ caculator: Self)
 }
 
+// The transform behavior TBD
 //extension TransferableCaculatorType {
 //    mutating func transferFrom(_ caculator: Self) {
 //        self.result = caculator.result

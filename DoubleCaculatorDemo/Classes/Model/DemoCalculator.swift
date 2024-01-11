@@ -17,16 +17,21 @@ class DemoCalculator: CaculatorType {
     }
     
     var resultOutput: String {
+        var resultDecimalNumber = NSDecimalNumber(floatLiteral: 0)
         switch statusMachine.status {
         case .waitingLhsInput:
-            return statusMachine.lhs.stringValue
+            resultDecimalNumber = statusMachine.lhs.decimalValue
         case .operatorSetup:
-            return statusMachine.lhs.stringValue
+            resultDecimalNumber = statusMachine.lhs.decimalValue
         case .waitingRhsInput:
-            return statusMachine.rhs.stringValue
+            resultDecimalNumber = statusMachine.rhs.decimalValue
         case .resultCalculated:
-            return result.stringValue
+            resultDecimalNumber = result.decimalValue
         }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        return numberFormatter.string(from: resultDecimalNumber) ?? "0"
     }
     
     var operandOutput: String {
