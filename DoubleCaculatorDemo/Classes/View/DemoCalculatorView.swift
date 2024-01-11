@@ -11,6 +11,10 @@ import UIKit
 /// Display a single calculator
 class DemoCalculatorView: UIView {
     struct Style {
+        // Input & Output
+        static let resultLabelFontSize: CGFloat = 80.0
+        static let operandLabelfFontSize: CGFloat = 36.0
+        // Keyboard
         static let spacing = 5.0
         static let operationButtonTransformY: CGFloat = -6
         static let operationButtonFontSize: CGFloat = 52.0
@@ -20,12 +24,19 @@ class DemoCalculatorView: UIView {
     let resultLabel: UILabel = {
         let view = UILabel()
         view.backgroundColor = .blue
+        view.textColor = .white
+        view.font = UIFont.systemFont(ofSize: Style.resultLabelFontSize, weight: .medium)
+        view.adjustsFontSizeToFitWidth = true
+        view.minimumScaleFactor = 0.6
         return view
     }()
     
     let operandLabel: UILabel = {
         let view = UILabel()
         view.backgroundColor = .green
+        view.font = UIFont.systemFont(ofSize: Style.operandLabelfFontSize, weight: .medium)
+        view.adjustsFontSizeToFitWidth = true
+        view.minimumScaleFactor = 0.6
         return view
     }()
     
