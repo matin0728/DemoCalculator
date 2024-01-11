@@ -21,7 +21,7 @@ class DemoCalculatorView: UIView {
         static let defaultButtonFontSize: CGFloat = 42.0
     }
     
-    let resultLabel: UILabel = {
+    private let resultLabel: UILabel = {
         let view = UILabel()
         view.backgroundColor = .blue
         view.textColor = .white
@@ -31,7 +31,7 @@ class DemoCalculatorView: UIView {
         return view
     }()
     
-    let operandLabel: UILabel = {
+    private let operandLabel: UILabel = {
         let view = UILabel()
         view.backgroundColor = .green
         view.font = UIFont.systemFont(ofSize: Style.operandLabelfFontSize, weight: .medium)
@@ -40,7 +40,7 @@ class DemoCalculatorView: UIView {
         return view
     }()
     
-    let inputWrapView: UIStackView = {
+    private let inputWrapView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.spacing = 5.0
@@ -102,6 +102,15 @@ class DemoCalculatorView: UIView {
             }
         }
     }
+    
+    // MARK: - Interface
+    
+    func set(resultString: String, operandString: String) {
+        resultLabel.text = resultString
+        operandLabel.text = operandString
+    }
+    
+    // MARK: - Private
         
     private func setupChildViews() {
         self.addSubview(resultLabel)

@@ -19,6 +19,7 @@ class DemoCalculator: CaculatorType {
     var resultOutput: String {
         result.stringValue
     }
+    
     var operandOutput: String {
         var output: [String] = []
         switch statusMachine.status {
@@ -41,9 +42,10 @@ class DemoCalculator: CaculatorType {
         return output.joined(separator: " ")
     }
     
-    let statusMachine = CalculatorStateMachine(lhs: Operand(), rhs: Operand())
+    var updateCallback: (() -> Void)?
     
-    let supportedOperators: Operators
+    private let statusMachine = CalculatorStateMachine(lhs: Operand(), rhs: Operand())
+    private let supportedOperators: Operators
     
     init(operators: Operators) {
         supportedOperators = operators
@@ -70,7 +72,7 @@ class DemoCalculator: CaculatorType {
         onUpdate()
     }
     
-    func onUpdate() {
-        
+    private func onUpdate() {
+        updateCallback?()
     }
 }

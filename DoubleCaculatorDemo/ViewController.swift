@@ -14,9 +14,15 @@ class ViewController: UIViewController {
         return all
     }
     
-    lazy var calculator: DemoCalculator = DemoCalculator(operators: operators)
+    lazy var calculator: DemoCalculator = {
+        let theCalculator = DemoCalculator(operators: operators)
+        theCalculator.updateCallback = { [unowned self] in
+            self.refreshResultDisplay()
+        }
+        return theCalculator
+    }()
     
-    lazy var caculatorView = DemoCalculatorView(commands: KeyboardLayout.commands({ [unowned self] command in
+    lazy var calculatorView = DemoCalculatorView(commands: KeyboardLayout.commands({ [unowned self] command in
         self.calculator.execCommand(command)
     }))
 
@@ -33,7 +39,7 @@ class ViewController: UIViewController {
 //        print("Operand: \(demo.operandOutput)")
         
         view.backgroundColor = .black
-        view.addSubview(caculatorView)
+        view.addSubview(calculatorView)
     }
     
     override func viewWillLayoutSubviews() {
@@ -41,7 +47,11 @@ class ViewController: UIViewController {
         // Get the safe area insets
         let safeAreaInsets = view.safeAreaInsets
         let insets = UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + 20, right: safeAreaInsets.right)
-        caculatorView.frame = self.view.bounds.inset(by: insets)
+        calculatorView.frame = self.view.bounds.inset(by: insets)
+    }
+    
+    func refreshResultDisplay() {
+        calculatorView.set(resultString: calculator.resultOutput, operandString: calculator.operandOutput)
     }
 }
 

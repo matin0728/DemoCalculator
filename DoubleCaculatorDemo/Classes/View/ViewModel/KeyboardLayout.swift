@@ -50,16 +50,16 @@ struct KeyboardLayout {
                 backgroundColor: .orange, fontSize: operationFontSize, transformY: transformY)],
             // Row 2
             [CommandKeyViewModel(
-                command: .init(name: .digit(.seven),
-                               buttonText: "\(InputCommand.digit(.seven))",
+                command: .init(name: .digit(.four),
+                               buttonText: "\(InputCommand.digit(.four))",
                                 excutionCallback: excution)),
              CommandKeyViewModel(
-                command: .init(name: .digit(.eight),
-                               buttonText: "\(InputCommand.digit(.eight))",
+                command: .init(name: .digit(.five),
+                               buttonText: "\(InputCommand.digit(.five))",
                                 excutionCallback: excution)),
              CommandKeyViewModel(
-                command: .init(name: .digit(.nine),
-                               buttonText: "\(InputCommand.digit(.nine))",
+                command: .init(name: .digit(.six),
+                               buttonText: "\(InputCommand.digit(.six))",
                                excutionCallback: excution)),
              CommandKeyViewModel(
                 command: .init(name: .operators(.substraction),
@@ -68,16 +68,16 @@ struct KeyboardLayout {
                 backgroundColor: .orange, fontSize: operationFontSize, transformY: transformY)],
             // Row 3
             [CommandKeyViewModel(
-                command: .init(name: .digit(.seven),
-                               buttonText: "\(InputCommand.digit(.seven))",
+                command: .init(name: .digit(.one),
+                               buttonText: "\(InputCommand.digit(.one))",
                                 excutionCallback: excution)),
              CommandKeyViewModel(
-                command: .init(name: .digit(.eight),
-                               buttonText: "\(InputCommand.digit(.eight))",
+                command: .init(name: .digit(.two),
+                               buttonText: "\(InputCommand.digit(.two))",
                                 excutionCallback: excution)),
              CommandKeyViewModel(
-                command: .init(name: .digit(.nine),
-                               buttonText: "\(InputCommand.digit(.nine))",
+                command: .init(name: .digit(.three),
+                               buttonText: "\(InputCommand.digit(.three))",
                                excutionCallback: excution)),
              CommandKeyViewModel(
                 command: .init(name: .operators(.addition),
