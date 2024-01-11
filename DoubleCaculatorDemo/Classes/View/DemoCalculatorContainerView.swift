@@ -10,29 +10,17 @@ import UIKit
 
 /// The conainer for display two calculator at the same time.
 final class DemoCalculatorContainerView: UIView {
-    struct Style {
-        static let barPadding: CGFloat = 10.0
-    }
     let leftOneView: UIView
-    private lazy var leftWidthContraint = leftOneView.widthAnchor.constraint(equalToConstant: 0)
-    private lazy var leftHeightContraint = leftOneView.heightAnchor.constraint(equalToConstant: 0)
-    
     let middleBarView: UIView
-    private lazy var barWidthContraint = middleBarView.widthAnchor.constraint(equalToConstant: 0)
-    private lazy var barHeightContraint = middleBarView.heightAnchor.constraint(equalToConstant: 0)
-    
     let rightOneView: UIView
-    private lazy var rightWidthContraint = rightOneView.widthAnchor.constraint(equalToConstant: 0)
-    private lazy var rightHeightContraint = rightOneView.heightAnchor.constraint(equalToConstant: 0)
     
     var activeOne: UIView
     
-    private lazy var layoutStack: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [leftOneView, middleBarView, rightOneView])
-        view.spacing = 0 // Style.barPadding
-        view.axis = .horizontal
-        view.alignment = .fill
-        view.distribution = .equalSpacing
+    private lazy var layoutStack: UIView = {
+        let view = UIView()
+        view.addSubview(leftOneView)
+        view.addSubview(middleBarView)
+        view.addSubview(rightOneView)
         return view
     }()
     
@@ -49,7 +37,6 @@ final class DemoCalculatorContainerView: UIView {
         super.init(frame: .zero)
         
         addSubview(layoutStack)
-        setupSubviews()
     }
     
     required init?(coder: NSCoder) {
@@ -63,11 +50,8 @@ final class DemoCalculatorContainerView: UIView {
     }
     
     private func calculateLayoutMetric() {
-        print("TotalSize: \(self.frame.size)")
-        
         let containerSize = singleContainerSize(columnsInSingleOne: colums, spacing: gridSpacing)
         
-        print("Container: \(containerSize)")
         if self.frame.size.isPortrait {
             layoutStack.frame = self.bounds
             portrateLayout(singleContainerSize: containerSize)
@@ -84,7 +68,7 @@ final class DemoCalculatorContainerView: UIView {
     }
     
     private func portrateLayout(singleContainerSize: CGSize) {
-        updateUnitConstraite(singleContainerSize: singleContainerSize)
+        updatePortraitUnitSize(singleContainerSize)
         
         middleBarView.isHidden = true
         leftOneView.isHidden = (leftOneView != activeOne)
@@ -92,7 +76,7 @@ final class DemoCalculatorContainerView: UIView {
     }
     
     private func landscapeLayout(singleContainerSize: CGSize) {
-        updateUnitConstraite(singleContainerSize: singleContainerSize)
+        updateLandscapeUnitSize(singleContainerSize)
         updateBarConstraits(singleContainerSize: singleContainerSize)
         
         leftOneView.isHidden = false
@@ -101,28 +85,17 @@ final class DemoCalculatorContainerView: UIView {
     }
     
     private func updateBarConstraits(singleContainerSize: CGSize) {
-        barWidthContraint.constant = self.frame.size.width - singleContainerSize.width * 2 - 2 * Style.barPadding
-        barHeightContraint.constant = singleContainerSize.height
+        let buttonSize = commandButtonSize(containerWidth: singleContainerSize.width, columns: colums, spacing: gridSpacing)
+        middleBarView.frame = CGRect(x: leftOneView.frame.maxX, y: 0, width: buttonSize.width + 2 * gridSpacing, height: singleContainerSize.height)
     }
     
-    private func updateUnitConstraite(singleContainerSize: CGSize) {
-        leftWidthContraint.constant = singleContainerSize.width
-        leftHeightContraint.constant = singleContainerSize.height
-        
-        rightWidthContraint.constant = singleContainerSize.width
-        rightHeightContraint.constant = singleContainerSize.height
+    private func updatePortraitUnitSize(_ size: CGSize) {
+        activeOne.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
     }
     
-    private func setupSubviews() {
-        // Adding constraints
-        NSLayoutConstraint.activate([
-            leftWidthContraint,
-            leftHeightContraint,
-            barWidthContraint,
-            barHeightContraint,
-            rightWidthContraint,
-            rightHeightContraint
-        ])
+    private func updateLandscapeUnitSize(_ size: CGSize) {
+        leftOneView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        rightOneView.frame = CGRect(x: middleBarView.frame.maxX, y: 0, width: size.width, height: size.height)
     }
     
     private func singleContainerSize(columnsInSingleOne: Int, spacing: CGFloat) -> CGSize {
@@ -132,12 +105,7 @@ final class DemoCalculatorContainerView: UIView {
             return selfSize
         }
         
-        return CGSize(width: selfSize.height * 0.55, height: selfSize.height)
-        
-        // Lanscape layout
-//        let buttonWidth = (selfSize.width - CGFloat(columnsInSingleOne) * 2 * spacing) / (CGFloat(columnsInSingleOne) * 2 + 1)
-//        
-//        return CGSize(width: (buttonWidth + spacing) * CGFloat(columnsInSingleOne) - spacing, height: selfSize.height)
+        return CGSize(width: selfSize.height * 0.618, height: selfSize.height)
     }
     
     private func commandButtonSize(containerWidth: CGFloat, columns: Int, spacing: CGFloat) -> CGSize {

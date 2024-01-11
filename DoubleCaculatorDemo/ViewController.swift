@@ -14,14 +14,6 @@ class ViewController: UIViewController {
         return all
     }
     
-    /* lazy var calculator: DemoCalculator = {
-        let theCalculator = DemoCalculator(operators: operators)
-        theCalculator.updateCallback = { [unowned self] in
-            self.refreshResultDisplay()
-        }
-        return theCalculator
-    }() */
-    
     lazy var calculatorApp: DemoCalculatorApp = {
         let app = DemoCalculatorApp()
         app.leftOne.updateCallback = { [unowned self] in
@@ -39,36 +31,34 @@ class ViewController: UIViewController {
     
     lazy var lhsCalculatorView = DemoCalculatorView(commands: KeyboardLayout.commands({ [unowned self] command in
         self.calculatorApp.activeLeftOne()
+        self.containerView.activeOne = self.containerView.leftOneView
         self.calculatorApp.execCommmand(command)
     }))
     
     lazy var rhsCalculatorView = DemoCalculatorView(commands: KeyboardLayout.commands({ [unowned self] command in
         self.calculatorApp.activeRightOne()
+        self.containerView.activeOne = self.containerView.rightOneView
         self.calculatorApp.execCommmand(command)
     }))
     
-    var containerView: UIView = UIView()
+    lazy var barView: UIView = {
+        let bar = UIView(frame: .zero)
+        bar.backgroundColor = .orange
+        return bar
+    }()
+    
+    lazy var containerView: DemoCalculatorContainerView = {
+        DemoCalculatorContainerView(
+            leftOneView: lhsCalculatorView,
+            middleBarView: self.barView,
+            rightOneView: rhsCalculatorView)
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .black
-        
-        /* let left = UIView(frame: .zero)
-        left.backgroundColor = .red
-        
-        let right = UIView(frame: .zero)
-        right.backgroundColor = .blue */
-        
-        let bar = UIView(frame: .zero)
-        bar.backgroundColor = .orange
-        
-        let container = DemoCalculatorContainerView(
-            leftOneView: lhsCalculatorView,
-            middleBarView: bar,
-            rightOneView: rhsCalculatorView)
-        self.containerView = container
-        view.addSubview(container)
+        view.addSubview(containerView)
     }
     
     override func viewWillLayoutSubviews() {
@@ -76,13 +66,8 @@ class ViewController: UIViewController {
         // Get the safe area insets
         let safeAreaInsets = view.safeAreaInsets
         let insets = UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + 20, right: safeAreaInsets.right)
-        // calculatorView.frame = self.view.bounds.inset(by: insets)
         
         containerView.frame = self.view.bounds.inset(by: insets)
     }
-    
-//    func refreshResultDisplay() {
-//        calculatorView.set(resultString: calculator.resultOutput, operandString: calculator.operandOutput)
-//    }
 }
 
