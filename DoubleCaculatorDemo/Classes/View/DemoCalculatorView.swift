@@ -14,6 +14,7 @@ class DemoCalculatorView: UIView {
         // Input & Output
         static let resultLabelFontSize: CGFloat = 80.0
         static let operandLabelfFontSize: CGFloat = 36.0
+        static let sidePadding: CGFloat = 5.0
         // Keyboard
         static let spacing = 5.0
         static let operationButtonTransformY: CGFloat = -6
@@ -28,6 +29,7 @@ class DemoCalculatorView: UIView {
         view.font = UIFont.systemFont(ofSize: Style.resultLabelFontSize, weight: .medium)
         view.adjustsFontSizeToFitWidth = true
         view.minimumScaleFactor = 0.6
+        view.textAlignment = .right
         return view
     }()
     
@@ -91,8 +93,8 @@ class DemoCalculatorView: UIView {
         let rows = commands.count
         let inputAreaHeight = CGFloat(rows) * (buttonSize.height + Style.spacing) - Style.spacing
         
-        resultLabel.frame = CGRect(x: 0, y: 0, width: width, height: (height - inputAreaHeight) * 0.75)
-        operandLabel.frame = CGRect(x: 0, y: resultLabel.frame.maxY, width: width, height: (height - inputAreaHeight) * 0.25)
+        resultLabel.frame = CGRect(x: Style.sidePadding, y: 0, width: width - Style.sidePadding, height: (height - inputAreaHeight) * 0.618)
+        operandLabel.frame = CGRect(x: Style.sidePadding, y: resultLabel.frame.maxY, width: width - Style.sidePadding, height: (height - inputAreaHeight) * 0.382)
         inputWrapView.frame = CGRect(x: 0, y: operandLabel.frame.maxY, width: width, height: inputAreaHeight)
         if inputWrapView.arrangedSubviews.isEmpty {
             commandViews.forEach { view in

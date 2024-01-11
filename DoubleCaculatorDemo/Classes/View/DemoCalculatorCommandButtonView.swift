@@ -18,6 +18,8 @@ class DemoCalculatorCommandButtonView: UIButton {
         super.init(frame: .zero)
         
         setupFor(viewModel)
+        
+        self.addTarget(self, action: #selector(onTap), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
