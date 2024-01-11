@@ -14,49 +14,11 @@ class ViewController: UIViewController {
         return all
     }
     
-    var commands: [[CommandKeyViewModel]] {
-        let excution: (InputCommand) -> Void = { [unowned self] command in
-            self.calculator.execCommand(command)
-        }
-        return [
-            [CommandKeyViewModel(
-                command: .init(name: .reset,
-                               buttonText: "\(InputCommand.reset)",
-                               excutionCallback: excution)),
-             CommandKeyViewModel(
-                command: .init(name: .operators(.reverse),
-                               buttonText: OperatorName.reverse.rawValue,
-                                excutionCallback: excution)),
-             CommandKeyViewModel(
-                command: .init(name: .operators(.percent),
-                               buttonText: OperatorName.percent.rawValue,
-                                excutionCallback: excution)),
-             CommandKeyViewModel(
-                command: .init(name: .operators(.division),
-                               buttonText: OperatorName.division.rawValue,
-                                excutionCallback: excution))],
-            [CommandKeyViewModel(
-                command: .init(name: .digit(.seven),
-                               buttonText: "\(InputCommand.digit(.seven))",
-                                excutionCallback: excution)),
-             CommandKeyViewModel(
-                command: .init(name: .digit(.eight),
-                               buttonText: "\(InputCommand.digit(.eight))",
-                                excutionCallback: excution)),
-             CommandKeyViewModel(
-                command: .init(name: .digit(.nine),
-                               buttonText: "\(InputCommand.digit(.nine))",
-                               excutionCallback: excution)),
-             CommandKeyViewModel(
-                command: .init(name: .operators(.multiplication),
-                               buttonText: OperatorName.multiplication.rawValue,
-                                excutionCallback: excution), backgroundColor: .orange)]
-        ]
-    }
-    
     lazy var calculator: DemoCalculator = DemoCalculator(operators: operators)
     
-    lazy var caculatorView = DemoCalculatorView(commands: commands)
+    lazy var caculatorView = DemoCalculatorView(commands: KeyboardLayout.commands({ [unowned self] command in
+        self.calculator.execCommand(command)
+    }))
 
     override func viewDidLoad() {
         super.viewDidLoad()

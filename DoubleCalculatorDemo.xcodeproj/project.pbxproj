@@ -31,6 +31,7 @@
 		66E3B93E2B4D8D600072096D /* OperatorDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B93D2B4D8D600072096D /* OperatorDef.swift */; };
 		66E3B9402B4D8F0F0072096D /* KeyboardCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B93F2B4D8F0F0072096D /* KeyboardCommand.swift */; };
 		66E3B9422B4E706E0072096D /* CalculatorStateMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B9412B4E706E0072096D /* CalculatorStateMachineTests.swift */; };
+		66E3B9442B4F8BB40072096D /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B9432B4F8BB40072096D /* KeyboardLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		66E3B93D2B4D8D600072096D /* OperatorDef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorDef.swift; sourceTree = "<group>"; };
 		66E3B93F2B4D8F0F0072096D /* KeyboardCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCommand.swift; sourceTree = "<group>"; };
 		66E3B9412B4E706E0072096D /* CalculatorStateMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorStateMachineTests.swift; sourceTree = "<group>"; };
+		66E3B9432B4F8BB40072096D /* KeyboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 			children = (
 				66E3B92F2B4BB8220072096D /* CommandKeyViewModel.swift */,
 				66E3B93F2B4D8F0F0072096D /* KeyboardCommand.swift */,
+				66E3B9432B4F8BB40072096D /* KeyboardLayout.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				66E3B93E2B4D8D600072096D /* OperatorDef.swift in Sources */,
 				66E3B9342B4CF40B0072096D /* CalculatorStateMachine.swift in Sources */,
 				66E3B9322B4BBE440072096D /* DemoCalculatorCommandButtonView.swift in Sources */,
+				66E3B9442B4F8BB40072096D /* KeyboardLayout.swift in Sources */,
 				66E3B93C2B4D13180072096D /* OperandType.swift in Sources */,
 				66C72DAC2B4AD4310025DE10 /* AppDelegate.swift in Sources */,
 				66C72DE02B4AD51B0025DE10 /* CaculatorType.swift in Sources */,

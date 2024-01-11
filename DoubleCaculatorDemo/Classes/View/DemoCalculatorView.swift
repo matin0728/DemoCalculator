@@ -12,6 +12,9 @@ import UIKit
 class DemoCalculatorView: UIView {
     struct Style {
         static let spacing = 5.0
+        static let operationButtonTransformY: CGFloat = -6
+        static let operationButtonFontSize: CGFloat = 52.0
+        static let defaultButtonFontSize: CGFloat = 42.0
     }
     
     let resultLabel: UILabel = {
@@ -45,7 +48,7 @@ class DemoCalculatorView: UIView {
             let stackView = UIStackView(arrangedSubviews: $0.map( mapCommand ))
             stackView.axis = .horizontal
             stackView.spacing = 5.0
-            stackView.distribution = .fillEqually
+            stackView.distribution = .fill
             
             let heightConstraint = NSLayoutConstraint(item: stackView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: DemoCalculatorView.cachedButtonSize.height)
             NSLayoutConstraint.activate([heightConstraint])
@@ -103,6 +106,11 @@ class DemoCalculatorView: UIView {
 
 fileprivate func mapCommand(_ viewModel: CommandKeyViewModel) -> DemoCalculatorCommandButtonView {
     let button = DemoCalculatorCommandButtonView(viewModel: viewModel)
-    button.frame = CGRect(x: 0, y: 0, width: DemoCalculatorView.cachedButtonSize.width, height: DemoCalculatorView.cachedButtonSize.height)
+    button.frame = CGRect(x: 0, y: 0, width: DemoCalculatorView.cachedButtonSize.width * CGFloat(viewModel.widthUnitRatio) + CGFloat(viewModel.widthUnitRatio - 1) * DemoCalculatorView.Style.spacing, height: DemoCalculatorView.cachedButtonSize.height)
+    button.prefferedContentSize = button.frame.size
+    
+    let heightConstraint = NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: button.prefferedContentSize.height)
+    let widthConstraint = NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: button.prefferedContentSize.width)
+    NSLayoutConstraint.activate([widthConstraint, heightConstraint])
     return button
 }

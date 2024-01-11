@@ -11,6 +11,8 @@ import UIKit
 class DemoCalculatorCommandButtonView: UIButton {
     let viewModel: CommandKeyViewModel
     
+    var prefferedContentSize: CGSize = .zero
+    
     init(viewModel theViewModel: CommandKeyViewModel) {
         viewModel = theViewModel
         super.init(frame: .zero)
@@ -22,16 +24,27 @@ class DemoCalculatorCommandButtonView: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override var intrinsicContentSize: CGSize {
+        prefferedContentSize
+    }
+    
     @objc func onTap() {
         viewModel.command.excutionCallback?(viewModel.command.name)
     }
     
     func setupFor(_ viewModel: CommandKeyViewModel) {
-        titleLabel?.font = UIFont.systemFont(ofSize: 32, weight: .medium)
-        setTitle(viewModel.command.buttonText, for: .normal)
-        setTitleColor(viewModel.textColor, for: .normal)
         backgroundColor = viewModel.backgroundColor
         layer.cornerRadius = 16
         layer.masksToBounds = true
+        
+        var config = UIButton.Configuration.plain()
+        config.contentInsets = NSDirectionalEdgeInsets(top: viewModel.transformY, leading: 0, bottom: 0, trailing: 0)
+        
+        let attributs = AttributeContainer([
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: viewModel.fontSize, weight: .medium),
+            NSAttributedString.Key.foregroundColor: viewModel.textColor
+        ])
+        config.attributedTitle = AttributedString(viewModel.command.buttonText, attributes: attributs)
+        self.configuration = config
     }
 }

@@ -35,6 +35,4 @@ class DemoCalculatorApp {
     func execCommmand(_ command: InputCommand) {
         activeOne.execCommand(command)
     }
-    
-    
 }
