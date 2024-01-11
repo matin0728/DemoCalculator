@@ -18,21 +18,17 @@ class DemoCalculatorApp {
     lazy var leftOne = DemoCalculator(operators: operators)
     lazy var rightOne = DemoCalculator(operators: operators)
     
-    var isLeftOneActive = true
-    
-    var activeOne: DemoCalculator {
-        isLeftOneActive ? leftOne : rightOne
-    }
+    private lazy var activeCalculator: DemoCalculator = leftOne
     
     func activeLeftOne() {
-        isLeftOneActive = true
+        activeCalculator = leftOne
     }
     
     func activeRightOne() {
-        isLeftOneActive = false
+        activeCalculator = rightOne
     }
     
     func execCommmand(_ command: InputCommand) {
-        activeOne.execCommand(command)
+        activeCalculator.execCommand(command)
     }
 }

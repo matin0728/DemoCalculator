@@ -11,7 +11,7 @@ import UIKit
 class DemoCalculatorCommandButtonView: UIButton {
     let viewModel: CommandKeyViewModel
     
-    var prefferedContentSize: CGSize = .zero
+    // var prefferedContentSize: CGSize = .zero
     
     init(viewModel theViewModel: CommandKeyViewModel) {
         viewModel = theViewModel
@@ -26,9 +26,9 @@ class DemoCalculatorCommandButtonView: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override var intrinsicContentSize: CGSize {
-        prefferedContentSize
-    }
+//    override var intrinsicContentSize: CGSize {
+//        prefferedContentSize
+//    }
     
     @objc func onTap() {
         viewModel.command.excutionCallback?(viewModel.command.name)

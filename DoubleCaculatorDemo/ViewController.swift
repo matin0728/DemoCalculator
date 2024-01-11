@@ -14,45 +14,59 @@ class ViewController: UIViewController {
         return all
     }
     
-    lazy var calculator: DemoCalculator = {
+    /* lazy var calculator: DemoCalculator = {
         let theCalculator = DemoCalculator(operators: operators)
         theCalculator.updateCallback = { [unowned self] in
             self.refreshResultDisplay()
         }
         return theCalculator
+    }() */
+    
+    lazy var calculatorApp: DemoCalculatorApp = {
+        let app = DemoCalculatorApp()
+        app.leftOne.updateCallback = { [unowned self] in
+            self.lhsCalculatorView.set(
+                resultString: self.calculatorApp.leftOne.resultOutput,
+                operandString: self.calculatorApp.leftOne.operandOutput)
+        }
+        app.rightOne.updateCallback = { [unowned self] in
+            self.rhsCalculatorView.set(
+                resultString: self.calculatorApp.rightOne.resultOutput,
+                operandString: self.calculatorApp.rightOne.operandOutput)
+        }
+        return app
     }()
     
-    lazy var calculatorView = DemoCalculatorView(commands: KeyboardLayout.commands({ [unowned self] command in
-        self.calculator.execCommand(command)
+    lazy var lhsCalculatorView = DemoCalculatorView(commands: KeyboardLayout.commands({ [unowned self] command in
+        self.calculatorApp.activeLeftOne()
+        self.calculatorApp.execCommmand(command)
+    }))
+    
+    lazy var rhsCalculatorView = DemoCalculatorView(commands: KeyboardLayout.commands({ [unowned self] command in
+        self.calculatorApp.activeRightOne()
+        self.calculatorApp.execCommmand(command)
     }))
     
     var containerView: UIView = UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        let demo = DemoCalculator()
-//        demo.execCommand(.digit(.one))
-//        demo.execCommand(.operators(.addition))
-//        demo.execCommand(.digit(.one))
-//        demo.execCommand(.calculate)
-//        
-//        print("result: \(demo.resultOutput)")
-//        print("Operand: \(demo.operandOutput)")
         
         view.backgroundColor = .black
-        view.addSubview(calculatorView)
         
-        let left = UIView(frame: .zero)
+        /* let left = UIView(frame: .zero)
         left.backgroundColor = .red
         
         let right = UIView(frame: .zero)
-        right.backgroundColor = .blue
+        right.backgroundColor = .blue */
         
         let bar = UIView(frame: .zero)
         bar.backgroundColor = .orange
         
-        let container = DemoCalculatorContainerView(leftOneView: left, middleBarView: bar, rightOneView: right)
+        let container = DemoCalculatorContainerView(
+            leftOneView: lhsCalculatorView,
+            middleBarView: bar,
+            rightOneView: rhsCalculatorView)
         self.containerView = container
         view.addSubview(container)
     }
@@ -62,13 +76,13 @@ class ViewController: UIViewController {
         // Get the safe area insets
         let safeAreaInsets = view.safeAreaInsets
         let insets = UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + 20, right: safeAreaInsets.right)
-        calculatorView.frame = self.view.bounds.inset(by: insets)
+        // calculatorView.frame = self.view.bounds.inset(by: insets)
         
-        containerView.frame = calculatorView.frame
+        containerView.frame = self.view.bounds.inset(by: insets)
     }
     
-    func refreshResultDisplay() {
-        calculatorView.set(resultString: calculator.resultOutput, operandString: calculator.operandOutput)
-    }
+//    func refreshResultDisplay() {
+//        calculatorView.set(resultString: calculator.resultOutput, operandString: calculator.operandOutput)
+//    }
 }
 

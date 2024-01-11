@@ -20,6 +20,7 @@ class DemoCalculatorView: UIView {
         static let operationButtonTransformY: CGFloat = -6
         static let operationButtonFontSize: CGFloat = 52.0
         static let defaultButtonFontSize: CGFloat = 42.0
+        static let buttonHeightRatio: CGFloat = 0.8
     }
     
     private let resultLabel: UILabel = {
@@ -57,6 +58,9 @@ class DemoCalculatorView: UIView {
         return stack
     }()
     
+    private var rowHeightConstraits: [NSLayoutConstraint] = []
+    private var commandButtonConstraits: [DemoCalculatorCommandButtonView : NSLayoutConstraint] = [:]
+    
     let commands: [[CommandKeyViewModel]]
     
     static fileprivate var cachedButtonSize: CGSize = CGSize(width: 32, height: 32)
@@ -67,9 +71,10 @@ class DemoCalculatorView: UIView {
             stackView.axis = .horizontal
             stackView.spacing = 5.0
             stackView.distribution = .fill
+            stackView.alignment = .fill
             
-            let heightConstraint = NSLayoutConstraint(item: stackView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: DemoCalculatorView.cachedButtonSize.height)
-            NSLayoutConstraint.activate([heightConstraint])
+//            let heightConstraint = NSLayoutConstraint(item: stackView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: DemoCalculatorView.cachedButtonSize.height)
+//            NSLayoutConstraint.activate([heightConstraint])
             
             return stackView
         })
@@ -107,7 +112,19 @@ class DemoCalculatorView: UIView {
             commandViews.forEach { view in
                 self.inputWrapView.addArrangedSubview(view)
                 let heightConstraint = NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: DemoCalculatorView.cachedButtonSize.height)
+                self.rowHeightConstraits.append(heightConstraint)
                 NSLayoutConstraint.activate([heightConstraint])
+            }
+        } else {
+            // refresh layout
+            rowHeightConstraits.forEach { cons in
+                cons.constant = DemoCalculatorView.cachedButtonSize.height
+            }
+            commandButtonConstraits.keys.forEach { theKey in
+                let viewModel = theKey.viewModel
+                let width = DemoCalculatorView.cachedButtonSize.width * CGFloat(viewModel.widthUnitRatio) + CGFloat(viewModel.widthUnitRatio - 1) * DemoCalculatorView.Style.spacing
+                let constraits = commandButtonConstraits[theKey]
+                constraits?.constant = width
             }
         }
     }
@@ -129,10 +146,29 @@ class DemoCalculatorView: UIView {
     
     private func buttonSize(_ width: CGFloat, spacing: CGFloat, columns: Int) -> CGSize {
         let theWidth = (width - CGFloat(columns - 1) * spacing) / CGFloat(columns)
-        return CGSize(width: theWidth, height: theWidth * 0.8)
+        return CGSize(width: theWidth, height: theWidth * Style.buttonHeightRatio)
     }
+    
+    private func mapCommand(_ viewModel: CommandKeyViewModel) -> DemoCalculatorCommandButtonView {
+        let button = DemoCalculatorCommandButtonView(viewModel: viewModel)
+        // button.frame = CGRect(x: 0, y: 0, width: DemoCalculatorView.cachedButtonSize.width * CGFloat(viewModel.widthUnitRatio) + CGFloat(viewModel.widthUnitRatio - 1) * DemoCalculatorView.Style.spacing, height: DemoCalculatorView.cachedButtonSize.height)
+        // button.prefferedContentSize = button.frame.size
+        
+        let theSize = CGSize(width: DemoCalculatorView.cachedButtonSize.width * CGFloat(viewModel.widthUnitRatio) + CGFloat(viewModel.widthUnitRatio - 1) * DemoCalculatorView.Style.spacing, height: DemoCalculatorView.cachedButtonSize.height)
+        
+        // let heightConstraint = NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: button.prefferedContentSize.height)
+        let widthConstraint = NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: theSize.width)
+        
+        // Store the width constrats to cache.
+        commandButtonConstraits[button] = widthConstraint
+        
+        NSLayoutConstraint.activate([widthConstraint])
+        return button
+    }
+
 }
 
+/*
 fileprivate func mapCommand(_ viewModel: CommandKeyViewModel) -> DemoCalculatorCommandButtonView {
     let button = DemoCalculatorCommandButtonView(viewModel: viewModel)
     button.frame = CGRect(x: 0, y: 0, width: DemoCalculatorView.cachedButtonSize.width * CGFloat(viewModel.widthUnitRatio) + CGFloat(viewModel.widthUnitRatio - 1) * DemoCalculatorView.Style.spacing, height: DemoCalculatorView.cachedButtonSize.height)
@@ -142,4 +178,4 @@ fileprivate func mapCommand(_ viewModel: CommandKeyViewModel) -> DemoCalculatorC
     let widthConstraint = NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: button.prefferedContentSize.width)
     NSLayoutConstraint.activate([widthConstraint, heightConstraint])
     return button
-}
+}*/

@@ -32,7 +32,7 @@ final class DemoCalculatorContainerView: UIView {
         view.spacing = 0 // Style.barPadding
         view.axis = .horizontal
         view.alignment = .fill
-        view.distribution = .fill
+        view.distribution = .equalSpacing
         return view
     }()
     
@@ -59,12 +59,26 @@ final class DemoCalculatorContainerView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        layoutStack.frame = self.bounds
+        calculateLayoutMetric()
+    }
+    
+    private func calculateLayoutMetric() {
+        print("TotalSize: \(self.frame.size)")
         
         let containerSize = singleContainerSize(columnsInSingleOne: colums, spacing: gridSpacing)
+        
+        print("Container: \(containerSize)")
         if self.frame.size.isPortrait {
+            layoutStack.frame = self.bounds
             portrateLayout(singleContainerSize: containerSize)
         } else {
+            let buttonSize = commandButtonSize(containerWidth: containerSize.width, columns: colums, spacing: gridSpacing)
+            let barWidth = buttonSize.width + 2 * gridSpacing
+            
+            let totalWidth = self.frame.size.width
+            let layoutStackWidth = 2.0 * containerSize.width + barWidth
+            layoutStack.frame = CGRect(x: (totalWidth - layoutStackWidth) / 2.0, y: 0, width: layoutStackWidth, height: containerSize.height)
+            
             landscapeLayout(singleContainerSize: containerSize)
         }
     }
@@ -118,9 +132,18 @@ final class DemoCalculatorContainerView: UIView {
             return selfSize
         }
         
-        // Lanscape layout
-        let buttonWidth = (selfSize.width - CGFloat(columnsInSingleOne) * 2 * spacing) / (CGFloat(columnsInSingleOne) * 2 + 1)
+        return CGSize(width: selfSize.height * 0.55, height: selfSize.height)
         
-        return CGSize(width: (buttonWidth + spacing) * CGFloat(columnsInSingleOne) - spacing, height: selfSize.height)
+        // Lanscape layout
+//        let buttonWidth = (selfSize.width - CGFloat(columnsInSingleOne) * 2 * spacing) / (CGFloat(columnsInSingleOne) * 2 + 1)
+//        
+//        return CGSize(width: (buttonWidth + spacing) * CGFloat(columnsInSingleOne) - spacing, height: selfSize.height)
+    }
+    
+    private func commandButtonSize(containerWidth: CGFloat, columns: Int, spacing: CGFloat) -> CGSize {
+        let buttonWidth = (containerWidth - CGFloat(columns - 1) * spacing) / CGFloat(columns)
+        return CGSize(
+            width: buttonWidth,
+            height: DemoCalculatorView.Style.buttonHeightRatio * buttonWidth)
     }
 }
