@@ -18,7 +18,7 @@ class DemoCalculatorApp {
     lazy var leftOne = DemoCalculator(operators: operators)
     lazy var rightOne = DemoCalculator(operators: operators)
     
-    private lazy var activeCalculator: DemoCalculator = leftOne
+    lazy var activeCalculator: DemoCalculator = leftOne
     
     func activeLeftOne() {
         activeCalculator = leftOne

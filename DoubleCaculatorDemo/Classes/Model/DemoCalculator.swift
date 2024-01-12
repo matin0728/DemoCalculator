@@ -8,7 +8,7 @@
 import Foundation
 
 
-class DemoCalculator: CaculatorType {    
+class DemoCalculator: TransferableCaculatorType {
     typealias Result = Operand
     typealias Command = InputCommand
     
@@ -58,7 +58,7 @@ class DemoCalculator: CaculatorType {
     
     var updateCallback: (() -> Void)?
     
-    private let statusMachine = CalculatorStateMachine(lhs: Operand(), rhs: Operand())
+    private var statusMachine = CalculatorStateMachine(lhs: Operand(), rhs: Operand())
     private let supportedOperators: Operators
     
     init(operators: Operators) {
@@ -82,7 +82,16 @@ class DemoCalculator: CaculatorType {
             statusMachine.setOperators(theOperator, name: theOperatorName)
         case .reset:
             statusMachine.reset()
+        case .transferToRight:
+            break
+        case .transferLeft:
+            break
         }
+        onUpdate()
+    }
+    
+    func transferFrom(_ caculator: DemoCalculator) {
+        statusMachine = caculator.statusMachine
         onUpdate()
     }
     

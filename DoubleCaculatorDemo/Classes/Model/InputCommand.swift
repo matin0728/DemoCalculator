@@ -30,6 +30,8 @@ enum InputCommand: CustomStringConvertible {
     case operators(OperatorName)
     case reset // AC
     case calculate
+    case transferToRight
+    case transferLeft
     
     var description: String {
         switch self {
@@ -47,7 +49,11 @@ enum InputCommand: CustomStringConvertible {
             return ops.rawValue
         case .calculate:
             return "="
+        case .transferLeft:
+            break
+        case .transferToRight:
+            break
         }
-        return "TODO"
+        return ""
     }
 }

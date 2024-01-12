@@ -129,6 +129,10 @@ final class Operand: OperandType {
         case .operators(_):
             assert(false)
             break
+        case .transferToRight:
+            break
+        case .transferLeft:
+            break
         }
     }
 }
