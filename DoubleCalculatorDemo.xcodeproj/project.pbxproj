@@ -35,6 +35,8 @@
 		66E3B9462B4FB0EF0072096D /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B9452B4FB0EF0072096D /* Calculation.swift */; };
 		66E3B9482B4FDD5D0072096D /* DemoCalculatorContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B9472B4FDD5D0072096D /* DemoCalculatorContainerView.swift */; };
 		66E3B94B2B4FE3620072096D /* CGSize+DemoAddition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E3B94A2B4FE3620072096D /* CGSize+DemoAddition.swift */; };
+		66E9B7272B50F57800BDAC01 /* DemoMiddleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7262B50F57800BDAC01 /* DemoMiddleBarView.swift */; };
+		66E9B7292B51386600BDAC01 /* BaseCommandButtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7282B51386600BDAC01 /* BaseCommandButtionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		66E3B9452B4FB0EF0072096D /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
 		66E3B9472B4FDD5D0072096D /* DemoCalculatorContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCalculatorContainerView.swift; sourceTree = "<group>"; };
 		66E3B94A2B4FE3620072096D /* CGSize+DemoAddition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+DemoAddition.swift"; sourceTree = "<group>"; };
+		66E9B7262B50F57800BDAC01 /* DemoMiddleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMiddleBarView.swift; sourceTree = "<group>"; };
+		66E9B7282B51386600BDAC01 /* BaseCommandButtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCommandButtionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,8 @@
 				66E3B92C2B4BB7910072096D /* DemoCalculatorView.swift */,
 				66E3B9312B4BBE440072096D /* DemoCalculatorCommandButtonView.swift */,
 				66E3B9472B4FDD5D0072096D /* DemoCalculatorContainerView.swift */,
+				66E9B7262B50F57800BDAC01 /* DemoMiddleBarView.swift */,
+				66E9B7282B51386600BDAC01 /* BaseCommandButtionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -374,7 +380,9 @@
 				66E3B9402B4D8F0F0072096D /* KeyboardCommand.swift in Sources */,
 				66E3B9462B4FB0EF0072096D /* Calculation.swift in Sources */,
 				66E3B92B2B4BB4810072096D /* DemoCalculatorApp.swift in Sources */,
+				66E9B7292B51386600BDAC01 /* BaseCommandButtionView.swift in Sources */,
 				66C72DB02B4AD4310025DE10 /* ViewController.swift in Sources */,
+				66E9B7272B50F57800BDAC01 /* DemoMiddleBarView.swift in Sources */,
 				66E3B9302B4BB8220072096D /* CommandKeyViewModel.swift in Sources */,
 				66E3B93E2B4D8D600072096D /* OperatorDef.swift in Sources */,
 				66E3B9342B4CF40B0072096D /* CalculatorStateMachine.swift in Sources */,
@@ -500,7 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -557,7 +565,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

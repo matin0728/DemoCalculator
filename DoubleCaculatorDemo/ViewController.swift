@@ -41,9 +41,15 @@ class ViewController: UIViewController {
         self.calculatorApp.execCommmand(command)
     }))
     
-    lazy var barView: UIView = {
-        let bar = UIView(frame: .zero)
-        bar.backgroundColor = .orange
+    lazy var barView: DemoMiddleBarView = {
+        let bar = DemoMiddleBarView(toLeftButtonCommand: KeyboardCommand(name: .reset, buttonText: "", excutionCallback: { command in
+            
+        }), toRightCommand: KeyboardCommand(name: .reset, buttonText: "", excutionCallback: { command in
+            
+        }), deleteCommand: KeyboardCommand(name: .reset, buttonText: "", excutionCallback: { command in
+            
+        }))
+        bar.backgroundColor = .white
         return bar
     }()
     

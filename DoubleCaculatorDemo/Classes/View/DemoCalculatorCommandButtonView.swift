@@ -8,30 +8,17 @@
 import Foundation
 import UIKit
 
-class DemoCalculatorCommandButtonView: UIButton {
+class DemoCalculatorCommandButtonView: BaseCommandButtionView {
     let viewModel: CommandKeyViewModel
-    
-    // var prefferedContentSize: CGSize = .zero
-    
+        
     init(viewModel theViewModel: CommandKeyViewModel) {
         viewModel = theViewModel
-        super.init(frame: .zero)
-        
+        super.init(command: viewModel.command)
         setupFor(viewModel)
-        
-        self.addTarget(self, action: #selector(onTap), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-//    override var intrinsicContentSize: CGSize {
-//        prefferedContentSize
-//    }
-    
-    @objc func onTap() {
-        viewModel.command.excutionCallback?(viewModel.command.name)
     }
     
     func setupFor(_ viewModel: CommandKeyViewModel) {
