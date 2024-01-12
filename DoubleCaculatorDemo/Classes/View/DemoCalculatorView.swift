@@ -26,7 +26,6 @@ class DemoCalculatorView: UIView {
     private let resultLabel: UILabel = {
         let view = UILabel()
         view.text = "0"
-        // view.backgroundColor = .blue
         view.textColor = .white
         view.lineBreakMode = .byClipping
         view.font = UIFont.systemFont(ofSize: Style.resultLabelFontSize, weight: .medium)
@@ -39,7 +38,6 @@ class DemoCalculatorView: UIView {
     private let operandLabel: UILabel = {
         let view = UILabel()
         view.text = "0"
-        // view.backgroundColor = .green
         view.textColor = .white
         view.lineBreakMode = .byClipping
         view.font = UIFont.systemFont(ofSize: Style.operandLabelfFontSize, weight: .medium)
@@ -101,7 +99,7 @@ class DemoCalculatorView: UIView {
         DemoCalculatorView.cachedButtonSize = buttonSize
         
         let rows = commands.count
-        let inputAreaHeight = CGFloat(rows) * (buttonSize.height + Style.spacing) - Style.spacing
+        let inputAreaHeight = DemoCalculatorView.keyboardHeight(rows: rows, buttonSize: buttonSize, padding: Style.spacing)
         
         let resultSpace = (height - inputAreaHeight) * 0.75
         let resultHeight = Style.resultLabelFontSize * 1.05
@@ -136,6 +134,10 @@ class DemoCalculatorView: UIView {
         operandLabel.text = operandString
     }
     
+    static func keyboardHeight(rows: Int, buttonSize: CGSize, padding: CGFloat) -> CGFloat {
+        CGFloat(rows) * (buttonSize.height + Style.spacing) - padding
+    }
+    
     // MARK: - Private
         
     private func setupChildViews() {
@@ -151,12 +153,9 @@ class DemoCalculatorView: UIView {
     
     private func mapCommand(_ viewModel: CommandKeyViewModel) -> DemoCalculatorCommandButtonView {
         let button = DemoCalculatorCommandButtonView(viewModel: viewModel)
-        // button.frame = CGRect(x: 0, y: 0, width: DemoCalculatorView.cachedButtonSize.width * CGFloat(viewModel.widthUnitRatio) + CGFloat(viewModel.widthUnitRatio - 1) * DemoCalculatorView.Style.spacing, height: DemoCalculatorView.cachedButtonSize.height)
-        // button.prefferedContentSize = button.frame.size
         
         let theSize = CGSize(width: DemoCalculatorView.cachedButtonSize.width * CGFloat(viewModel.widthUnitRatio) + CGFloat(viewModel.widthUnitRatio - 1) * DemoCalculatorView.Style.spacing, height: DemoCalculatorView.cachedButtonSize.height)
         
-        // let heightConstraint = NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: button.prefferedContentSize.height)
         let widthConstraint = NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: theSize.width)
         
         // Store the width constrats to cache.
@@ -167,15 +166,3 @@ class DemoCalculatorView: UIView {
     }
 
 }
-
-/*
-fileprivate func mapCommand(_ viewModel: CommandKeyViewModel) -> DemoCalculatorCommandButtonView {
-    let button = DemoCalculatorCommandButtonView(viewModel: viewModel)
-    button.frame = CGRect(x: 0, y: 0, width: DemoCalculatorView.cachedButtonSize.width * CGFloat(viewModel.widthUnitRatio) + CGFloat(viewModel.widthUnitRatio - 1) * DemoCalculatorView.Style.spacing, height: DemoCalculatorView.cachedButtonSize.height)
-    button.prefferedContentSize = button.frame.size
-    
-    let heightConstraint = NSLayoutConstraint(item: button, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: button.prefferedContentSize.height)
-    let widthConstraint = NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: button.prefferedContentSize.width)
-    NSLayoutConstraint.activate([widthConstraint, heightConstraint])
-    return button
-}*/

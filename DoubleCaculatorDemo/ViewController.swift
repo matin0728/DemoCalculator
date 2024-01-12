@@ -51,7 +51,6 @@ class ViewController: UIViewController {
         }), deleteCommand: KeyboardCommand(name: .reset, buttonText: "", excutionCallback: { command in
             self.calculatorApp.activeCalculator.execCommand(command)
         }))
-        bar.backgroundColor = .white
         return bar
     }()
     
@@ -71,11 +70,15 @@ class ViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        
         // Get the safe area insets
         let safeAreaInsets = view.safeAreaInsets
         let insets = UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + 20, right: safeAreaInsets.right)
         
         containerView.frame = self.view.bounds.inset(by: insets)
+        let keyboardHeight = containerView.keyboardHeight(rows: KeyboardLayout.commands({ _ in
+        }).count)
+        barView.paddingTop = containerView.frame.size.height - keyboardHeight
     }
 }
 

@@ -48,6 +48,12 @@ final class DemoCalculatorContainerView: UIView {
         calculateLayoutMetric()
     }
     
+    func keyboardHeight(rows: Int) -> CGFloat {
+        let containerSize = singleContainerSize(columnsInSingleOne: colums, spacing: gridSpacing)
+        let buttonSize = commandButtonSize(containerWidth: containerSize.width, columns: colums, spacing: DemoCalculatorView.Style.spacing)
+        return DemoCalculatorView.keyboardHeight(rows: rows, buttonSize: buttonSize, padding: DemoCalculatorView.Style.spacing)
+    }
+    
     private func calculateLayoutMetric() {
         let containerSize = singleContainerSize(columnsInSingleOne: colums, spacing: gridSpacing)
         var layoutStackWidth = containerSize.width
