@@ -70,10 +70,6 @@ class DemoCalculatorView: UIView {
             stackView.spacing = 5.0
             stackView.distribution = .fill
             stackView.alignment = .fill
-            
-//            let heightConstraint = NSLayoutConstraint(item: stackView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: DemoCalculatorView.cachedButtonSize.height)
-//            NSLayoutConstraint.activate([heightConstraint])
-            
             return stackView
         })
     }()

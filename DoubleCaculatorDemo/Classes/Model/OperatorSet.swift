@@ -18,19 +18,19 @@ class OperaterSet {
     }()
     
     static let division: OperandOperater = {
-        OperandOperater(name: .multiplication) { lhs, rhs in
+        OperandOperater(name: .division) { lhs, rhs in
             Operand(decimalNumber: lhs.decimalValue.dividing(by: rhs.decimalValue))
         }
     }()
     
     static let addition: OperandOperater = {
-        OperandOperater(name: .multiplication) { lhs, rhs in
+        OperandOperater(name: .addition) { lhs, rhs in
             Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue))
         }
     }()
     
     static let substraction: OperandOperater = {
-        OperandOperater(name: .multiplication) { lhs, rhs in
+        OperandOperater(name: .substraction) { lhs, rhs in
             Operand(decimalNumber: lhs.decimalValue.subtracting(rhs.decimalValue))
         }
     }()
