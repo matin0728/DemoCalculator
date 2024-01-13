@@ -9,20 +9,14 @@ import Foundation
 
 /// Response for organize the two calculator
 class DemoCalculatorApp {
-    var operators: Operators {
-        let all = Operators()
-        all.loadDefaultOperator()
-        return all
-    }
-    
     lazy var leftOne = DemoCalculator { [unowned self] name in
-        operators.operaterNamed(name)
+        OperaterSet.operaterNamed(name)
     } transformerMapper: { name in
         OperandTransformerSet.transformerNamed(name)
     }
 
     lazy var rightOne = DemoCalculator{ [unowned self] name in
-        operators.operaterNamed(name)
+        OperaterSet.operaterNamed(name)
     } transformerMapper: { name in
         OperandTransformerSet.transformerNamed(name)
     }

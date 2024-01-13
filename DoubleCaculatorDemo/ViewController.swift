@@ -8,12 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var operators: Operators {
-        let all = Operators()
-        all.loadDefaultOperator()
-        return all
-    }
-    
     lazy var calculatorApp: DemoCalculatorApp = {
         let app = DemoCalculatorApp()
         app.leftOne.updateCallback = { [unowned self] in

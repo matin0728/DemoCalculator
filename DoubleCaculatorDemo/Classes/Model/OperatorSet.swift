@@ -9,66 +9,50 @@ import Foundation
 
 typealias DemoOperator = OperatorDef<Operand>
 
-/// Extensible operators, you can regist new operator in the future.
-class Operators {
-    private var allOperators: [OperatorName: DemoOperator] = [:]
-    
-    func regist(_ operators: @escaping DemoOperator, name: OperatorName) {
-        allOperators[name] = operators
-    }
-    
-    func loadDefaultOperator() {
-        
-        regist({ lhs, rhs in
-            Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue))
-        }, name: OperatorName.addition)
-        
-        regist({ lhs, rhs in
-            Operand(decimalNumber: lhs.decimalValue.subtracting(rhs.decimalValue))
-        }, name: OperatorName.substraction)
-        
-        regist({ lhs, rhs in
-            Operand(decimalNumber: lhs.decimalValue.multiplying(by: rhs.decimalValue))
-        }, name: OperatorName.multiplication)
-        
-        regist({ lhs, rhs in
-            Operand(decimalNumber: lhs.decimalValue.dividing(by: rhs.decimalValue))
-        }, name: OperatorName.division)
-    }
-    
-    func operatorNamed(_ name: OperatorName) -> DemoOperator {
-        allOperators[name] ?? nilOperator
-    }
-    
-    func operaterNamed(_ name: OperatorName) -> OperandOperater {
-        OperandOperater(name: name, operation: allOperators[name] ?? nilOperator)
-    }
-    
-    private var nilOperator: DemoOperator {
-        return { lhs, rhs in
-            Operand()
-        }
-    }
-}
-
+/// Extensible operators, you can add new operator in the future.
 class OperaterSet {
     static let multiplication: OperandOperater = {
         OperandOperater(name: .multiplication) { lhs, rhs in
             Operand(decimalNumber: lhs.decimalValue.multiplying(by: rhs.decimalValue))
         }
     }()
+    
+    static let division: OperandOperater = {
+        OperandOperater(name: .multiplication) { lhs, rhs in
+            Operand(decimalNumber: lhs.decimalValue.dividing(by: rhs.decimalValue))
+        }
+    }()
+    
+    static let addition: OperandOperater = {
+        OperandOperater(name: .multiplication) { lhs, rhs in
+            Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue))
+        }
+    }()
+    
+    static let substraction: OperandOperater = {
+        OperandOperater(name: .multiplication) { lhs, rhs in
+            Operand(decimalNumber: lhs.decimalValue.subtracting(rhs.decimalValue))
+        }
+    }()
+    
+    static let unknown: OperandOperater = {
+        OperandOperater(name: .unknown) { lhs, rhs in
+            Operand(decimalNumber: NSDecimalNumber(floatLiteral: 0))
+        }
+    }()
+    
     static func operaterNamed(_ name: OperatorName) -> OperandOperater {
         switch name {
         case .unknown:
-            return multiplication
+            return unknown
         case .division:
-            return multiplication
+            return division
         case .multiplication:
             return multiplication
         case .addition:
-            return multiplication
+            return addition
         case .substraction:
-            return multiplication
+            return substraction
         }
     }
 }
