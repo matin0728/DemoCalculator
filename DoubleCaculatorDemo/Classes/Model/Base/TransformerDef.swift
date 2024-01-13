@@ -14,7 +14,7 @@ enum TransformerName: String {
 
 typealias TransformFunc<T> = (inout T) -> Void
 
-/// A transformer can be apply for a operand or Result if result has been calculate, we treat it as another calculation.
+/// A transformer can be applied for a operand or Result if result has been calculate, we treat it as another calculation.
 class Transformer<T> {
     let name: TransformerName
     /// When apply to lhs / rhs, using the transforming.
