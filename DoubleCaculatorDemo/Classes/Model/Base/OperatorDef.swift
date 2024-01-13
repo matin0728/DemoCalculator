@@ -25,4 +25,13 @@ class Operater<T> {
         self.name = name
         self.operation = operation
     }
+    static var nilOperation: OperatorDef<T> {
+        { lhs, _ in
+            return lhs
+        }
+    }
+    
+    static var nilOperator: Operater<T> {
+        Operater(name: .unknown, operation: Operater.nilOperation)
+    }
 }

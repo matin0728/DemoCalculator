@@ -7,13 +7,15 @@
 
 import Foundation
 
+/// The calculation state transfer management.
 class CalculatorStateMachine<OperandDef>
     where OperandDef: OperandType {
     private(set) var lhs: OperandDef
     private(set) var rhs: OperandDef
-    private(set) lazy var operators = nilOperator
-    private(set) var operatorsName: OperatorName = .unknown
+    
     private(set) var result: OperandDef = OperandDef.defaultValue
+    
+    private(set) lazy var currentOperator: Operater<OperandDef> = Operater<OperandDef>.nilOperator
     
     private(set) var status: CalculatorStatus = .waitingLhsInput
     
@@ -22,7 +24,7 @@ class CalculatorStateMachine<OperandDef>
             lhs: OperandDef.defaultValue,
             rhs: OperandDef.defaultValue,
             result: OperandDef.defaultValue,
-            operators: nilOperator)
+            operation: Operater<OperandDef>.nilOperator)
     }()
     
     init(lhs: OperandDef, rhs: OperandDef) {
@@ -30,7 +32,7 @@ class CalculatorStateMachine<OperandDef>
         self.rhs = rhs
     }
     
-    func setOperators(_ theOperator: @escaping OperatorDef<OperandDef>, name: OperatorName) {
+    func setOperator(_ theOperator: Operater<OperandDef>) {
         switch status {
         case .waitingLhsInput:
             break
@@ -44,8 +46,7 @@ class CalculatorStateMachine<OperandDef>
             // doCalculation()
             lhs = historCalculate.result // 2 + 2 = x => 4 x
         }
-        operatorsName = name
-        operators = theOperator
+        currentOperator = theOperator
         status = .operatorSetup
     }
     
@@ -60,8 +61,7 @@ class CalculatorStateMachine<OperandDef>
         case .resultCalculated:
             lhs = result
             rhs = theTransformer.rhsOperand(lhs)
-            operatorsName = theTransformer.operater.name
-            operators = theTransformer.operater.operation
+            currentOperator = theTransformer.operater
             doCalculation()
         }
     }
@@ -110,8 +110,7 @@ class CalculatorStateMachine<OperandDef>
             lhs.acceptInput(.reset)
         }
         rhs.acceptInput(.reset)
-        operators = nilOperator
-        operatorsName = .unknown
+        currentOperator = Operater<OperandDef>.nilOperator
         result = OperandDef.defaultValue
     }
     
@@ -131,9 +130,9 @@ class CalculatorStateMachine<OperandDef>
     
     private func doCalculation() {
         // get result
-        result = operators(lhs, rhs)
+        result = currentOperator.operation(lhs, rhs)
         // save history
-        historCalculate = Calculation(lhs: lhs, rhs: rhs, result: result, operators: operators)
+        historCalculate = Calculation(lhs: lhs, rhs: rhs, result: result, operation: currentOperator)
     }
     
     private var nilOperator: OperatorDef<OperandDef> {

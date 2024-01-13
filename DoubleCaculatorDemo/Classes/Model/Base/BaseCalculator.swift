@@ -37,14 +37,14 @@ class BaseCalculator<Command, OperandDef>: TransferableCaculatorType where Opera
             output.append(statusMachine.lhs.stringValue)
         case .operatorSetup:
             output.append(statusMachine.lhs.stringValue)
-            output.append(statusMachine.operatorsName.rawValue)
+            output.append(statusMachine.currentOperator.name.rawValue)
         case .waitingRhsInput:
             output.append(statusMachine.lhs.stringValue)
-            output.append(statusMachine.operatorsName.rawValue)
+            output.append(statusMachine.currentOperator.name.rawValue)
             output.append(statusMachine.rhs.stringValue)
         case .resultCalculated:
             output.append(statusMachine.lhs.stringValue)
-            output.append(statusMachine.operatorsName.rawValue)
+            output.append(statusMachine.currentOperator.name.rawValue)
             output.append(statusMachine.rhs.stringValue)
             output.append("=")
             output.append(statusMachine.result.stringValue)
@@ -78,7 +78,7 @@ class BaseCalculator<Command, OperandDef>: TransferableCaculatorType where Opera
             statusMachine.acceptInput(command)
         case .operators(let theOperatorName):
             let theOperator = operaterMapper(theOperatorName)
-            statusMachine.setOperators(theOperator.operation, name: theOperatorName)
+            statusMachine.setOperator(theOperator)
         case .reset:
             statusMachine.reset()
         case .transferToRight:

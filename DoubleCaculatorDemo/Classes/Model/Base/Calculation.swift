@@ -12,5 +12,5 @@ struct Calculation<OperandDef> {
     let lhs: OperandDef
     let rhs: OperandDef
     let result: OperandDef
-    let operators: OperatorDef<OperandDef>
+    let operation: Operater<OperandDef>
 }

@@ -7,8 +7,7 @@
 
 import Foundation
 
-final class OperandTransformer: Transformer<Operand> {}
-
+/// Predefined transformers.
 struct OperandTransformerSet {
     static let revers: OperandTransformer = {
         OperandTransformer(
