@@ -9,5 +9,7 @@ import Foundation
 
 protocol OperandType {
     func acceptInput(_ input: InputCommand)
+    var stringValue: String { get }
+    var decimalValue: NSDecimalNumber { get }
     static var defaultValue: Self { get }
 }

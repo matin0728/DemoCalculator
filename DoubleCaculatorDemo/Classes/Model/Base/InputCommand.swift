@@ -28,6 +28,7 @@ enum InputCommand: CustomStringConvertible {
     case digit(Digits)
     case dot
     case operators(OperatorName)
+    case transformer(TransformerName)
     case reset // AC
     case calculate
     case transferToRight
@@ -53,6 +54,8 @@ enum InputCommand: CustomStringConvertible {
             break
         case .transferToRight:
             break
+        case .transformer(let name):
+            return name.rawValue
         }
         return ""
     }

@@ -10,8 +10,8 @@ import Foundation
 /// Caculator definition
 protocol CaculatorType {
     associatedtype Command
-    associatedtype Result
-    var result: Result { get }
+    associatedtype Operand: OperandType
+    var result: Operand { get }
     var resultOutput: String { get }
     /// The operands is computing
     var operandOutput: String { get }

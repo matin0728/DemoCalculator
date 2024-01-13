@@ -47,9 +47,39 @@ class Operators {
         allOperators[name] ?? nilOperator
     }
     
+    func operaterNamed(_ name: OperatorName) -> OperandOperater {
+        OperandOperater(name: name, operation: allOperators[name] ?? nilOperator)
+    }
+    
     private var nilOperator: DemoOperator {
         return { lhs, rhs in
             Operand()
+        }
+    }
+}
+
+class OperaterSet {
+    static let multiplication: OperandOperater = {
+        OperandOperater(name: .multiplication) { lhs, rhs in
+            Operand(decimalNumber: lhs.decimalValue.multiplying(by: rhs.decimalValue))
+        }
+    }()
+    static func operaterNamed(_ name: OperatorName) -> OperandOperater {
+        switch name {
+        case .unknown:
+            return multiplication
+        case .reverse:
+            return multiplication
+        case .percent:
+            return multiplication
+        case .division:
+            return multiplication
+        case .multiplication:
+            return multiplication
+        case .addition:
+            return multiplication
+        case .substraction:
+            return multiplication
         }
     }
 }

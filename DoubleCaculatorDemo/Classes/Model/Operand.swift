@@ -17,6 +17,10 @@ final class Operand: OperandType {
     
     // MARK: Properties
     
+    var isMutable: Bool {
+        editable
+    }
+    
     // IMPORTANT: For simplicity, preset value is not editable, case it can be a sciencetific numerber format.
     private var presetDecimal: NSDecimalNumber
     private var editable: Bool
@@ -112,6 +116,9 @@ final class Operand: OperandType {
     // - MARK: OperandType
     
     func acceptInput(_ input: InputCommand) {
+        if false == isMutable {
+            reset()
+        }
         switch input {
         case .calculate:
             assert(false)
@@ -132,6 +139,9 @@ final class Operand: OperandType {
         case .transferToRight:
             break
         case .transferLeft:
+            break
+        case .transformer(_):
+            assert(false)
             break
         }
     }

@@ -41,12 +41,29 @@ class CalculatorStateMachine<OperandDef>
             doCalculation()
             lhs = result /// 2 + 3 x  =>  6 x
         case .resultCalculated:
-            doCalculation()
+            // doCalculation()
             lhs = historCalculate.result // 2 + 2 = x => 4 x
         }
         operatorsName = name
         operators = theOperator
         status = .operatorSetup
+    }
+    
+    func applyTransformer(_ theTransformer: Transformer<OperandDef>) {
+        switch status {
+        case .waitingLhsInput:
+            theTransformer.apply(&lhs)
+        case .operatorSetup:
+            break
+        case .waitingRhsInput:
+            theTransformer.apply(&rhs)
+        case .resultCalculated:
+            lhs = result
+            rhs = theTransformer.rhsOperand(lhs)
+            operatorsName = theTransformer.operater.name
+            operators = theTransformer.operater.operation
+            doCalculation()
+        }
     }
     
     func acceptInput(_ input: InputCommand) {

@@ -19,7 +19,12 @@ enum OperatorName: String {
     case substraction    = "-"
 }
 
-struct OperatorCategory {
-    let name: String
-    let operation: OperatorDef<Operand>
+// Using 'Operater' instead of Operator to avoid the keyword 'operator'
+class Operater<T> {
+    let name: OperatorName
+    let operation: OperatorDef<T>
+    init(name: OperatorName, operation: @escaping OperatorDef<T>) {
+        self.name = name
+        self.operation = operation
+    }
 }

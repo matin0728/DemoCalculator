@@ -15,8 +15,17 @@ class DemoCalculatorApp {
         return all
     }
     
-    lazy var leftOne = DemoCalculator(operators: operators)
-    lazy var rightOne = DemoCalculator(operators: operators)
+    lazy var leftOne = DemoCalculator { [unowned self] name in
+        operators.operaterNamed(name)
+    } transformerMapper: { name in
+        OperandTransformerSet.transformerNamed(name)
+    }
+
+    lazy var rightOne = DemoCalculator{ [unowned self] name in
+        operators.operaterNamed(name)
+    } transformerMapper: { name in
+        OperandTransformerSet.transformerNamed(name)
+    }
     
     lazy var activeCalculator: DemoCalculator = leftOne
     
