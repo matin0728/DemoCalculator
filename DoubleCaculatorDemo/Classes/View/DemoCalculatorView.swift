@@ -11,6 +11,8 @@ import UIKit
 /// Display a single calculator
 class DemoCalculatorView: UIView {
     struct Style {
+        // Layout
+        static let goddenRatio: CGFloat = 0.618
         // Input & Output
         static let resultLabelFontSize: CGFloat = 160.0
         static let operandLabelfFontSize: CGFloat = 36.0

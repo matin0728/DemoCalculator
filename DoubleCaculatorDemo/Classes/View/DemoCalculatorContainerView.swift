@@ -56,21 +56,16 @@ final class DemoCalculatorContainerView: UIView {
     
     private func calculateLayoutMetric() {
         let containerSize = singleContainerSize(columnsInSingleOne: colums, spacing: gridSpacing)
-        var layoutStackWidth = containerSize.width
-        if self.frame.size.isPortrait {
-            if self.bounds.width / max(self.bounds.height, 1) > 0.618 {
-                let totalWidth = self.frame.size.width
-                layoutStackWidth = self.bounds.height * 0.618
-                layoutStack.frame = CGRect(x: (totalWidth - layoutStackWidth) / 2.0, y: 0, width: layoutStackWidth, height: containerSize.height)
-            } else {
-                layoutStack.frame = self.bounds
-            }
+        let layoutStackWidth = containerSize.width
+        let totalWidth = self.frame.size.width
+        let isUsingPortraitLayout = self.frame.size.isPortrait
+        
+        if isUsingPortraitLayout {
+            layoutStack.frame = CGRect(x: (totalWidth - layoutStackWidth) / 2.0, y: 0, width: layoutStackWidth, height: containerSize.height)
             portrateLayout(singleContainerSize: CGSize(width: layoutStackWidth, height: containerSize.height))
         } else {
             let buttonSize = commandButtonSize(containerWidth: containerSize.width, columns: colums, spacing: gridSpacing)
             let barWidth = buttonSize.width + 2 * gridSpacing
-            
-            let totalWidth = self.frame.size.width
             let layoutStackWidth = 2.0 * containerSize.width + barWidth
             layoutStack.frame = CGRect(x: (totalWidth - layoutStackWidth) / 2.0, y: 0, width: layoutStackWidth, height: containerSize.height)
             
@@ -112,11 +107,15 @@ final class DemoCalculatorContainerView: UIView {
     private func singleContainerSize(columnsInSingleOne: Int, spacing: CGFloat) -> CGSize {
         let selfSize = self.frame.size
         if selfSize.isPortrait {
+            if selfSize.width / max(selfSize.height, 1) > DemoCalculatorView.Style.goddenRatio {
+                let acture = selfSize.height * DemoCalculatorView.Style.goddenRatio
+                return CGSize(width: acture, height: selfSize.height)
+            }
             /// Portrait layout
             return selfSize
         }
         
-        return CGSize(width: selfSize.height * 0.618, height: selfSize.height)
+        return CGSize(width: selfSize.height * DemoCalculatorView.Style.goddenRatio, height: selfSize.height)
     }
     
     private func commandButtonSize(containerWidth: CGFloat, columns: Int, spacing: CGFloat) -> CGSize {
