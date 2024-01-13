@@ -90,6 +90,8 @@ class DemoCalculatorView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        if self.isHidden { return }
+        
         let width = self.frame.width
         let height = self.frame.height
         
