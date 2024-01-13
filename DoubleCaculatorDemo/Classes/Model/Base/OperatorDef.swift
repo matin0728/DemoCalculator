@@ -11,8 +11,6 @@ typealias OperatorDef<T> = (_ lhs: T, _ rhs: T) -> T
 
 enum OperatorName: String {
     case unknown         = "N/A"
-    case reverse         = "+/-"
-    case percent         = "%"
     case division        = "÷"
     case multiplication  = "×"
     case addition        = "+"

@@ -25,10 +25,20 @@ struct OperandTransformerSet {
             })
     }()
     
+    static let percent: OperandTransformer = {
+        OperandTransformer(name: .percent, transform: { operand in
+            operand = Operand(decimalNumber: operand.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: 0.01)))
+        }, operater: OperaterSet.multiplication) { _ in
+            Operand(decimalNumber: NSDecimalNumber(floatLiteral: 0.01))
+        }
+    }()
+    
     static func transformerNamed(_ name: TransformerName) -> OperandTransformer {
         switch name {
         case .reverse:
             return OperandTransformerSet.revers
+        case .percent:
+            return OperandTransformerSet.percent
         }
     }
 }

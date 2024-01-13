@@ -18,9 +18,6 @@ class Operators {
     }
     
     func loadDefaultOperator() {
-        regist({ lhs, _ in
-            Operand(decimalNumber: lhs.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: -1)))
-        }, name: OperatorName.reverse)
         
         regist({ lhs, rhs in
             Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue))
@@ -37,10 +34,6 @@ class Operators {
         regist({ lhs, rhs in
             Operand(decimalNumber: lhs.decimalValue.dividing(by: rhs.decimalValue))
         }, name: OperatorName.division)
-        
-        regist({ lhs, _ in
-            Operand(decimalNumber: lhs.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: 100)))
-        }, name: OperatorName.percent)
     }
     
     func operatorNamed(_ name: OperatorName) -> DemoOperator {
@@ -67,10 +60,6 @@ class OperaterSet {
     static func operaterNamed(_ name: OperatorName) -> OperandOperater {
         switch name {
         case .unknown:
-            return multiplication
-        case .reverse:
-            return multiplication
-        case .percent:
             return multiplication
         case .division:
             return multiplication

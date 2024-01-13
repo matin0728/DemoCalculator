@@ -9,6 +9,7 @@ import Foundation
 
 enum TransformerName: String {
     case reverse = "+/-"
+    case percent = "%"
 }
 
 typealias TransformFunc<T> = (inout T) -> Void

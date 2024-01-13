@@ -18,12 +18,12 @@ struct KeyboardLayout {
                                buttonText: "\(InputCommand.reset)",
                                excutionCallback: excution), backgroundColor: .lightGray),
              CommandKeyViewModel(
-                command: .init(name: .operators(.reverse),
-                               buttonText: OperatorName.reverse.rawValue,
+                command: .init(name: .transformer(.reverse),
+                               buttonText: TransformerName.reverse.rawValue,
                                 excutionCallback: excution), backgroundColor: .lightGray),
              CommandKeyViewModel(
-                command: .init(name: .operators(.percent),
-                               buttonText: OperatorName.percent.rawValue,
+                command: .init(name: .transformer(.percent),
+                               buttonText: TransformerName.percent.rawValue,
                                 excutionCallback: excution), backgroundColor: .lightGray),
              CommandKeyViewModel(
                 command: .init(name: .operators(.division),

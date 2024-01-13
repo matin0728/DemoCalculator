@@ -38,7 +38,7 @@
 		66E9B7272B50F57800BDAC01 /* DemoMiddleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7262B50F57800BDAC01 /* DemoMiddleBarView.swift */; };
 		66E9B7292B51386600BDAC01 /* BaseCommandButtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7282B51386600BDAC01 /* BaseCommandButtionView.swift */; };
 		66E9B72D2B52337C00BDAC01 /* TransformerDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B72C2B52337C00BDAC01 /* TransformerDef.swift */; };
-		66E9B72F2B52363000BDAC01 /* OperandTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B72E2B52363000BDAC01 /* OperandTransformer.swift */; };
+		66E9B72F2B52363000BDAC01 /* OperandTransformerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B72E2B52363000BDAC01 /* OperandTransformerSet.swift */; };
 		66E9B7312B523C6C00BDAC01 /* OperandOperater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7302B523C6C00BDAC01 /* OperandOperater.swift */; };
 		66E9B7342B527F3600BDAC01 /* BaseCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7332B527F3500BDAC01 /* BaseCalculator.swift */; };
 /* End PBXBuildFile section */
@@ -96,7 +96,7 @@
 		66E9B7262B50F57800BDAC01 /* DemoMiddleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoMiddleBarView.swift; sourceTree = "<group>"; };
 		66E9B7282B51386600BDAC01 /* BaseCommandButtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCommandButtionView.swift; sourceTree = "<group>"; };
 		66E9B72C2B52337C00BDAC01 /* TransformerDef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerDef.swift; sourceTree = "<group>"; };
-		66E9B72E2B52363000BDAC01 /* OperandTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandTransformer.swift; sourceTree = "<group>"; };
+		66E9B72E2B52363000BDAC01 /* OperandTransformerSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandTransformerSet.swift; sourceTree = "<group>"; };
 		66E9B7302B523C6C00BDAC01 /* OperandOperater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandOperater.swift; sourceTree = "<group>"; };
 		66E9B7332B527F3500BDAC01 /* BaseCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,7 +229,7 @@
 				66E3B92A2B4BB4810072096D /* DemoCalculatorApp.swift */,
 				66E3B9352B4CF4940072096D /* Operand.swift */,
 				66E3B9392B4D0A060072096D /* Operators.swift */,
-				66E9B72E2B52363000BDAC01 /* OperandTransformer.swift */,
+				66E9B72E2B52363000BDAC01 /* OperandTransformerSet.swift */,
 				66E9B7302B523C6C00BDAC01 /* OperandOperater.swift */,
 			);
 			path = Model;
@@ -405,7 +405,7 @@
 				66E9B7272B50F57800BDAC01 /* DemoMiddleBarView.swift in Sources */,
 				66E9B7342B527F3600BDAC01 /* BaseCalculator.swift in Sources */,
 				66E3B9302B4BB8220072096D /* CommandKeyViewModel.swift in Sources */,
-				66E9B72F2B52363000BDAC01 /* OperandTransformer.swift in Sources */,
+				66E9B72F2B52363000BDAC01 /* OperandTransformerSet.swift in Sources */,
 				66E3B93E2B4D8D600072096D /* OperatorDef.swift in Sources */,
 				66E3B9342B4CF40B0072096D /* CalculatorStateMachine.swift in Sources */,
 				66E3B9322B4BBE440072096D /* DemoCalculatorCommandButtonView.swift in Sources */,
