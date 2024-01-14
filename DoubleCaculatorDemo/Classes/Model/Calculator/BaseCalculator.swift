@@ -79,7 +79,7 @@ extension Calculator {
             case .clear:
                 statusMachine.clearOperand()
             case .delete:
-                statusMachine.acceptInput(command)
+                statusMachine.removeLastInputCharacter()
             case .digit(_):
                 statusMachine.acceptInput(command)
             case .dot:

@@ -139,6 +139,20 @@ extension Calculator {
             }
         }
         
+        // Require a "Input Context", means that once you get result calculated, you are not in a "Input Context"
+        func removeLastInputCharacter() {
+            switch status {
+            case .waitingLhsInput:
+                lhs.acceptInput(.delete)
+            case .operatorSetup:
+                lhs.acceptInput(.delete)
+            case .waitingRhsInput:
+                rhs.acceptInput(.delete)
+            case .resultCalculated:
+                break
+            }
+        }
+        
         func clearErrorIfPresent() {
             if case .error(_) = result {
                 result = .success(OperandDef.defaultValue)
