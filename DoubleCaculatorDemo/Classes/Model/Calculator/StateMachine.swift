@@ -129,15 +129,13 @@ extension Calculator {
             }
         }
         
+        // MARK: - Private
+        
         private func doCalculation() {
             // get result
             result = currentOperator.operation(lhs, rhs)
             // save history
             historCalculate = Calculation(lhs: lhs, rhs: rhs, result: result, operation: currentOperator)
-        }
-        
-        private var nilOperator: OperatorDef<OperandDef> {
-            { lhs, rhs in OperandDef.defaultValue }
         }
     }
 

@@ -9,11 +9,11 @@ import Foundation
 
 /// The entity for interacting with user input.
 final class Operand: OperandType {
+    typealias Input = InputCommand
+    
     class var defaultValue: Operand {
         Operand(decimalNumber: NSDecimalNumber.zero)
     }
-    
-    typealias Input = InputCommand
     
     // MARK: Properties
     
@@ -113,7 +113,7 @@ final class Operand: OperandType {
         !lhs.isEmpty || !rhs.isEmpty
     }
     
-    // - MARK: OperandType
+    // - MARK: OperandType IMP
     
     func acceptInput(_ input: InputCommand) {
         if false == isMutable {
