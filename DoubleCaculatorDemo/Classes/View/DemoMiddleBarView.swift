@@ -18,8 +18,8 @@ final class DemoMiddleBarView: UIView {
     let delButton: BaseCommandButtionView
     
     init(toLeftButtonCommand: KeyboardCommand, toRightCommand: KeyboardCommand, deleteCommand: KeyboardCommand) {
-        arrowLeftButton = makeArrowButton(iconName: "arrowshape.left.fill", command: toLeftButtonCommand)
-        arrowRightButton = makeArrowButton(iconName: "arrowshape.right.fill", command: toRightCommand)
+        arrowLeftButton = makeArrowButton(command: toLeftButtonCommand)
+        arrowRightButton = makeArrowButton(command: toRightCommand)
         delButton = BaseCommandButtionView(command: deleteCommand)
         delButton.setTitle("\(InputCommand.delete)", for: .normal)
         delButton.titleLabel?.font = UIFont.systemFont(ofSize: DemoCalculatorView.Style.defaultButtonFontSize, weight: .medium)
@@ -52,22 +52,27 @@ final class DemoMiddleBarView: UIView {
         delButton.frame = CGRect(x: originX, y: self.frame.height - height, width: width, height: height)
         arrowLeftButton.frame = CGRect(x: originX, y: paddingTop, width: width, height: height)
         arrowRightButton.frame = CGRect(x: originX, y: arrowLeftButton.frame.maxY + 20.0, width: width, height: height)
+        
+        updateButtonConfig(arrowLeftButton, iconName: "arrowshape.left.fill")
+        updateButtonConfig(arrowRightButton, iconName: "arrowshape.right.fill")
+    }
+    
+    private func updateButtonConfig(_ button: UIButton, iconName: String) {
+        var config = UIButton.Configuration.plain()
+        config.baseBackgroundColor = UIColor(_colorLiteralRed: 4.0 / 256.0, green: 140.0 / 256.0, blue: 76.0 / 256.0, alpha: 1.0)
+        config.baseForegroundColor = .white
+        config.background.backgroundColor = UIColor(_colorLiteralRed: 4.0 / 256.0, green: 140.0 / 256.0, blue: 76.0 / 256.0, alpha: 1.0)
+        config.image = UIImage(systemName: iconName)
+        config.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: DemoCalculatorView.Style.defaultButtonFontSize - 6)
+        
+        button.configuration = config
     }
 }
 
-fileprivate func makeArrowButton(iconName: String, command: KeyboardCommand) -> BaseCommandButtionView {
+fileprivate func makeArrowButton(command: KeyboardCommand) -> BaseCommandButtionView {
     let button = BaseCommandButtionView(command: command)
     // button.tintColor = UIColor(_colorLiteralRed: 4, green: 140, blue: 76, alpha: 1)
     button.frame = .zero
-    
-    var config = UIButton.Configuration.plain()
-    config.baseBackgroundColor = UIColor(_colorLiteralRed: 4.0 / 256.0, green: 140.0 / 256.0, blue: 76.0 / 256.0, alpha: 1.0)
-    config.baseForegroundColor = .white
-    config.background.backgroundColor = UIColor(_colorLiteralRed: 4.0 / 256.0, green: 140.0 / 256.0, blue: 76.0 / 256.0, alpha: 1.0)
-    config.image = UIImage(systemName: iconName)
-    config.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: DemoCalculatorView.Style.defaultButtonFontSize - 6)
-    
-    button.configuration = config
     button.layer.masksToBounds = true
     button.layer.cornerRadius = 16.0
     return button
