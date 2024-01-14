@@ -19,7 +19,7 @@ extension Calculator {
                     operand = Operand(decimalNumber: operand.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: -1)))
                 }
             },
-                operater: OperaterSet.multiplication,
+                resultOperator: OperatorSet.multiplication,
                 rhsOperand: { _ in
                     Operand(decimalNumber: NSDecimalNumber(floatLiteral: -1))
                 })
@@ -28,7 +28,7 @@ extension Calculator {
         static let percent: OperandTransformer = {
             OperandTransformer(name: .percent, transform: { operand in
                 operand = Operand(decimalNumber: operand.decimalValue.multiplying(by: NSDecimalNumber(floatLiteral: 0.01)))
-            }, operater: OperaterSet.multiplication) { _ in
+            }, resultOperator: OperatorSet.multiplication) { _ in
                 Operand(decimalNumber: NSDecimalNumber(floatLiteral: 0.01))
             }
         }()

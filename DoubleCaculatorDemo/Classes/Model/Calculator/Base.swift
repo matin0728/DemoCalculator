@@ -57,11 +57,11 @@ extension Calculator {
         
         private var statusMachine = StateMachine<OperandDef>(lhs: OperandDef.defaultValue, rhs: OperandDef.defaultValue)
         
-        var operaterMapper: ((OperatorName) -> Operater<OperandDef>)
+        var operatorMapper: ((OperatorName) -> Operator<OperandDef>)
         var transformerMapper: ((TransformerName) -> Transformer<OperandDef>)
         
-        init(operaterMapper: @escaping ((OperatorName) -> Operater<OperandDef>), transformerMapper: @escaping ((TransformerName) -> Transformer<OperandDef>)) {
-            self.operaterMapper = operaterMapper
+        init(operatorMapper: @escaping ((OperatorName) -> Operator<OperandDef>), transformerMapper: @escaping ((TransformerName) -> Transformer<OperandDef>)) {
+            self.operatorMapper = operatorMapper
             self.transformerMapper = transformerMapper
         }
         
@@ -78,7 +78,7 @@ extension Calculator {
             case .dot:
                 statusMachine.acceptInput(command)
             case .operators(let theOperatorName):
-                let theOperator = operaterMapper(theOperatorName)
+                let theOperator = operatorMapper(theOperatorName)
                 statusMachine.setOperator(theOperator)
             case .reset:
                 statusMachine.reset()

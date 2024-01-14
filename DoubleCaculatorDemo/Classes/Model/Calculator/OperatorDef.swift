@@ -18,8 +18,7 @@ enum OperatorName: String {
 }
 
 extension Calculator {
-    // Using 'Operater' instead of Operator to avoid the keyword 'operator'
-    class Operater<T> {
+    class Operator<T> {
         let name: OperatorName
         let operation: OperatorDef<T>
         init(name: OperatorName, operation: @escaping OperatorDef<T>) {
@@ -32,8 +31,8 @@ extension Calculator {
             }
         }
         
-        static var nilOperator: Operater<T> {
-            Operater(name: .unknown, operation: Operater.nilOperation)
+        static var nilOperator: Operator<T> {
+            Operator(name: .unknown, operation: Operator.nilOperation)
         }
     }
 }

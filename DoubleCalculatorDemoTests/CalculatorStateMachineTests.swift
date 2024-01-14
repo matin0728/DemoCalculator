@@ -24,7 +24,7 @@ final class CalculatorStateMachineTests: XCTestCase {
     /// 1 + 1 =
     func testItShouldCalculateTwoOperand() throws {
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperaterSet.operaterNamed(.addition))
+        machine.setOperator(OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.one))
         machine.calculateResult()
         
@@ -34,9 +34,9 @@ final class CalculatorStateMachineTests: XCTestCase {
     /// 1 + 1 + 1 =
     func testItShouldContinueCalcuateWithLastResult() throws {
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperaterSet.operaterNamed(.addition))
+        machine.setOperator(OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperaterSet.operaterNamed(.addition))
+        machine.setOperator(OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.one))
         machine.calculateResult()
         
@@ -46,9 +46,9 @@ final class CalculatorStateMachineTests: XCTestCase {
     /// 1 + 1 + =
     func testItShouldContinueCalcuateWithSelf() throws {
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperaterSet.operaterNamed(.addition))
+        machine.setOperator(OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperaterSet.operaterNamed(.addition))
+        machine.setOperator(OperatorSet.operatorNamed(.addition))
         machine.calculateResult()
         
         XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 4))
@@ -57,9 +57,9 @@ final class CalculatorStateMachineTests: XCTestCase {
     /// 1 + 2 x 3 =
     func testItShouldFollowHumanPrinciple() throws {
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperaterSet.operaterNamed(.addition))
+        machine.setOperator(OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.two))
-        machine.setOperator(OperaterSet.operaterNamed(.multiplication))
+        machine.setOperator(OperatorSet.operatorNamed(.multiplication))
         machine.acceptInput(.digit(.three))
         machine.calculateResult()
         XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 9))
@@ -68,9 +68,9 @@ final class CalculatorStateMachineTests: XCTestCase {
     /// 1 + 2 x 3 =
     func testItShouldNotFollowMathimaticalPrinciple() throws {
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperaterSet.operaterNamed(.addition))
+        machine.setOperator(OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.two))
-        machine.setOperator(OperaterSet.operaterNamed(.addition))
+        machine.setOperator(OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.three))
         machine.calculateResult()
         XCTAssertNotEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 7))

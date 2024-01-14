@@ -13,6 +13,6 @@ extension Calculator {
         let lhs: OperandDef
         let rhs: OperandDef
         let result: OperandDef
-        let operation: Operater<OperandDef>
+        let operation: Operator<OperandDef>
     }
 }

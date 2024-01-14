@@ -11,38 +11,38 @@ typealias DemoOperator = OperatorDef<Operand>
 
 extension Calculator {
     /// Extensible operators, you can add new operator in the future.
-    class OperaterSet {
-        static let multiplication: OperandOperater = {
-            OperandOperater(name: .multiplication) { lhs, rhs in
+    class OperatorSet {
+        static let multiplication: OperandOperator = {
+            OperandOperator(name: .multiplication) { lhs, rhs in
                 Operand(decimalNumber: lhs.decimalValue.multiplying(by: rhs.decimalValue))
             }
         }()
         
-        static let division: OperandOperater = {
-            OperandOperater(name: .division) { lhs, rhs in
+        static let division: OperandOperator = {
+            OperandOperator(name: .division) { lhs, rhs in
                 Operand(decimalNumber: lhs.decimalValue.dividing(by: rhs.decimalValue))
             }
         }()
         
-        static let addition: OperandOperater = {
-            OperandOperater(name: .addition) { lhs, rhs in
+        static let addition: OperandOperator = {
+            OperandOperator(name: .addition) { lhs, rhs in
                 Operand(decimalNumber: lhs.decimalValue.adding(rhs.decimalValue))
             }
         }()
         
-        static let substraction: OperandOperater = {
-            OperandOperater(name: .substraction) { lhs, rhs in
+        static let substraction: OperandOperator = {
+            OperandOperator(name: .substraction) { lhs, rhs in
                 Operand(decimalNumber: lhs.decimalValue.subtracting(rhs.decimalValue))
             }
         }()
         
-        static let unknown: OperandOperater = {
-            OperandOperater(name: .unknown) { lhs, rhs in
+        static let unknown: OperandOperator = {
+            OperandOperator(name: .unknown) { lhs, rhs in
                 Operand(decimalNumber: NSDecimalNumber(floatLiteral: 0))
             }
         }()
         
-        static func operaterNamed(_ name: OperatorName) -> OperandOperater {
+        static func operatorNamed(_ name: OperatorName) -> OperandOperator {
             switch name {
             case .unknown:
                 return unknown

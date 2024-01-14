@@ -39,7 +39,7 @@
 		66E9B7292B51386600BDAC01 /* BaseCommandButtionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7282B51386600BDAC01 /* BaseCommandButtionView.swift */; };
 		66E9B72D2B52337C00BDAC01 /* TransformerDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B72C2B52337C00BDAC01 /* TransformerDef.swift */; };
 		66E9B72F2B52363000BDAC01 /* OperandTransformerSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B72E2B52363000BDAC01 /* OperandTransformerSet.swift */; };
-		66E9B7312B523C6C00BDAC01 /* OperandOperater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7302B523C6C00BDAC01 /* OperandOperater.swift */; };
+		66E9B7312B523C6C00BDAC01 /* OperandOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7302B523C6C00BDAC01 /* OperandOperator.swift */; };
 		66E9B7342B527F3600BDAC01 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7332B527F3500BDAC01 /* Calculator.swift */; };
 		66E9B7362B52A0FE00BDAC01 /* OperandTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7352B52A0FE00BDAC01 /* OperandTransformer.swift */; };
 		66E9B7382B53883E00BDAC01 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E9B7372B53883E00BDAC01 /* Base.swift */; };
@@ -99,7 +99,7 @@
 		66E9B7282B51386600BDAC01 /* BaseCommandButtionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCommandButtionView.swift; sourceTree = "<group>"; };
 		66E9B72C2B52337C00BDAC01 /* TransformerDef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerDef.swift; sourceTree = "<group>"; };
 		66E9B72E2B52363000BDAC01 /* OperandTransformerSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandTransformerSet.swift; sourceTree = "<group>"; };
-		66E9B7302B523C6C00BDAC01 /* OperandOperater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandOperater.swift; sourceTree = "<group>"; };
+		66E9B7302B523C6C00BDAC01 /* OperandOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandOperator.swift; sourceTree = "<group>"; };
 		66E9B7332B527F3500BDAC01 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		66E9B7352B52A0FE00BDAC01 /* OperandTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandTransformer.swift; sourceTree = "<group>"; };
 		66E9B7372B53883E00BDAC01 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 				66E3B9352B4CF4940072096D /* Operand.swift */,
 				66E3B9392B4D0A060072096D /* OperatorSet.swift */,
 				66E9B72E2B52363000BDAC01 /* OperandTransformerSet.swift */,
-				66E9B7302B523C6C00BDAC01 /* OperandOperater.swift */,
+				66E9B7302B523C6C00BDAC01 /* OperandOperator.swift */,
 				66E9B7352B52A0FE00BDAC01 /* OperandTransformer.swift */,
 			);
 			path = Model;
@@ -418,7 +418,7 @@
 				66E9B7382B53883E00BDAC01 /* Base.swift in Sources */,
 				66E3B9442B4F8BB40072096D /* KeyboardLayout.swift in Sources */,
 				66E3B93C2B4D13180072096D /* OperandType.swift in Sources */,
-				66E9B7312B523C6C00BDAC01 /* OperandOperater.swift in Sources */,
+				66E9B7312B523C6C00BDAC01 /* OperandOperator.swift in Sources */,
 				66C72DAC2B4AD4310025DE10 /* AppDelegate.swift in Sources */,
 				66E9B7362B52A0FE00BDAC01 /* OperandTransformer.swift in Sources */,
 				66E9B72D2B52337C00BDAC01 /* TransformerDef.swift in Sources */,

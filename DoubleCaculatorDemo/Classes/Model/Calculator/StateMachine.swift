@@ -16,7 +16,7 @@ extension Calculator {
         
         private(set) var result: OperandDef = OperandDef.defaultValue
         
-        private(set) lazy var currentOperator: Operater<OperandDef> = Operater<OperandDef>.nilOperator
+        private(set) lazy var currentOperator: Operator<OperandDef> = Operator<OperandDef>.nilOperator
         
         private(set) var status: Status = .waitingLhsInput
         
@@ -25,7 +25,7 @@ extension Calculator {
                 lhs: OperandDef.defaultValue,
                 rhs: OperandDef.defaultValue,
                 result: OperandDef.defaultValue,
-                operation: Operater<OperandDef>.nilOperator)
+                operation: Operator<OperandDef>.nilOperator)
         }()
         
         init(lhs: OperandDef, rhs: OperandDef) {
@@ -33,7 +33,7 @@ extension Calculator {
             self.rhs = rhs
         }
         
-        func setOperator(_ theOperator: Operater<OperandDef>) {
+        func setOperator(_ theOperator: Operator<OperandDef>) {
             switch status {
             case .waitingLhsInput:
                 break
@@ -62,7 +62,7 @@ extension Calculator {
             case .resultCalculated:
                 lhs = result
                 rhs = theTransformer.rhsOperand(lhs)
-                currentOperator = theTransformer.operater
+                currentOperator = theTransformer.resultOperator
                 doCalculation()
             }
         }
@@ -111,7 +111,7 @@ extension Calculator {
                 lhs.acceptInput(.reset)
             }
             rhs.acceptInput(.reset)
-            currentOperator = Operater<OperandDef>.nilOperator
+            currentOperator = Operator<OperandDef>.nilOperator
             result = OperandDef.defaultValue
         }
         

@@ -21,14 +21,14 @@ extension Calculator {
         /// When apply to lhs / rhs, using the transforming.
         let transform: TransformFunc<T>
         /// When apply to result, using the calculation simulation.
-        let operater: Operater<T>
+        let resultOperator: Operator<T>
         /// Given lhs and return rsh operand
         let rhsOperand: (T) -> T
         
-        init(name: TransformerName, transform: @escaping TransformFunc<T>, operater: Operater<T>, rhsOperand: @escaping (T) -> T) {
+        init(name: TransformerName, transform: @escaping TransformFunc<T>, resultOperator: Operator<T>, rhsOperand: @escaping (T) -> T) {
             self.name = name
             self.transform = transform
-            self.operater = operater
+            self.resultOperator = resultOperator
             self.rhsOperand = rhsOperand
         }
         
