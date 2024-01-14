@@ -32,7 +32,7 @@ class DemoCalculatorView: UIView {
         view.lineBreakMode = .byClipping
         view.font = UIFont.systemFont(ofSize: Style.resultLabelFontSize, weight: .medium)
         view.adjustsFontSizeToFitWidth = true
-        view.minimumScaleFactor = 0.5
+        view.minimumScaleFactor = 0.4
         view.textAlignment = .right
         return view
     }()

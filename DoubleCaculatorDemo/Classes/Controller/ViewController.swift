@@ -36,13 +36,13 @@ class ViewController: UIViewController {
     }))
     
     lazy var barView: DemoMiddleBarView = {
-        let bar = DemoMiddleBarView(toLeftButtonCommand: KeyboardCommand(name: .reset, buttonText: "", excutionCallback: { [unowned self] command in
+        let bar = DemoMiddleBarView(toLeftButtonCommand: KeyboardCommand(name: .transferLeft, buttonText: "", excutionCallback: { [unowned self] command in
             self.calculatorApp.activeLeftOne()
             self.calculatorApp.leftOne.transferFrom(self.calculatorApp.rightOne)
-        }), toRightCommand: KeyboardCommand(name: .reset, buttonText: "", excutionCallback: { [unowned self] command in
+        }), toRightCommand: KeyboardCommand(name: .transferToRight, buttonText: "", excutionCallback: { [unowned self] command in
             self.calculatorApp.activeRightOne()
             self.calculatorApp.rightOne.transferFrom(self.calculatorApp.leftOne)
-        }), deleteCommand: KeyboardCommand(name: .reset, buttonText: "", excutionCallback: { command in
+        }), deleteCommand: KeyboardCommand(name: .delete, buttonText: "", excutionCallback: { command in
             self.calculatorApp.activeCalculator.execCommand(command)
         }))
         return bar
