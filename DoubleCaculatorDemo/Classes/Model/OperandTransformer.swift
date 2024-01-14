@@ -7,4 +7,6 @@
 
 import Foundation
 
-final class OperandTransformer: Transformer<Operand> {}
+extension Calculator {
+    final class OperandTransformer: Transformer<Operand> {}
+}

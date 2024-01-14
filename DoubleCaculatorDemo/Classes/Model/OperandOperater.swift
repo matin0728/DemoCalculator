@@ -7,5 +7,7 @@
 
 import Foundation
 
-final class OperandOperater: Operater<Operand> {
+extension Calculator {
+    final class OperandOperater: Operater<Operand> {
+    }
 }
