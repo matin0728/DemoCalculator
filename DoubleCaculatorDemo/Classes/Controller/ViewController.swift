@@ -68,6 +68,13 @@ class ViewController: UIViewController {
         updateSubviewsMetric()
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return .allButUpsideDown
+        }
+        return .portrait
+    }
+    
     private func updateSubviewsMetric() {
         // Get the safe area insets
         let safeAreaInsets = view.safeAreaInsets
