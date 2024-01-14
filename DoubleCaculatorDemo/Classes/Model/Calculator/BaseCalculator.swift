@@ -72,6 +72,9 @@ extension Calculator {
         func execCommand(_ command: InputCommand) {
             switch command {
             case .calculate:
+                if false == statusMachine.canDoCalculation {
+                    return
+                }
                 statusMachine.calculateResult()
             case .clear:
                 statusMachine.clearOperand()

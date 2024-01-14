@@ -19,6 +19,14 @@ extension Calculator {
         
         private(set) lazy var currentOperator: Operator<OperandDef> = Operator<OperandDef>.nilOperator
         
+        var hasValidOperator: Bool {
+            currentOperator.name != .unknown
+        }
+        
+        var canDoCalculation: Bool {
+            hasValidOperator
+        }
+        
         private(set) var status: Status = .waitingLhsInput
         
         lazy var historCalculate: Calculation<OperandDef> = {
@@ -112,7 +120,8 @@ extension Calculator {
                 lhs.acceptInput(.reset)
             }
             rhs.acceptInput(.reset)
-            currentOperator = Operator<OperandDef>.nilOperator
+            // Keep last valid operator.
+            // currentOperator = Operator<OperandDef>.nilOperator
             result = CalculationResult.defaultValue
         }
         
@@ -145,7 +154,6 @@ extension Calculator {
                 result = try .success(currentOperator.operation(lhs, rhs, behaviors))
             } catch {
                 if let theError = behaviors.resultError {
-                    print("error: \(theError)")
                     result = .error(theError)
                 }
             }

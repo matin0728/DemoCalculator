@@ -10,7 +10,7 @@ import Foundation
 typealias OperatorDef<T> = (_ lhs: T, _ rhs: T, _ calculateBehavior: Calculator.CustomCalculateBehaviors?) throws -> T
 
 enum OperatorName: String {
-    case unknown         = "N/A"
+    case unknown         = ""
     case division        = "÷"
     case multiplication  = "×"
     case addition        = "+"
