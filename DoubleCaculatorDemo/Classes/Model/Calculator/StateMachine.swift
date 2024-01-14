@@ -130,14 +130,22 @@ extension Calculator {
             }
         }
         
+        func clearError() {
+            result = .success(OperandDef.defaultValue)
+        }
+        
         // MARK: - Private
         
         private func doCalculation() {
+            let behaviors = CustomCalculateBehaviors()
             // get result
             do {
-                result = try .success(currentOperator.operation(lhs, rhs))
+                result = try .success(currentOperator.operation(lhs, rhs, behaviors))
             } catch {
-                result = .error(.dividingByZero)
+                if let theError = behaviors.resultError {
+                    print("error: \(theError)")
+                    result = .error(theError)
+                }
             }
             
             // save history

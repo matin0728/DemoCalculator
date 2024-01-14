@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias OperatorDef<T> = (_ lhs: T, _ rhs: T) throws -> T
+typealias OperatorDef<T> = (_ lhs: T, _ rhs: T, _ calculateBehavior: Calculator.CustomCalculateBehaviors?) throws -> T
 
 enum OperatorName: String {
     case unknown         = "N/A"
@@ -26,7 +26,7 @@ extension Calculator {
             self.operation = operation
         }
         static var nilOperation: OperatorDef<T> {
-            { lhs, _ in
+            { lhs, _, _ in
                 return lhs
             }
         }

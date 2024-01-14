@@ -8,7 +8,7 @@
 import Foundation
 
 extension Calculator {
-    class Base<Command, OperandDef>: TransferableCaculatorType where OperandDef: OperandType {
+    class BaseCalculator<Command, OperandDef>: TransferableCaculatorType where OperandDef: OperandType {
         var result: OperandDef {
             statusMachine.result.operandValue
         }
@@ -23,6 +23,9 @@ extension Calculator {
             case .waitingRhsInput:
                 resultDecimalNumber = statusMachine.rhs.decimalValue
             case .resultCalculated:
+                if case .error(_) = statusMachine.result {
+                    return "Error"
+                }
                 resultDecimalNumber = result.decimalValue
             }
             let numberFormatter = NumberFormatter()
@@ -92,13 +95,15 @@ extension Calculator {
             onUpdate()
         }
         
-        func transferFrom(_ caculator: Base<Command, OperandDef>) {
+        func transferFrom(_ caculator: BaseCalculator<Command, OperandDef>) {
             statusMachine = caculator.statusMachine
             onUpdate()
         }
         
         private func onUpdate() {
             updateCallback?()
+            // Clear any error exits.
+            statusMachine.clearError()
         }
     }
 }
