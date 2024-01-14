@@ -14,7 +14,8 @@ extension Calculator {
         private(set) var lhs: OperandDef
         private(set) var rhs: OperandDef
         
-        private(set) var result: OperandDef = OperandDef.defaultValue
+        private(set) var result: CalculationResult<OperandDef> = .success(OperandDef.defaultValue)
+        // private(set) var result: OperandDef = OperandDef.defaultValue
         
         private(set) lazy var currentOperator: Operator<OperandDef> = Operator<OperandDef>.nilOperator
         
@@ -42,7 +43,7 @@ extension Calculator {
             case .waitingRhsInput:
                 // Calculate current result.
                 doCalculation()
-                lhs = result /// 2 + 3 x  =>  6 x
+                lhs = result.operandValue /// 2 + 3 x  =>  6 x
             case .resultCalculated:
                 // doCalculation()
                 lhs = historCalculate.result // 2 + 2 = x => 4 x
@@ -60,7 +61,7 @@ extension Calculator {
             case .waitingRhsInput:
                 theTransformer.apply(&rhs)
             case .resultCalculated:
-                lhs = result
+                lhs = result.operandValue
                 rhs = theTransformer.rhsOperand(lhs)
                 currentOperator = theTransformer.resultOperator
                 doCalculation()
@@ -112,7 +113,7 @@ extension Calculator {
             }
             rhs.acceptInput(.reset)
             currentOperator = Operator<OperandDef>.nilOperator
-            result = OperandDef.defaultValue
+            result = CalculationResult.defaultValue
         }
         
         func clearOperand() {
@@ -133,9 +134,14 @@ extension Calculator {
         
         private func doCalculation() {
             // get result
-            result = currentOperator.operation(lhs, rhs)
+            do {
+                result = try .success(currentOperator.operation(lhs, rhs))
+            } catch {
+                result = .error(.dividingByZero)
+            }
+            
             // save history
-            historCalculate = Calculation(lhs: lhs, rhs: rhs, result: result, operation: currentOperator)
+            historCalculate = Calculation(lhs: lhs, rhs: rhs, result: result.operandValue, operation: currentOperator)
         }
     }
 

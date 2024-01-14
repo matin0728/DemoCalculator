@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias OperatorDef<T> = (_ lhs: T, _ rhs: T) -> T
+typealias OperatorDef<T> = (_ lhs: T, _ rhs: T) throws -> T
 
 enum OperatorName: String {
     case unknown         = "N/A"

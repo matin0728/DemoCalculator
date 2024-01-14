@@ -10,11 +10,11 @@ import XCTest
 
 final class CalculatorStateMachineTests: XCTestCase {
     
-    var machine: CalculatorStateMachine = CalculatorStateMachine(lhs: Operand(), rhs: Operand())
+    var machine: Calculator.StateMachine = Calculator.StateMachine(lhs: Operand(), rhs: Operand())
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        machine = CalculatorStateMachine(lhs: Operand(), rhs: Operand())
+        machine = Calculator.StateMachine(lhs: Operand(), rhs: Operand())
     }
     
     override func tearDownWithError() throws {
@@ -24,7 +24,7 @@ final class CalculatorStateMachineTests: XCTestCase {
     /// 1 + 1 =
     func testItShouldCalculateTwoOperand() throws {
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperatorSet.operatorNamed(.addition))
+        machine.setOperator(Calculator.OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.one))
         machine.calculateResult()
         
@@ -34,9 +34,9 @@ final class CalculatorStateMachineTests: XCTestCase {
     /// 1 + 1 + 1 =
     func testItShouldContinueCalcuateWithLastResult() throws {
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperatorSet.operatorNamed(.addition))
+        machine.setOperator(Calculator.OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperatorSet.operatorNamed(.addition))
+        machine.setOperator(Calculator.OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.one))
         machine.calculateResult()
         
@@ -46,9 +46,9 @@ final class CalculatorStateMachineTests: XCTestCase {
     /// 1 + 1 + =
     func testItShouldContinueCalcuateWithSelf() throws {
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperatorSet.operatorNamed(.addition))
+        machine.setOperator(Calculator.OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperatorSet.operatorNamed(.addition))
+        machine.setOperator(Calculator.OperatorSet.operatorNamed(.addition))
         machine.calculateResult()
         
         XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 4))
@@ -57,9 +57,9 @@ final class CalculatorStateMachineTests: XCTestCase {
     /// 1 + 2 x 3 =
     func testItShouldFollowHumanPrinciple() throws {
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperatorSet.operatorNamed(.addition))
+        machine.setOperator(Calculator.OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.two))
-        machine.setOperator(OperatorSet.operatorNamed(.multiplication))
+        machine.setOperator(Calculator.OperatorSet.operatorNamed(.multiplication))
         machine.acceptInput(.digit(.three))
         machine.calculateResult()
         XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 9))
@@ -68,9 +68,9 @@ final class CalculatorStateMachineTests: XCTestCase {
     /// 1 + 2 x 3 =
     func testItShouldNotFollowMathimaticalPrinciple() throws {
         machine.acceptInput(.digit(.one))
-        machine.setOperator(OperatorSet.operatorNamed(.addition))
+        machine.setOperator(Calculator.OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.two))
-        machine.setOperator(OperatorSet.operatorNamed(.addition))
+        machine.setOperator(Calculator.OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.three))
         machine.calculateResult()
         XCTAssertNotEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 7))

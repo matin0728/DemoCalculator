@@ -10,7 +10,7 @@ import Foundation
 extension Calculator {
     class Base<Command, OperandDef>: TransferableCaculatorType where OperandDef: OperandType {
         var result: OperandDef {
-            statusMachine.result
+            statusMachine.result.operandValue
         }
         
         var resultOutput: String {
@@ -48,7 +48,7 @@ extension Calculator {
                 output.append(statusMachine.currentOperator.name.rawValue)
                 output.append(statusMachine.rhs.stringValue)
                 output.append("=")
-                output.append(statusMachine.result.stringValue)
+                output.append(statusMachine.result.operandValue.stringValue)
             }
             return output.joined(separator: " ")
         }
