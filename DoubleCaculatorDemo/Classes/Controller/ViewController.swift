@@ -65,6 +65,10 @@ class ViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         
+        updateSubviewsMetric()
+    }
+    
+    private func updateSubviewsMetric() {
         // Get the safe area insets
         let safeAreaInsets = view.safeAreaInsets
         let insets = UIEdgeInsets(top: safeAreaInsets.top, left: safeAreaInsets.left, bottom: safeAreaInsets.bottom + 20, right: safeAreaInsets.right)
