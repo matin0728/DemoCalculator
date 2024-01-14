@@ -28,7 +28,7 @@ final class CalculatorStateMachineTests: XCTestCase {
         machine.acceptInput(.digit(.one))
         machine.calculateResult()
         
-        XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 2))
+        XCTAssertEqual(machine.result.operandValue.decimalValue, NSDecimalNumber(floatLiteral: 2))
     }
     
     /// 1 + 1 + 1 =
@@ -40,7 +40,7 @@ final class CalculatorStateMachineTests: XCTestCase {
         machine.acceptInput(.digit(.one))
         machine.calculateResult()
         
-        XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 3))
+        XCTAssertEqual(machine.result.operandValue.decimalValue, NSDecimalNumber(floatLiteral: 3))
     }
     
     /// 1 + 1 + =
@@ -51,7 +51,7 @@ final class CalculatorStateMachineTests: XCTestCase {
         machine.setOperator(Calculator.OperatorSet.operatorNamed(.addition))
         machine.calculateResult()
         
-        XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 4))
+        XCTAssertEqual(machine.result.operandValue.decimalValue, NSDecimalNumber(floatLiteral: 4))
     }
     
     /// 1 + 2 x 3 =
@@ -62,7 +62,7 @@ final class CalculatorStateMachineTests: XCTestCase {
         machine.setOperator(Calculator.OperatorSet.operatorNamed(.multiplication))
         machine.acceptInput(.digit(.three))
         machine.calculateResult()
-        XCTAssertEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 9))
+        XCTAssertEqual(machine.result.operandValue.decimalValue, NSDecimalNumber(floatLiteral: 9))
     }
     
     /// 1 + 2 x 3 =
@@ -73,6 +73,6 @@ final class CalculatorStateMachineTests: XCTestCase {
         machine.setOperator(Calculator.OperatorSet.operatorNamed(.addition))
         machine.acceptInput(.digit(.three))
         machine.calculateResult()
-        XCTAssertNotEqual(machine.result.decimalValue, NSDecimalNumber(floatLiteral: 7))
+        XCTAssertNotEqual(machine.result.operandValue.decimalValue, NSDecimalNumber(floatLiteral: 7))
     }
 }
