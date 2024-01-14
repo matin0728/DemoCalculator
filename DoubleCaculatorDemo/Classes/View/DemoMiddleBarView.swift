@@ -38,7 +38,9 @@ final class DemoMiddleBarView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        layoutButtons()
+        if false == self.isHidden {
+            layoutButtons()
+        }
     }
     
     private func layoutButtons() {

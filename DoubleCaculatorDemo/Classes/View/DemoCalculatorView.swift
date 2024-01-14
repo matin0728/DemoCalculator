@@ -15,7 +15,7 @@ class DemoCalculatorView: UIView {
         static let goddenRatio: CGFloat = 0.618
         // Input & Output
         static let resultLabelFontSize: CGFloat = 160.0
-        static let operandLabelfFontSize: CGFloat = 36.0
+        static let operandLabelfFontSize: CGFloat = 40.0
         static let sidePadding: CGFloat = 5.0
         // Keyboard
         static let spacing = 5.0
@@ -44,7 +44,7 @@ class DemoCalculatorView: UIView {
         view.lineBreakMode = .byClipping
         view.font = UIFont.systemFont(ofSize: Style.operandLabelfFontSize, weight: .medium)
         view.adjustsFontSizeToFitWidth = true
-        view.minimumScaleFactor = 0.5
+        view.minimumScaleFactor = 0.7
         return view
     }()
     

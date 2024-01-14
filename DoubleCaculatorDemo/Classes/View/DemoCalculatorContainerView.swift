@@ -82,17 +82,17 @@ final class DemoCalculatorContainerView: UIView {
     }
     
     private func landscapeLayout(singleContainerSize: CGSize) {
-        updateLandscapeUnitSize(singleContainerSize)
-        updateBarConstraits(singleContainerSize: singleContainerSize)
-        
         leftOneView.isHidden = false
         rightOneView.isHidden = false
         middleBarView.isHidden = false
+        
+        updateBarConstraits(singleContainerSize: singleContainerSize)
+        updateLandscapeUnitSize(singleContainerSize)
     }
     
     private func updateBarConstraits(singleContainerSize: CGSize) {
         let buttonSize = commandButtonSize(containerWidth: singleContainerSize.width, columns: colums, spacing: gridSpacing)
-        middleBarView.frame = CGRect(x: leftOneView.frame.maxX, y: 0, width: buttonSize.width + 2 * gridSpacing, height: singleContainerSize.height)
+        middleBarView.frame = CGRect(x: singleContainerSize.width, y: 0, width: buttonSize.width + 2 * gridSpacing, height: singleContainerSize.height)
     }
     
     private func updatePortraitUnitSize(_ size: CGSize) {
