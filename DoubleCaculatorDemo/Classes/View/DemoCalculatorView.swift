@@ -32,7 +32,7 @@ class DemoCalculatorView: UIView {
         view.lineBreakMode = .byClipping
         view.font = UIFont.systemFont(ofSize: Style.resultLabelFontSize, weight: .medium)
         view.adjustsFontSizeToFitWidth = true
-        view.minimumScaleFactor = 0.3
+        view.minimumScaleFactor = 0.5
         view.textAlignment = .right
         return view
     }()
@@ -103,8 +103,8 @@ class DemoCalculatorView: UIView {
         
         let resultSpace = (height - inputAreaHeight) * 0.75
         let resultHeight = Style.resultLabelFontSize * 1.05
-        resultLabel.frame = CGRect(x: Style.sidePadding, y: resultSpace - resultHeight, width: width - Style.sidePadding, height: resultHeight)
-        operandLabel.frame = CGRect(x: Style.sidePadding, y: resultLabel.frame.maxY, width: width - Style.sidePadding, height: (height - inputAreaHeight) * 0.25)
+        resultLabel.frame = CGRect(x: Style.sidePadding, y: resultSpace - resultHeight, width: width - Style.sidePadding * 2, height: resultHeight)
+        operandLabel.frame = CGRect(x: Style.sidePadding, y: resultLabel.frame.maxY, width: width - Style.sidePadding * 2, height: (height - inputAreaHeight) * 0.25)
         inputWrapView.frame = CGRect(x: 0, y: operandLabel.frame.maxY, width: width, height: inputAreaHeight)
         if inputWrapView.arrangedSubviews.isEmpty {
             commandViews.forEach { view in

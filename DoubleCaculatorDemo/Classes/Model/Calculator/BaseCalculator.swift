@@ -30,6 +30,7 @@ extension Calculator {
             }
             let numberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
+            numberFormatter.maximumFractionDigits = 8
             
             return numberFormatter.string(from: resultDecimalNumber) ?? "0"
         }
