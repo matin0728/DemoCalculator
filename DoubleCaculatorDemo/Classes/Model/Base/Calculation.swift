@@ -7,10 +7,12 @@
 
 import Foundation
 
-/// Define of calculation history record
-struct Calculation<OperandDef> {
-    let lhs: OperandDef
-    let rhs: OperandDef
-    let result: OperandDef
-    let operation: Operater<OperandDef>
+extension Calculator {
+    /// Define of calculation history record
+    struct Calculation<OperandDef> {
+        let lhs: OperandDef
+        let rhs: OperandDef
+        let result: OperandDef
+        let operation: Operater<OperandDef>
+    }
 }

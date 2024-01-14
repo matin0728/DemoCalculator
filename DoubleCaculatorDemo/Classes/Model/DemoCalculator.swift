@@ -7,6 +7,6 @@
 
 import Foundation
 
-final class DemoCalculator: BaseCalculator<InputCommand, Operand> {
+final class DemoCalculator: Calculator.Base<InputCommand, Operand> {
 }
 
