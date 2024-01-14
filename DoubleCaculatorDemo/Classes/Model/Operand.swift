@@ -10,7 +10,7 @@ import Foundation
 /// The entity for interacting with user input.
 final class Operand: OperandType {
     class var defaultValue: Operand {
-        Operand(decimalNumber: NSDecimalNumber(decimal: 0))
+        Operand(decimalNumber: NSDecimalNumber.zero)
     }
     
     typealias Input = InputCommand
