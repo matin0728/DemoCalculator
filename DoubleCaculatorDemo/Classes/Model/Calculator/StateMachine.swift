@@ -130,8 +130,10 @@ extension Calculator {
             }
         }
         
-        func clearError() {
-            result = .success(OperandDef.defaultValue)
+        func clearErrorIfPresent() {
+            if case .error(_) = result {
+                result = .success(OperandDef.defaultValue)
+            }
         }
         
         // MARK: - Private

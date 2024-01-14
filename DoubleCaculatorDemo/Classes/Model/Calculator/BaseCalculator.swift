@@ -103,7 +103,7 @@ extension Calculator {
         private func onUpdate() {
             updateCallback?()
             // Clear any error exits.
-            statusMachine.clearError()
+            statusMachine.clearErrorIfPresent()
         }
     }
 }
