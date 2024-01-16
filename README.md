@@ -23,5 +23,7 @@ The main purpose of this project is to showcase my technique mastering in Swift 
 # Quick preview screen recording
 https://github.com/matin0728/DemoCalculator/assets/102343/ff589876-7d97-4771-a15e-154f2501b554
 
-# TODO
-I have already find a Ad-Hoc distribution service for individual developer, but before that, it need wait a while to complete the enroll application. Thus, if you want evaluate the app in real device, you need download the source code and build it on local devices, or take a quick look from the screen recording.
+# Installation
+https://www.pgyer.com/hKO6Gr
+
+If you can't install it, case the device UUID is not in my device list. You need post the UUID to my email matin0728@gmail.com
