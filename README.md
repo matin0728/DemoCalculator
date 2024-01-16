@@ -27,3 +27,4 @@ https://github.com/matin0728/DemoCalculator/assets/102343/ff589876-7d97-4771-a15
 https://www.pgyer.com/hKO6Gr
 
 If you can't install it, case the device UUID is not in my device list. You need post the UUID to my email matin0728@gmail.com
+Or tell me your email address, I can invite you as the external tester in TestFlight.
