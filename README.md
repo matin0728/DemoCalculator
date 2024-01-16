@@ -1,6 +1,6 @@
 # About this project
 This a demonstration project for a enhanced calculator implementation.
-Demostration of following programming showcase:
+The main purpose of this project is to showcase my technique mastering in Swift programming, it also demostrate following programming showcase:
 
 - Abstraction design architecture of operator and transformer.
 - Extensibility of new operator and transformer: just need to add it's defenition and modification of keyboard layout.
